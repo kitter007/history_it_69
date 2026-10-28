@@ -127,12 +127,89 @@
 
   <!-- Content -->
   <main class="content">
-    <h2>suchat</h2>
-    <p>รหัสนักเรียน: 69319010024</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-     <h2>ประวัติส่วนตัว</h2>
-     <h3>นายสุชัจจ์ รัตนวิเวธน์</h3>
+    <div class="container-fluid py-2">
+      
+      <div class="row mb-4">
+        <div class="col-12">
+          <h2 class="fw-bold border-bottom pb-2">ประวัติส่วนตัว (Profile)</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- ฝั่งซ้าย: รูปโปรไฟล์และข้อมูลสรุป -->
+        <div class="col-lg-4 col-md-5 mb-4">
+          <div class="card shadow-sm text-center border-0">
+            <div class="card-body">
+              <img src="suhcat.png" alt="Profile Picture" class="rounded-circle mb-3 border border-3" style="width: 150px; height: 150px; object-fit: cover;">
+              <h4 class="card-title fw-bold">นายสุชัจจ์ รัตนวิเวธน์</h4>
+              <p class="text-muted mb-1">รหัสนักศึกษา: 69319010024</p>
+              <p class="text-muted mb-3">แผนก: เทคโนโลยีสารสนเทศ</p>
+
+              <div class="d-grid gap-2">
+                <a href="https://github.com/suchat-pat/nuxt7" class="btn btn-primary">Portfolio / GitHub</a>
+                <a href="https://www.instagram.com/suchatpatkun" class="btn btn-outline-secondary">ติดต่อฉัน</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-7">
+          <div class="card shadow-sm border-0 mb-4">
+            <div class="card-header bg-white fw-bold py-3">
+              ข้อมูลเบื้องต้น (About Me)
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><strong>ชื่อเล่น:</strong> พัท</li>
+                <li class="mb-2"><strong>วัน/เดือน/ปีเกิด:</strong> 20 เมษายน 2550</li>
+                <li class="mb-2"><strong>อีเมล:</strong> suchat.patkun@gmail.com</li>
+                <li class="mb-2"><strong>งานอดิเรก:</strong> เล่นเกม, นอน, ออกกำลังกาย</li>
+                <li><strong>คติประจำใจ:</strong> "ถึงจะง่วง แต่ก็พร้อมร่วมอยู่ตลอด"</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- การ์ดประวัติการศึกษา -->
+          <div class="card shadow-sm border-0 mb-4">
+            <div class="card-header bg-white fw-bold py-3">
+              ประวัติการศึกษา (Education)
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item px-0">
+                  <div class="d-flex justify-content-between w-100">
+                    <h6 class="mb-1 fw-bold">ระดับประกาศนียบัตรวิชาชีพ (ปวช.)</h6>
+                    <small class="text-muted">2568</small>
+                  </div>
+                  <p class="mb-1">วิทยาลัยเทคนิคน่าน - เทคโนโลยีสารสนเทศ</p>
+                </li>
+                <li class="list-group-item px-0">
+                  <div class="d-flex justify-content-between w-100">
+                    <h6 class="mb-1 fw-bold">ระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</h6>
+                    <small class="text-muted">ปัจจุบัน</small>
+                  </div>
+                  <p class="mb-1">วิทยาลัยเทคนิคน่าน - เทคโนโลยีสารสนเทศ</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- การ์ดทักษะความสามารถ -->
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-white fw-bold py-3">
+              ทักษะความสามารถ (Skills)
+            </div>
+            <div class="card-body">
+              <span class="badge bg-success me-1 mb-2 px-3 py-2 fs-6 fw-normal">Nuxt.js</span>
+              <span class="badge bg-danger me-1 mb-2 px-3 py-2 fs-6 fw-normal">SQL</span>
+              <span class="badge bg-primary me-1 mb-2 px-3 py-2 fs-6 fw-normal">JavaScript</span>
+              <span class="badge bg-info text-dark me-1 mb-2 px-3 py-2 fs-6 fw-normal">CSS</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </main>
 
   <!-- JavaScript -->
