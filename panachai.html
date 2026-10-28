@@ -73,6 +73,193 @@
         margin-left: 0;
       }
     }
+    
+/* ===== Profile Card ===== */
+.profile-card {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    color: #1f2937;
+    box-sizing: border-box;
+}
+
+/* ===== Header ===== */
+.profile-header {
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.profile-header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    color: #2563eb;
+}
+
+.profile-header p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* ===== Profile Introduction ===== */
+.profile-intro {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+}
+
+.profile-name h2 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    color: #111827;
+}
+
+.profile-name p {
+    margin: 7px 0;
+    font-size: 15px;
+    color: #4b5563;
+}
+
+.profile-name .profile-nickname {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* ===== Section ===== */
+.profile-section {
+    margin-top: 28px;
+}
+
+.profile-section h3 {
+    margin: 0 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid #2563eb;
+    font-size: 20px;
+    color: #1f2937;
+}
+
+/* ===== Personal Information Grid ===== */
+.profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.profile-info-item {
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.profile-info-item span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.profile-info-item p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* ===== Education Details ===== */
+.profile-detail-box {
+    padding: 18px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.profile-detail-box p {
+    margin: 8px 0;
+    line-height: 1.7;
+}
+
+/* ===== Skills ===== */
+.profile-skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile-skill-list span {
+    padding: 9px 14px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* ===== Description ===== */
+.profile-description {
+    margin: 0;
+    padding: 18px;
+    background: #f8fafc;
+    border-radius: 10px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* ===== Responsive Mobile ===== */
+@media (max-width: 600px) {
+    .profile-card {
+        margin: 15px auto;
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .profile-header h1 {
+        font-size: 24px;
+    }
+
+    .profile-intro {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 12px;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-name h2 {
+        font-size: 21px;
+    }
+
+    .profile-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-section h3 {
+        font-size: 18px;
+    }
+}
+
   </style>
 </head>
 
@@ -126,19 +313,96 @@
   </div>
 
   <!-- Content -->
-  <main class="content">
-    <h2>panachai</h2>
-    <p>รหัสนักเรียน: 69319010016</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-     <h1>ประวัติส่วนตัวของ</h1>
-     <h2>นายปณชัย พ่วงขำ</h2>
-     <img src="img/tome.jpg" alt="panachai" style="width: 200px; height: auto;">
-      <p>ชื่อเล่น: ทีม</p>
-      <p>วันเกิด: 14 พฤษภาคม 2550</p>
-      <p>อายุ: 19 ปี</p>
-      <p>ส่วนสูง: 169 เซนติเมตร</p>
-  </main>
+
+<main class="content">
+
+    <section class="profile-card">
+
+        <!-- ส่วนหัวประวัติ -->
+        <div class="profile-header">
+            <h1>ประวัติส่วนตัว</h1>
+            <p>ข้อมูลส่วนตัวและรายละเอียดแนะนำตัว</p>
+        </div>
+
+        <!-- รูปภาพและชื่อ -->
+        <div class="profile-intro">
+            <img src="img/tome.jpg" alt="รูปประจำตัว" class="profile-image">
+
+            <div class="profile-name">
+                <h2>นายปณชัย พ่วงขำ</h2>
+                <p class="profile-nickname">ชื่อเล่น: ทีม</p>
+                <p>รหัสนักเรียน: 69319010016</p>
+                <p>แผนกเทคโนโลยีสารสนเทศ 2/1</p>
+            </div>
+        </div>
+
+        <!-- ข้อมูลส่วนตัว -->
+        <div class="profile-section">
+            <h3>ข้อมูลส่วนตัว</h3>
+
+            <div class="profile-info-grid">
+                <div class="profile-info-item">
+                    <span>วันเกิด</span>
+                    <p>10 พฤษภาคม 2550</p>
+                </div>
+
+                <div class="profile-info-item">
+                    <span>อายุ</span>
+                    <p>19 ปี</p>
+                </div>
+
+                <div class="profile-info-item">
+                    <span>ส่วนสูง</span>
+                    <p>169 เซนติเมตร</p>
+                </div>
+
+                <div class="profile-info-item">
+                    <span>น้ำหนัก</span>
+                    <p>72 กิโลกรัม</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ประวัติการศึกษา -->
+        <div class="profile-section">
+            <h3>ประวัติการศึกษา</h3>
+            <div class="profile-detail-box">
+                <p>สถานศึกษา: วิทยาลัยเทคนิคน่าน</p>
+                <p>ระดับการศึกษา: ปวส.</p>
+                <p>สาขาวิชา: เทคโนโลยีสารสนเทศ</p>
+            </div>
+        </div>
+
+        <!-- ความสามารถ -->
+        <div class="profile-section">
+            <h3>ความสามารถและทักษะ</h3>
+            <div class="profile-skill-list">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+            </div>
+        </div>
+
+        <!-- งานอดิเรก -->
+        <div class="profile-section">
+            <h3>งานอดิเรก</h3>
+            <p class="profile-description">
+                เล่นเกม, ดูหนัง, ฟังเพลง
+            </p>
+        </div>
+
+        <!-- เป้าหมายในอนาคต -->
+        <div class="profile-section">
+            <h3>เป้าหมายในอนาคต</h3>
+            <p class="profile-description">
+                ทำงานอะไรก็ได้ ที่เงินมั่นคงและมีความสุขกับงานที่ทำ และตำแหน่งมั่นคงในสายงานที่ทำ
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
 
   <!-- JavaScript -->
   <script>
