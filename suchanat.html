@@ -74,31 +74,144 @@
       }
     }
 
-    .photo_pro{
-      border-left: 0;
+
+
+  body {
+    margin: 0;
+    padding: 30px 15px;
+    font-family: "Tahoma", sans-serif;
+    background: linear-gradient(135deg, #f3e8ff, #ffe4ef);
+    color: #443052;
+  }
+
+  .content {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .profile-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(112, 70, 140, 0.15);
+    text-align: center;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #a78bfa, #f0abfc);
+    padding: 30px 15px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  .tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin: 15px 0 10px;
+  }
+
+  .subtitle {
+    margin-bottom: 0;
+  }
+
+  .profile-image img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #e9d5ff;
+    box-shadow: 0 5px 18px #ddd;
+  }
+
+  h2 {
+    color: #9333ea;
+    margin-bottom: 5px;
+  }
+
+  .nickname {
+    color: #a855f7;
+    margin-bottom: 30px;
+  }
+
+  .info-box {
+    text-align: left;
+    background: #faf5ff;
+    padding: 20px 25px;
+    border-radius: 15px;
+    margin: 18px 0;
+    border-left: 5px solid #c084fc;
+    line-height: 1.9;
+  }
+
+  .info-box h3 {
+    color: #7e22ce;
+    margin-top: 0;
+  }
+
+  .info-box p {
+    margin: 7px 0;
+  }
+
+  .info-box ul {
+    padding-left: 25px;
+    margin-bottom: 0;
+  }
+
+  .info-box li {
+    margin: 5px 0;
+  }
+
+  .quote {
+    background: #fdf2f8;
+    color: #be185d;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 15px;
+    font-style: italic;
+  }
+
+  footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #8b7a96;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 15px 10px;
     }
+
+    .profile-card {
+      padding: 18px;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    .profile-image img {
+      width: 145px;
+      height: 145px;
+    }
+
+    .info-box {
+      padding: 15px;
+    }
+  }
+      
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
-      <div class="d-flex align-items-center">
-        <button
-          type="button"
-          id="menuToggle"
-          class="btn btn-outline-light me-2"
-          onclick="toggleSidebar()"
-          aria-label="เปิดหรือปิดเมนู"
-          aria-controls="sidebar"
-          aria-expanded="true">
-          ☰
-        </button>
-        <span class="navbar-brand mb-0 h1">25 suchanat | History of IT ปวส.1/1</span>
-      </div>
-    </div>
-  </nav>
 
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
@@ -131,15 +244,67 @@
 
   <!-- Content -->
   <main class="content">
-    <h2>suchanat</h2>
-    <p>รหัสนักเรียน: 69319010026</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-     <h1>ประวัติส่วนตัวของ</h1>
-     <h2>นางสาวสุชานาฎ ทานะราช</h2>
-    <ing src="eve/pro.jpg" alt="proflid" ></ing>
+  <section class="profile-card">
 
-  </main>
+    <div class="header">
+      <p class="tag">MY PERSONAL PROFILE</p>
+      <h1>ประวัติส่วนตัว</h1>
+      <p class="subtitle">ยินดีต้อนรับเข้าสู่เว็บไซต์ของฉัน 💜</p>
+    </div>
+
+    <div class="profile-image">
+      <img src="eve/pro.jpg" alt="รูปประจำตัวของสุชานาฎ">
+    </div>
+
+    <h2>นางสาวสุชานาฎ ทานะราช</h2>
+    <p class="nickname">ชื่อเล่น : อีฟ (Eve)</p>
+
+    <div class="info-box">
+      <h3>ข้อมูลส่วนตัว</h3>
+      <p><strong>ชื่อ-นามสกุล:</strong> นางสาวสุชานาฎ ทานะราช</p>
+      <p><strong>รหัสนักเรียน:</strong> 69319010026</p>
+      <p><strong>แผนก:</strong> เทคโนโลยีสารสนเทศ</p>
+      <p><strong>ชั้นเรียน:</strong> 2/1</p>
+    </div>
+
+    <div class="info-box">
+      <h3>เกี่ยวกับฉัน</h3>
+      <p>
+        สวัสดีค่ะ ฉันชื่อสุชานาฎ ทานะราช
+        กำลังศึกษาอยู่ในแผนกเทคโนโลยีสารสนเทศ
+        ฉันสนใจการเรียนรู้เกี่ยวกับคอมพิวเตอร์
+        เทคโนโลยี และการสร้างเว็บไซต์
+        พร้อมพัฒนาความรู้และทักษะใหม่ ๆ อยู่เสมอ
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>ทักษะและความสามารถ</h3>
+      <ul>
+        <li>การใช้งานคอมพิวเตอร์เบื้องต้น</li>
+        <li>การสร้างเว็บไซต์ด้วย HTML</li>
+        <li>การตกแต่งเว็บไซต์ด้วย CSS</li>
+        <li>การเรียนรู้เทคโนโลยีใหม่ ๆ</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h3>งานอดิเรก</h3>
+      <ul>
+        <li>ฟังเพลงและดูหนัง</li>
+        <li>เล่นอินเทอร์เน็ต</li>
+        <li>เรียนรู้สิ่งใหม่ ๆ</li>
+        <li>ฝึกออกแบบเว็บไซต์</li>
+      </ul>
+    </div>
+
+    <div class="quote">
+      “ความพยายามในวันนี้ คือความสำเร็จในวันหน้า” 
+    </div>
+
+  </section>
+</main>
+
 
   <!-- JavaScript -->
   <script>
