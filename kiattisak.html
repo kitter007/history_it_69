@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>02 kiattisak | History of IT ปวส.1/1</title>
 
+  <!-- Google Fonts: Sarabun (ฟอนต์ภาษาไทยทางการ) -->
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Bootstrap 5 -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -13,6 +16,9 @@
   <style>
     body {
       overflow-x: hidden;
+      font-family: 'Sarabun', sans-serif;
+      background-color: #f1f3f5;
+      color: #212529;
     }
 
     .navbar {
@@ -51,13 +57,50 @@
 
     .content {
       margin-left: 250px;
-      padding: 20px;
+      padding: 30px;
       margin-top: 56px;
       transition: margin-left 0.3s ease;
     }
 
     .content.expanded {
       margin-left: 0;
+    }
+
+    /* ตกแต่งกล่องเนื้อหาหลักให้เป็นสี่เหลี่ยมมุมโค้ง ธีมเทา-ดำ */
+    .content-card {
+      background: #ffffff;
+      border-radius: 16px; /* มุมโค้ง */
+      padding: 35px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #dee2e6;
+    }
+
+    /* ตกแต่งกรอบรูปภาพให้เป็นสี่เหลี่ยมมุมโค้ง */
+    .profile-img-box {
+      width: 180px;
+      height: 180px;
+      border-radius: 16px; /* มุมโค้งของรูป */
+      overflow: hidden;
+      border: 3px solid #343a40; /* กรอบสีเทาเข้ม/ดำ */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      object-fit: cover;
+    }
+
+    .profile-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* หัวข้อธีมเทา-ดำ */
+    .custom-heading {
+      color: #343a40;
+      font-weight: 700;
+      border-bottom: 2px solid #6c757d;
+      padding-bottom: 8px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-size: 1.25rem;
     }
 
     @media (max-width: 768px) {
@@ -71,6 +114,7 @@
 
       .content {
         margin-left: 0;
+        padding: 15px;
       }
     }
   </style>
@@ -126,42 +170,53 @@
   </div>
 
   <!-- Content -->
-
-  
   <main class="content">
-    <!-- แท็กรูปภาพโปรไฟล์ -->
-     <h2>ประวัติส่วนตัว (Resume / Profile)</h2>
-    <div class="profile-image">
-      <img src="img/ka1.png" alt="รูปโปรไฟล์ เกียรติศักดิ์" width="180" style="border-radius: 10px;">
+    <div class="content-card">
+      <h2 class="mb-4 text-dark fw-bold">ประวัติส่วนตัว (Resume / Profile)</h2>
+
+      <div class="row align-items-center mb-4">
+        <div class="col-md-3 text-center mb-3 mb-md-0 d-flex justify-content-center">
+          <!-- กรอบรูปทรงสี่เหลี่ยมมุมโค้ง -->
+          <div class="profile-img-box">
+            <img src="img/PQL.png" alt="รูปโปรไฟล์ เกียรติศักดิ์">
+          </div>
+        </div>
+        <div class="col-md-9">
+          <p class="fs-5 mb-2 text-dark"><strong>ชื่อ-นามสกุล:</strong> เกียรติศักดิ์ บุญมา</p>
+          <p class="mb-2 text-secondary"><strong>รหัสนักศึกษา:</strong> 69319010002</p>
+          <p class="mb-2 text-secondary"><strong>ระดับการศึกษา:</strong> ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส. 1) สาขาวิชาเทคโนโลยีสารสนเทศ 1/1</p>
+          <p class="mb-0 text-secondary"><strong>สถานศึกษา:</strong> วิทยาลัยเทคนิคน่าน</p>
+        </div>
+      </div>
+
+      <hr class="my-4 text-muted">
+
+      <h3 class="custom-heading">ประวัติการศึกษา & ฝึกงาน</h3>
+      <ul class="list-unstyled ps-2">
+        <li class="mb-2">📌 จบการศึกษาระดับ ปวช. สาขาวิชาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคน่าน</li>
+        <li class="mb-2">📌 ผ่านการฝึกงานช่างเทคนิคซ่อมบำรุง ต้อนรับลูกค้า คลังสินค้า และจัดส่ง ที่ร้านคลิกไอที น่าน</li>
+      </ul>
+
+      <h3 class="custom-heading">ทักษะและความสามารถ (Technical Skills)</h3>
+      <ul class="list-unstyled ps-2">
+        <li class="mb-2">💻 <strong>Web Development:</strong> HTML5, CSS3, JavaScript, TypeScript, Vue 3, Nuxt 3, Bootstrap 5, Vuetify, PHP, MySQL</li>
+        <li class="mb-2">🗄️ <strong>Database & Administration:</strong> Relational Database Design, SQL Queries, phpMyAdmin, DBeaver</li>
+        <li class="mb-2">⚡ <strong>Hardware & IoT:</strong> Microcontrollers (ESP32 DevKit V1, NodeMCU ESP8266), Arduino IDE, Blynk IoT Platform, Sensors & Actuators</li>
+        <li class="mb-2">🛠️ <strong>Tools & Workflows:</strong> Git, GitHub, VS Code Terminal</li>
+      </ul>
+
+      <h3 class="custom-heading">ความสนใจส่วนตัว & เกม (Hobbies & Gaming)</h3>
+      <ul class="list-unstyled ps-2">
+        <li class="mb-2">🎮 <strong>Gaming:</strong> Counter-Strike 2 (CS:GO / CS2), Call of Duty, Minecraft (Java Edition), ROV, Ride 5</li>
+        <img src="img/ka2.jpg" height="190" width="370">
+        <img src="img/ka3.jpg" height="190" width="370"> 
+        <img src="img/ka4.jpg" height="190" width="370"> 
+        <p><li class="mb-2">🏍️ <strong>Motorcycle</strong> สนใจรถจักรยานยนต์ </li>
+        <img src="img/ka5.jpg" height="240" width="370">
+        <img src="img/ka7.jpg" height="240" width="470"> 
+        
+        </ul>
     </div>
-
-    
-    <p><strong>ชื่อ-นามสกุล:</strong> เกียรติศักดิ์ บุญมา</p>
-    <p><strong>รหัสนักศึกษา:</strong> 69319010002</p>
-    <p><strong>ระดับการศึกษา:</strong> ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส. 1) สาขาวิชาเทคโนโลยีสารสนเทศ 2/1</p>
-    <p><strong>สถานศึกษา:</strong> วิทยาลัยเทคนิคน่าน</p>
-
-    <hr>
-
-    <h3>ประวัติการศึกษา & ฝึกงาน</h3>
-    <ul>
-      <li>จบการศึกษาระดับ ปวช. สาขาวิชาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคน่าน</li>
-      <li>ผ่านการฝึกงานช่างเทคนิคซ่อมบำรุง ต้อนรับลูกค้า คลังสินค้า และจัดส่ง ที่ร้านคลิกไอที น่าน</li>
-    </ul>
-
-    <h3>ทักษะและความสามารถ (Technical Skills)</h3>
-    <ul>
-      <li><strong>Web Development:</strong> HTML5, CSS3, JavaScript, TypeScript, Vue 3, Nuxt 3, Bootstrap 5, Vuetify, PHP, MySQL</li>
-      <li><strong>Database & Administration:</strong> Relational Database Design, SQL Queries, phpMyAdmin, DBeaver</li>
-      <li><strong>Hardware & IoT:</strong> Microcontrollers (ESP32 DevKit V1, NodeMCU ESP8266), Arduino IDE, Blynk IoT Platform, Sensors & Actuators</li>
-      <li><strong>Tools & Workflows:</strong> Git, GitHub, VS Code Terminal</li>
-    </ul>
-
-    <h3>ความสนใจส่วนตัว & เกม (Hobbies & Gaming)</h3>
-    <ul>
-      <li><strong>Gaming:</strong> Counter-Strike 2 (CS:GO / CS2), Call of Duty, Minecraft (Java Edition), ROV, Ride 4</li>
-      <li><strong>Motorcycle & Tech:</strong> สนใจโครงสร้างวิศวกรรมรถจักรยานยนต์ อุปกรณ์เซฟตี้ (Full-Face Helmet ECE 22.06) และเทคโนโลยี IoT</li>
-    </ul>
   </main>
 
   <!-- JavaScript -->
