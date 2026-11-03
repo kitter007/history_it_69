@@ -1,181 +1,792 @@
+
 <!doctype html>
 <html lang="th">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>01 kittipat | History of IT ปวส.1/1</title>
+  <title>01 Kittipat | History of IT</title>
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #080d1c;
+      --panel: #111a30;
+      --panel-light: #17233d;
+      --purple: #9b7bff;
+      --blue: #58c7ff;
+      --text: #edf2ff;
+      --muted: #a2aec8;
+      --border: rgba(148, 166, 220, .15);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(77, 91, 190, .17), transparent 35%),
+        radial-gradient(ellipse at 85% 40%, rgba(127, 75, 211, .13), transparent 35%),
+        var(--bg);
+      font-family: "Segoe UI", Tahoma, sans-serif;
       overflow-x: hidden;
     }
 
+    /* ดาวพื้นหลัง */
+    .space-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .5;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(1px 1px at 90px 120px, white, transparent),
+        radial-gradient(2px 2px at 180px 80px, #91aaff, transparent),
+        radial-gradient(1px 1px at 260px 190px, white, transparent);
+      background-size: 300px 240px;
+    }
+
+    /* Navbar */
     .navbar {
+      height: 60px;
+      background: rgba(8, 13, 28, .93);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
       z-index: 1050;
     }
 
+    .navbar-brand {
+      color: white !important;
+      font-weight: 800;
+      letter-spacing: .7px;
+    }
+
+    .brand-icon {
+      color: var(--blue);
+    }
+
+    /* Sidebar */
     .sidebar {
-      width: 250px;
-      height: calc(100vh - 56px);
       position: fixed;
-      top: 50px;
+      top: 60px;
       left: 0;
-      background: #343a40;
-      padding-top: 10px;
+      width: 240px;
+      height: calc(100vh - 60px);
       overflow-y: auto;
-      transition: left 0.3s ease;
+      padding: 18px 12px;
+      background: rgba(13, 21, 41, .96);
+      border-right: 1px solid var(--border);
+      transition: .3s;
       z-index: 1040;
     }
 
+    .sidebar.collapsed {
+      left: -240px;
+    }
+
+    .sidebar-title {
+      padding: 12px 13px 7px;
+      color: #7485aa;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
     .sidebar a {
-      color: white;
-      display: block;
-      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 10px 13px;
+      margin-bottom: 5px;
+      color: #c2cce2;
       text-decoration: none;
-      overflow-wrap: anywhere;
+      font-size: 13px;
+      border-radius: 9px;
+      transition: .2s;
     }
 
     .sidebar a:hover,
     .sidebar a.active {
-      background: #495057;
+      background: linear-gradient(100deg, rgba(104, 123, 255, .23), rgba(72, 193, 255, .09));
+      color: white;
+      box-shadow: inset 3px 0 var(--blue);
     }
 
-    .sidebar.collapsed {
-      left: -250px;
+    .sidebar a i {
+      color: var(--blue);
     }
 
-    .content {
-      margin-left: 250px;
-      padding: 20px;
-      margin-top: 56px;
-      transition: margin-left 0.3s ease;
+    /* Main */
+    .main-content {
+      margin-left: 240px;
+      padding: 88px 30px 35px;
+      max-width: 1600px;
+      transition: .3s;
     }
 
-    .content.expanded {
+    .main-content.expanded {
       margin-left: 0;
+    }
+
+    .content-width {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      min-height: 280px;
+      padding: 38px;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(131, 153, 255, .24);
+      background:
+        radial-gradient(circle at 85% 20%, rgba(112, 94, 255, .3), transparent 35%),
+        linear-gradient(120deg, #172343, #20204c 65%, #172d50);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, .22);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -70px;
+      bottom: -150px;
+      border-radius: 50%;
+      border: 1px solid rgba(115, 193, 255, .25);
+      box-shadow:
+        0 0 0 25px rgba(115, 193, 255, .035),
+        0 0 0 55px rgba(115, 193, 255, .025);
+    }
+
+    .profile-img {
+      width: 155px;
+      height: 155px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--blue);
+      box-shadow: 0 0 25px rgba(88, 199, 255, .3);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      margin: 9px 0;
+      font-size: clamp(25px, 3vw, 36px);
+      font-weight: 800;
+    }
+
+    .hero p {
+      color: #c2cce2;
+      margin-bottom: 15px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 13px;
+      margin: 3px;
+      font-size: 12px;
+      color: #e7f7ff;
+      background: rgba(88, 199, 255, .13);
+      border: 1px solid rgba(88, 199, 255, .28);
+      border-radius: 30px;
+    }
+
+    /* Section */
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 0 17px;
+      font-size: 19px;
+      font-weight: 750;
+    }
+
+    .section-heading i {
+      color: var(--blue);
+    }
+
+    .section-heading::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      margin-left: 8px;
+      background: linear-gradient(90deg, rgba(88, 199, 255, .4), transparent);
+    }
+
+    /* Cards */
+    .space-card {
+      height: 100%;
+      padding: 23px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(22, 34, 61, .96), rgba(15, 24, 45, .96));
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .13);
+      transition: .25s;
+    }
+
+    .space-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(88, 199, 255, .4);
+      box-shadow: 0 12px 30px rgba(32, 80, 160, .12);
+    }
+
+    .card-title {
+      color: #f0f4ff;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 17px;
+    }
+
+    .card-title i {
+      color: var(--blue);
+      margin-right: 8px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .info-row:last-child {
+      border-bottom: 0;
+    }
+
+    .info-label {
+      color: var(--muted);
+    }
+
+    .info-value {
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .description {
+      color: #bdc8df;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* Hobby */
+    .hobby {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 13px;
+      margin-bottom: 9px;
+      border-radius: 10px;
+      background: rgba(106, 130, 194, .09);
+      color: #dce6fa;
+      font-size: 14px;
+    }
+
+    .hobby i {
+      color: var(--blue);
+      font-size: 17px;
+    }
+
+    /* Images */
+    .media-img {
+      display: block;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 11px;
+      background: #202c49;
+    }
+
+    .media-caption {
+      color: #aab8d3;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .music-img {
+      width: 100%;
+      border-radius: 11px;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    .btn-space {
+      color: white;
+      background: linear-gradient(100deg, #695bdf, #398cda);
+      border: none;
+      border-radius: 9px;
+      padding: 9px 16px;
+      font-size: 13px;
+    }
+
+    .btn-space:hover {
+      color: white;
+      opacity: .85;
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      padding: 7px 12px;
+      margin: 4px;
+      border-radius: 20px;
+      background: rgba(132, 112, 255, .12);
+      border: 1px solid rgba(132, 112, 255, .22);
+      color: #c9c0ff;
+      font-size: 12px;
+    }
+
+    .project-item {
+      padding: 13px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      background: rgba(106, 130, 194, .09);
+    }
+
+    .project-item strong {
+      font-size: 14px;
+    }
+
+    .project-item p {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 5px 0 0;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 23px;
+      text-align: center;
+      color: #7f90b0;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
     }
 
     @media (max-width: 768px) {
       .sidebar {
-        left: -250px;
+        left: -240px;
       }
 
-      .sidebar.active {
+      .sidebar.show {
         left: 0;
       }
 
-      .content {
+      .main-content {
         margin-left: 0;
+        padding: 78px 15px 25px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 27px 18px;
+        gap: 17px;
+      }
+
+      .profile-img {
+        width: 135px;
+        height: 135px;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+
+      .space-card {
+        padding: 19px;
+      }
+
+      .media-img {
+        height: 180px;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <div class="space-bg"></div>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-primary fixed-top">
+  <nav class="navbar navbar-dark fixed-top">
     <div class="container-fluid">
-      <div class="d-flex align-items-center">
-        <button
-          type="button"
-          id="menuToggle"
-          class="btn btn-outline-light me-2"
-          onclick="toggleSidebar()"
-          aria-label="เปิดหรือปิดเมนู"
-          aria-controls="sidebar"
-          aria-expanded="true">
-          ☰
-        </button>
-        <span class="navbar-brand mb-0 h1">01 kittipat | History of IT ปวส.1/1</span>
-      </div>
+      <button class="btn btn-outline-light btn-sm me-3" onclick="toggleSidebar()">
+        <i class="bi bi-list fs-5"></i>
+      </button>
+
+      <a class="navbar-brand me-auto" href="#home">
+        <i class="bi bi-stars brand-icon me-2"></i>
+        KITTIPAT SPACE
+      </a>
+
+      <span class="text-white-50 small">IT STUDENT / 01</span>
     </div>
   </nav>
 
   <!-- Sidebar -->
-  <div id="sidebar" class="sidebar">
-    <a href="kittipat.html">01 kittipat</a>
-    <a href="kiattisak.html">02 kiattisak</a>
-    <a href="khwan-khao.html">03 khwan khao</a>
-    <a href="kanison.html">04 kanison</a>
-    <a href="chakkraphong.html">05 chakkraphong</a>
-    <a href="jetsadakon.html">06 jetsadakon</a>
-    <a href="chanakan.html">07 chanakan</a>
-    <a href="chutikarn.html">08 chutikarn</a>
-    <a href="naphat.html">09 naphat</a>
-    <a href="nattakorn.html">10 nattakorn</a>
-    <a href="nattanicha.html">11 nattanicha</a>
-    <a href="thippapha.html">12 thippapha</a>
-    <a href="thanaphat.html">13 thanaphat</a>
-    <a href="banthita.html">14 banthita</a>
-    <a href="panachai.html">15 panachai</a>
-    <a href="parichaya.html">16 parichaya</a>
-    <a href="premruethai.html">17 premruethai</a>
-    <a href="ploylada.html">18 ploylada</a>
-    <a href="ratchaphruek.html">19 ratchaphruek</a>
-    <a href="wannadanai.html">20 wannadanai</a>
-    <a href="suphanida.html">21 suphanida</a>
-    <a href="supakkakon.html">22 supakkakon</a>
-    <a href="suchat.html">23 suchat</a>
-    <a href="suchada.html">24 suchada</a>
-    <a href="suchanat.html">25 suchanat</a>
-  </div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">MAIN MENU</div>
+    <a href="#home" class="active"><i class="bi bi-house"></i> หน้าหลัก</a>
+    <a href="#profile"><i class="bi bi-person-vcard"></i> ข้อมูลส่วนตัว</a>
+    <a href="#about"><i class="bi bi-person"></i> เกี่ยวกับฉัน</a>
+    <a href="#hobbies"><i class="bi bi-controller"></i> งานอดิเรก</a>
+    <a href="#favorite"><i class="bi bi-heart"></i> สิ่งที่ชอบ</a>
+    <a href="#technology"><i class="bi bi-code-slash"></i> ความสนใจด้าน IT</a>
+    <a href="#projects"><i class="bi bi-folder"></i> ผลงาน</a>
 
-  <!-- Content -->
-  <main class="content">
-    <h2>kittipat</h2>
-    <p>รหัสนักเรียน: 69319010001</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
+    <div class="sidebar-title mt-3">STUDENTS</div>
+    <a href="kittipat.html" class="active">01. กิตติพัฒน์</a>
+    <a href="kiattisak.html">02. เกียรติศักดิ์</a>
+    <a href="khwan-khao.html">03. ขวัญข้าว</a>
+    <a href="kanison.html">04. คณิศร</a>
+    <a href="chakkraphong.html">05. จักรพงษ์</a>
+    <a href="jetsadakon.html">06. เจษฎากร</a>
+    <a href="chanakan.html">07. ชนากานต์</a>
+    <a href="chutikarn.html">08. ชุติกาญจน์</a>
+    <a href="naphat.html">09. ณภัทร</a>
+    <a href="nattakorn.html">10. ณัฐกร</a>
+    <a href="nattanicha.html">11. ณัฐณิชา</a>
+    <a href="thippapha.html">12. ทิพย์ภา</a>
+    <a href="thanaphat.html">13. ธนภัทร</a>
+    <a href="banthita.html">14. บัณฑิตา</a>
+    <a href="panachai.html">15. ปณชัย</a>
+    <a href="parichaya.html">16. ปาริฉัตร</a>
+    <a href="premruethai.html">17. เปรมฤทัย</a>
+    <a href="ploylada.html">18. พลอยลดา</a>
+    <a href="ratchaphruek.html">19. ราชพฤกษ์</a>
+    <a href="wannadanai.html">20. วรรณดนัย</a>
+    <a href="suphanida.html">21. สุภานิดา</a>
+    <a href="supakkakon.html">22. ศุภกร</a>
+    <a href="suchat.html">23. สุชาติ</a>
+    <a href="suchada.html">24. สุชาดา</a>
+    <a href="suchanat.html">25. สุชานันท์</a>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content" id="mainContent">
+    <div class="content-width">
+
+      <!-- Hero -->
+      <section class="hero" id="home">
+        <img src="KNA/kk1.jpg" alt="รูปโปรไฟล์ กิตติพัฒน์" class="profile-img">
+
+        <div class="hero-content">
+          <div class="hero-label">WELCOME TO MY UNIVERSE</div>
+          <h1>กิตติพัฒน์ อรรถสุภาพงศ์</h1>
+          <p>ชื่อเล่น ฟลุ๊ค | นักศึกษาสาขาเทคโนโลยีสารสนเทศ</p>
+
+          <span class="hero-badge">รหัส 69319010001</span>
+          <span class="hero-badge">ปวส.1/1</span>
+          <span class="hero-badge">IT STUDENT</span>
+        </div>
+      </section>
+
+      <!-- Personal Information -->
+      <h4 class="section-heading" id="profile">
+        <i class="bi bi-person-vcard"></i> ข้อมูลส่วนตัว
+      </h4>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-person"></i> ประวัติส่วนตัว</h5>
+
+            <div class="info-row">
+              <span class="info-label">ชื่อ - นามสกุล</span>
+              <span class="info-value">กิตติพัฒน์ อรรถสุภาพงศ์</span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">ชื่อเล่น</span>
+              <span class="info-value">ฟลุ๊ค</span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">วันเกิด</span>
+              <span class="info-value">26 ตุลาคม 2550</span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">อายุ</span>
+              <span class="info-value">19 ปี</span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">รหัสนักศึกษา</span>
+              <span class="info-value">69319010001</span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">ระดับชั้น</span>
+              <span class="info-value">ปวส.1/1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" id="about">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-chat-square-text"></i> เกี่ยวกับฉัน</h5>
+
+            <p class="description">
+              สวัสดีครับ ผมชื่อกิตติพัฒน์ อรรถสุภาพงศ์
+              ชื่อเล่นฟลุ๊ค ปัจจุบันกำลังศึกษาอยู่ระดับ ปวส.1/1
+              สาขาเทคโนโลยีสารสนเทศ
+            </p>
+
+            <p class="description mb-0">
+              ผมสนใจเกี่ยวกับคอมพิวเตอร์ เทคโนโลยี
+              การเขียนเว็บไซต์ และการใช้งานโปรแกรมต่าง ๆ
+              รวมถึงการเรียนรู้สิ่งใหม่ ๆ ที่เกี่ยวข้องกับเทคโนโลยี
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hobbies -->
+      <h4 class="section-heading" id="hobbies">
+        <i class="bi bi-controller"></i> งานอดิเรก
+      </h4>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-stars"></i> กิจกรรมในเวลาว่าง</h5>
+
+            <div class="hobby"><i class="bi bi-moon-stars"></i> นอนพักผ่อน</div>
+            <div class="hobby"><i class="bi bi-controller"></i> เล่นเกม</div>
+            <div class="hobby"><i class="bi bi-cup-hot"></i> กินข้าว</div>
+            <div class="hobby"><i class="bi bi-film"></i> ดูหนังและวิดีโอ</div>
+            <div class="hobby mb-0"><i class="bi bi-headphones"></i> ฟังเพลง</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" id="favorite">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-heart"></i> การ์ตูนที่ชอบ</h5>
+
+            <img
+              src="https://press.moviewalker.jp/api/resizeimage/news/article/226390/1416339?w=615"
+              alt="โดราเอมอน"
+              class="media-img"
+            >
+
+            <h6 class="mt-3 fw-bold">โดราเอมอน</h6>
+            <p class="media-caption mb-0">
+              การ์ตูนที่ชอบดูในเวลาว่าง
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Favorites -->
+      <h4 class="section-heading">
+        <i class="bi bi-heart-fill"></i> สิ่งที่ชื่นชอบ
+      </h4>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-music-note-beamed"></i> เพลงที่ชอบ</h5>
+
+            <a href="https://youtu.be/mk5j7tw-nb8?si=qnilSKwOYnkt_u1e"
+               target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://img.youtube.com/vi/mk5j7tw-nb8/hqdefault.jpg"
+                alt="ภาพปกวิดีโอเพลงจาก YouTube"
+                class="music-img"
+              >
+            </a>
+
+            <p class="description mt-3">
+              เพลงที่ชอบฟังในเวลาว่าง
+            </p>
+
+            <a href="https://youtu.be/mk5j7tw-nb8?si=qnilSKwOYnkt_u1e"
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn-space">
+              <i class="bi bi-youtube me-1"></i> เปิดฟังบน YouTube
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-joystick"></i> เกมที่ชอบ</h5>
+
+            <img
+              src="https://cdn.produkto.io/photos/2025/09/24/roblox-logo-2022.webp"
+              alt="Roblox"
+              class="media-img"
+            >
+
+            <h6 class="mt-3 fw-bold">Roblox</h6>
+            <p class="media-caption mb-0">
+              เกมที่มีรูปแบบการเล่นหลากหลาย
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology -->
+      <h4 class="section-heading" id="technology">
+        <i class="bi bi-cpu"></i> ความสนใจด้านเทคโนโลยี
+      </h4>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-code-slash"></i> โปรแกรมและเทคโนโลยี</h5>
+
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">Vue</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Data Visualization</span>
+
+            <p class="description mt-3 mb-0">
+              สนใจการเขียนเว็บไซต์ การพัฒนาแอปพลิเคชัน
+              และการจัดการข้อมูลด้วยเทคโนโลยีคอมพิวเตอร์
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6" id="projects">
+          <div class="space-card">
+            <h5 class="card-title"><i class="bi bi-folder2-open"></i> ผลงานและโปรเจกต์</h5>
+
+            <div class="project-item">
+              <strong>01. เว็บไซต์ประวัติส่วนตัว</strong>
+              <p>การสร้างเว็บไซต์ด้วย HTML และ Bootstrap</p>
+            </div>
+
+            <div class="project-item">
+              <strong>02. เครื่องปลูกเมล็ดพันธุ์</strong>
+              <p>โครงงานสิ่งประดิษฐ์แบบใช้งานด้วยมือ</p>
+            </div>
+
+            <div class="project-item mb-0">
+              <strong>03. Dashboard Data Visualization</strong>
+              <p>การนำข้อมูลมาวิเคราะห์และนำเสนอเป็นกราฟ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Learning -->
+      <h4 class="section-heading">
+        <i class="bi bi-lightbulb"></i> เรื่องที่สนใจและเรียนรู้
+      </h4>
+
+      <div class="space-card">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="hobby h-100">
+              <i class="bi bi-laptop"></i> การเขียนโปรแกรมและเว็บไซต์
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="hobby h-100">
+              <i class="bi bi-palette"></i> การออกแบบกราฟิก
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="hobby h-100">
+              <i class="bi bi-translate"></i> ภาษาและการแปลภาษา
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="hobby h-100">
+              <i class="bi bi-database"></i> ฐานข้อมูล
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="hobby h-100">
+              <i class="bi bi-controller"></i> เกมและอนิเมะ
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="hobby h-100">
+              <i class="bi bi-pc-display"></i> เทคโนโลยีคอมพิวเตอร์
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future -->
+      <h4 class="section-heading">
+        <i class="bi bi-rocket-takeoff"></i> เป้าหมายในอนาคต
+      </h4>
+
+      <div class="space-card">
+        <p class="description mb-0">
+          ต้องการพัฒนาความรู้และทักษะด้านเทคโนโลยีสารสนเทศ
+          ฝึกฝนการเขียนโปรแกรมและการสร้างเว็บไซต์
+          เพื่อนำความรู้ไปใช้ในการเรียนและการทำงานในอนาคต
+        </p>
+      </div>
+
+      <footer>
+        <div class="mb-2"><i class="bi bi-stars"></i> KITTIPAT SPACE</div>
+        จัดทำโดย กิตติพัฒน์ อรรถสุภาพงศ์ | History of IT ปวส.1/1
+      </footer>
+
+    </div>
   </main>
 
-  <!-- JavaScript -->
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
+      const main = document.getElementById("mainContent");
 
       if (window.innerWidth <= 768) {
-        sidebar.classList.toggle("active");
-        button.setAttribute(
-          "aria-expanded",
-          sidebar.classList.contains("active")
-        );
+        sidebar.classList.toggle("show");
       } else {
         sidebar.classList.toggle("collapsed");
-        content.classList.toggle("expanded");
-        button.setAttribute(
-          "aria-expanded",
-          !sidebar.classList.contains("collapsed")
-        );
+        main.classList.toggle("expanded");
       }
     }
 
-    // ปรับสถานะเมนูเมื่อเปลี่ยนขนาดหน้าจอ
-    window.addEventListener("resize", function () {
-      const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
-
-      if (window.innerWidth <= 768) {
-        sidebar.classList.remove("collapsed");
-        content.classList.remove("expanded");
-        button.setAttribute("aria-expanded", sidebar.classList.contains("active"));
-      } else {
-        sidebar.classList.remove("active");
-        button.setAttribute("aria-expanded", !sidebar.classList.contains("collapsed"));
-      }
+    document.querySelectorAll(".sidebar a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          document.getElementById("sidebar").classList.remove("show");
+        }
+      });
     });
   </script>
 
-  <!-- Bootstrap JavaScript -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
