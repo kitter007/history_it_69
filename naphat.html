@@ -129,8 +129,772 @@
   <main class="content">
     <h2>naphat</h2>
     <p>รหัสนักเรียน: 69319010009</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
+    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 1/1</p>
+ <title>ประวัติส่วนตัว | My Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --pink: #f4a8c7;
+    --pink-dark: #d96d9a;
+    --purple: #b8a5e8;
+    --purple-light: #f1edff;
+    --pink-light: #fff0f6;
+    --white: #ffffff;
+    --text: #65566e;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background: linear-gradient(135deg, #fff2f7, #f3f0ff, #fff9fc);
+    color: var(--text);
+}
+
+/* ===== MENU ===== */
+
+header {
+    width: 100%;
+    padding: 18px 8%;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px rgba(217,109,154,0.08);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--pink-dark);
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--pink-dark);
+}
+
+/* ===== HERO ===== */
+
+.hero {
+    max-width: 1150px;
+    margin: 45px auto;
+    padding: 55px 65px;
+    background: var(--white);
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    box-shadow: 0 10px 40px rgba(220,150,190,0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "♡";
+    position: absolute;
+    right: 35%;
+    top: 15px;
+    font-size: 100px;
+    color: #fff0f6;
+}
+
+.hero-text {
+    flex: 1;
+    z-index: 1;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    padding: 9px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 38px;
+    color: var(--pink-dark);
+    margin-bottom: 12px;
+}
+
+.hero-text h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #8d75bd;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    line-height: 2;
+    color: #8c8095;
+    font-size: 15px;
+}
+
+.hero-img {
+    flex: 0 0 250px;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-img img {
+    width: 220px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 7px solid #fff0f6;
+    box-shadow: 0 8px 25px rgba(217,109,154,0.18);
+    transition: 0.4s;
+}
+
+.hero-img img:hover {
+    transform: rotate(2deg) scale(1.04);
+}
+
+/* ===== SECTION TITLE ===== */
+
+.section-title {
+    text-align: center;
+    margin: 65px 0 30px;
+}
+
+.section-title h2 {
+    font-size: 28px;
+    color: var(--pink-dark);
+}
+
+.section-title p {
+    color: #a99bb5;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.section-title .heart {
+    color: var(--pink);
+}
+
+/* ===== CONTENT ===== */
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid #f9e5ef;
+    box-shadow: 0 6px 20px rgba(200,150,190,0.08);
+    transition: 0.3s;
+    margin-bottom: 25px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(200,150,190,0.15);
+}
+
+.card h3 {
+    color: #d77ba6;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.card p {
+    background: #fff7fb;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.card span {
+    color: #a17fc5;
+    font-weight: 600;
+}
+
+/* ===== SKILLS ===== */
+
+.skill-groups {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill {
+    background: #fff0f6;
+    color: #d77ba6;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: 0.3s;
+    border: 1px solid #f9dce9;
+}
+
+.skill:hover {
+    background: #f4a8c7;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.skill.purple {
+    background: #f1edff;
+    color: #9b82ce;
+    border-color: #e4dcff;
+}
+
+.skill.purple:hover {
+    background: #b8a5e8;
+    color: white;
+}
+
+/* ===== CONTACT ===== */
+
+.contact {
+    background: white;
+    border-radius: 25px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(200,150,190,0.08);
+    margin: 30px 0 60px;
+}
+
+.contact-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-item {
+    background: #fff4f9;
+    padding: 15px 22px;
+    border-radius: 15px;
+    color: #b17ba0;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    background: #fce3ef;
+    transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    background: #e9dffb;
+    color: #927bb9;
+    text-align: center;
+    padding: 25px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        margin: 25px 15px;
+        padding: 30px 20px;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .hero-img img {
+        width: 190px;
+        height: 260px;
+    }
+
+    .cards,
+    .skill-groups {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        margin-top: 45px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+    body::before {
+    content: "♡  ✦  ♡  ✧  ♡";
+    position: fixed;
+    top: 15%;
+    left: 2%;
+    color: #f2bfd7;
+    font-size: 25px;
+    opacity: 0.5;
+    z-index: -1;
+    animation: float 4s ease-in-out infinite;
+}
+
+body::after {
+    content: "✧  ♡  ✦  ♡";
+    position: fixed;
+    bottom: 10%;
+    right: 2%;
+    color: #c9b8ef;
+    font-size: 25px;
+    opacity: 0.5;
+    z-index: -1;
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ===== BUTTON ===== */
+
+.profile-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #f4a8c7, #c4a9ed);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px #f4d4e5;
+    transition: 0.3s;
+}
+
+.profile-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #e8b7d2;
+}
+
+/* ===== EDUCATION TIMELINE ===== */
+
+.timeline {
+    border-left: 3px solid #f4c2da;
+    padding-left: 25px;
+    margin: 20px 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+    background: #fff5fa;
+    padding: 18px;
+    border-radius: 15px;
+}
+
+.timeline-item::before {
+    content: "♡";
+    position: absolute;
+    left: -39px;
+    top: 15px;
+    color: #df83b0;
+    font-size: 20px;
+}
+
+.timeline-item h4 {
+    color: #b18bd4;
+    margin-bottom: 8px;
+}
+
+.timeline-item p {
+    color: #8b7b96;
+    line-height: 1.8;
+}
+
+/* ===== SKILL BAR ===== */
+
+.skill-bar {
+    margin: 18px 0;
+}
+
+.skill-bar p {
+    background: none;
+    padding: 0;
+    margin-bottom: 8px;
+    color: #8c719f;
+}
+
+.bar {
+    height: 12px;
+    background: #f5e8f4;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #f4a8c7, #c4a9ed);
+}
+
+/* ===== HOBBY CARD ===== */
+
+.hobby-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.hobby {
+    background: #fff3f8;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.hobby:hover {
+    transform: translateY(-7px) rotate(-2deg);
+    background: #fce4ef;
+}
+
+.hobby .emoji {
+    font-size: 35px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hobby p {
+    font-size: 14px;
+    color: #bd7da4;
+}
+
+/* ===== QUOTE ===== */
+
+.quote {
+    text-align: center;
+    padding: 35px;
+    background: linear-gradient(135deg, #fff0f7, #f1edff);
+    border-radius: 25px;
+    margin: 40px 0;
+}
+
+.quote h3 {
+    color: #d77ba6;
+    margin-bottom: 12px;
+}
+
+.quote p {
+    color: #9b86b5;
+    font-style: italic;
+    line-height: 2;
+}
+
+/* ===== BACK TO TOP ===== */
+
+.back-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background: #f4a8c7;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    box-shadow: 0 5px 15px #edc5d9;
+    transition: 0.3s;
+    z-index: 99;
+}
+
+.back-top:hover {
+    transform: translateY(-5px);
+    background: #c4a9ed;
+}
+
+@media (max-width: 768px) {
+    .hobby-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-btn {
+        margin-top: 15px;
+    }
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- เมนู -->
+
+<header>
+    <div class="logo">♡ MY PROFILE</div>
+
+    <nav>
+        <a href="#home">หน้าหลัก</a>
+        <a href="#about">ประวัติส่วนตัว</a>
+        <a href="#education">การศึกษา</a>
+        <a href="#skills">ทักษะ</a>
+        <a href="#contact">ติดต่อ</a>
+    </nav>
+</header>
+
+<!-- แนะนำตัว -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="tag">✧ PERSONAL PORTFOLIO ✧</div>
+
+        <h1>สวัสดีค่ะ 👋🏻</h1>
+
+        <h2>นางสาวณภัทรา สูตรประจันทร์</h2>
+
+        <p>
+            ชื่อเล่น ออม ♡<br>
+            นักศึกษาแผนกวิชาเทคโนโลยีสารสนเทศ<br>
+            วิทยาลัยเทคนิคน่าน
+        </p>
+
+    </div>
+
+    <div class="hero-img">
+        <img src="ing/Me.jpg" alt="รูปประวัติส่วนตัว">
+    </div>
+
+</section>
+
+<!-- ABOUT ME -->
+
+<div class="section-title" id="about">
+    <h2>♡ ABOUT ME ♡</h2>
+    <p>มาทำความรู้จักกับฉันกันนะคะ</p>
+</div>
+
+<div class="container">
+
+    <div class="cards">
+
+        <!-- ข้อมูลส่วนตัว -->
+
+        <div class="card">
+            <h3>🌷 ข้อมูลส่วนตัว</h3>
+
+            <p><span>ชื่อ-นามสกุล :</span> ณภัทรา สูตรประจันทร์</p>
+            <p><span>ชื่อเล่น :</span> ออม</p>
+            <p><span>รหัสนักศึกษา :</span> 69319010009</p>
+            <p><span>วันเกิด :</span> 16/09/2007</p>
+            <p><span>งานอดิเรก :</span> ฟังเพลง อ่านการ์ตูน</p>
+        </div>
+
+        <!-- ประวัติการศึกษา -->
+
+        <div class="card" id="education">
+
+    <h3>🎓 MY EDUCATION</h3>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h4>♡ วิทยาลัยอาชีวศึกษาชุมพร</h4>
+            <p>
+                แผนกคอมพิวเตอร์ธุรกิจดิจิทัล<br>
+                สถานศึกษาเดิม
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h4>♡ วิทยาลัยเทคนิคน่าน</h4>
+            <p>
+                แผนกวิชาเทคโนโลยีสารสนเทศ<br>
+                ระดับชั้น สทส.1/1
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+
+    <div class="card">
+
+    <h3>💻 MY IT SKILLS</h3>
+
+    <div class="skill-bar">
+        <p>HTML</p>
+        <div class="bar">
+            <div class="bar-fill" style="width:70%"></div>
+        </div>
+    </div>
+
+    <div class="skill-bar">
+        <p>CSS</p>
+        <div class="bar">
+            <div class="bar-fill" style="width:60%"></div>
+        </div>
+    </div>
+
+    <div class="skill-bar">
+        <p>JavaScript</p>
+        <div class="bar">
+            <div class="bar-fill" style="width:40%"></div>
+        </div>
+    </div>
+
+    <div class="skill-bar">
+        <p>VS Code</p>
+        <div class="bar">
+            <div class="bar-fill" style="width:75%"></div>
+        </div>
+    </div>
+
+</div>
+<div class="section-title">
+    <h2>🌸 MY HOBBIES 🌸</h2>
+    <p>สิ่งที่ฉันชอบทำในเวลาว่าง</p>
+</div>
+
+<div class="card">
+
+    <div class="hobby-list">
+
+        <div class="hobby">
+            <span class="emoji">🎧</span>
+            <p>ฟังเพลง</p>
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">📖</span>
+            <p>อ่านการ์ตูน</p>
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">🎮</span>
+            <p>เล่นเกม</p>
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">🍰</span>
+            <p>กินขนม</p>
+        </div>
+
+    </div>
+<div class="quote">
+
+    <h3>♡ MY LITTLE QUOTE ♡</h3>
+
+    <p>
+        "ค่อย ๆ เติบโตในแบบของตัวเอง<br>
+        ไม่ต้องเก่งที่สุด แค่ดีกว่าเมื่อวานก็พอ"
+    </p>
+
+    <p>🌷 Be yourself and keep growing 🌷</p>
+
+</div>
+</div>
+
+    <!-- CONTACT -->
+
+    <div class="section-title" id="contact">
+        <h2>♡ CONTACT ME ♡</h2>
+        <p>ช่องทางการติดต่อ</p>
+    </div>
+
+    <div class="contact">
+
+        <h3 style="color:#d77ba6;">Let's be friends! 🌸</h3>
+
+        <div class="contact-items">
+
+            <div class="contact-item">
+                ✉ Email : n3koasiaa16@gmail.com
+            </div>
+
+            <div class="contact-item">
+                ♡ Tel : 0843388202
+            </div>
+
+            <div class="contact-item">
+                ◎ Instagram : aaaa_09s
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>♡ MY PERSONAL PROFILE ♡</p>
+    <p>จัดทำโดย นักศึกษาแผนกวิชาเทคโนโลยีสารสนเทศ</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+<a href="#home" class="back-top" title="กลับขึ้นด้านบน">
+    ↑ กลับขึ้นด้านบน
+</a>
+</body>
   </main>
 
   <!-- JavaScript -->
