@@ -125,12 +125,199 @@
     <a href="suchanat.html">25 suchanat</a>
   </div>
 
-  <!-- Content -->
-  <!-- Content -->
-  <main class="content" id="custom-main" style="background: linear-gradient(135deg, #111827, #1f2937, #374151); min-height: calc(100vh - 56px); font-family: 'Anantason Condensed', sans-serif; color: #f3f4f6; margin-top: 56px;">
+ <!-- Content -->
+  <!-- เพิ่มคลาส locked-main เพื่อล็อกการเลื่อนตั้งแต่เริ่มต้น -->
+  <main class="content locked-main" id="custom-main" style="position: relative; min-height: calc(100vh - 56px); font-family: 'Anantason Condensed', sans-serif; color: #f3f4f6; margin-top: 56px; background-color: #090a0f;">
     
+    <!-- ✨ พื้นหลังจักรวาล (Universe Background) ✨ -->
+    <div class="universe-bg">
+      <div class="stars"></div>
+      <div class="stars2"></div>
+      <div class="stars3"></div>
+    </div>
+
+    <!-- หน้าต่าง Overlay ก่อนเข้าดูประวัติ (แสดงผลแค่ใน main) -->
+    <div id="intro-overlay">
+      <div class="loader-container">
+        <div class="spinner-circle" id="spinner"></div>
+        <div class="progress-text" id="progressText">0%</div>
+      </div>
+      <button class="enter-btn" id="enterBtn" onclick="hideIntro()">คลิกเพื่อดูประวัติ</button>
+    </div>
+
     <!-- สไตล์ที่จำกัดการทำงานให้อยู่แค่ใน main -->
     <style>
+      /* --- คลาสสำหรับล็อกหน้าจอไม่ให้เลื่อนตอนโหลด --- */
+      .locked-main {
+        height: calc(100vh - 56px); /* บังคับความสูงให้พอดีจอ */
+        overflow: hidden !important; /* บังคับซ่อนส่วนเกินและล็อกการเลื่อน */
+      }
+
+      /* --- สไตล์พื้นหลังจักรวาล 3 มิติ --- */
+      .universe-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        z-index: 0;
+        overflow: hidden;
+      }
+      
+      .universe-bg .stars, 
+      .universe-bg .stars2, 
+      .universe-bg .stars3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        display: block;
+      }
+
+      .universe-bg .stars {
+        background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="25" cy="25" r="1" fill="%23FFF" opacity="0.8"/><circle cx="150" cy="80" r="0.5" fill="%23FFF" opacity="0.5"/><circle cx="80" cy="180" r="1" fill="%23FFF" opacity="0.7"/><circle cx="120" cy="120" r="0.5" fill="%23FFF" opacity="0.6"/></svg>') repeat;
+        animation: moveStars 120s linear infinite;
+      }
+
+      .universe-bg .stars2 {
+        background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><circle cx="50" cy="50" r="1.2" fill="%23FFF" opacity="0.9"/><circle cx="200" cy="150" r="1.5" fill="%2300d2ff" opacity="0.6"/><circle cx="100" cy="250" r="1" fill="%23FFF" opacity="0.8"/></svg>') repeat;
+        animation: moveStars 80s linear infinite;
+      }
+
+      .universe-bg .stars3 {
+        background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><circle cx="100" cy="100" r="2" fill="%23FFF" opacity="1"/><circle cx="300" cy="200" r="1.5" fill="%23FFF" opacity="0.5"/><circle cx="200" cy="350" r="2.5" fill="%2300d2ff" opacity="0.8"/></svg>') repeat;
+        animation: moveStars 40s linear infinite;
+      }
+
+      @keyframes moveStars {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-50%); }
+      }
+
+      /* ยกเนื้อหาทั้งหมดให้อยู่เหนือพื้นหลังจักรวาล */
+      #custom-main .container-fluid {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* -------------------------------------- */
+      /* สไตล์เดิมของคุณที่เหลืออยู่ด้านล่างนี้ */
+      /* -------------------------------------- */
+      .food-card {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 15px;
+        overflow: hidden;
+        height: 100%;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+
+      .food-card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+
+      .food-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .food-info {
+        text-align: center;
+        padding: 15px 5px;
+      }
+
+      .food-info h6 {
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+
+      .food-info small {
+        color: #888;
+        font-size: 12px;
+      }
+
+      /* --- สไตล์ของหน้าโหลด (Loading Screen) --- */
+      #intro-overlay {
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #090a0f; /* เปลี่ยนสีพื้นหลังให้ทึบและเข้ากับธีมจักรวาล */
+        z-index: 9999; /* ดันให้อยู่บนสุดเพื่อล็อกการคลิกส่วนอื่นชั่วคราว */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.6s ease, visibility 0.6s ease;
+      }
+      .loader-container {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+      .spinner-circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 5px solid rgba(0, 210, 255, 0.1);
+        border-top-color: #00d2ff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        transition: border-color 0.5s ease;
+      }
+      .spinner-circle.stop-spin {
+        animation: none;
+        border-color: #00d2ff;
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .progress-text {
+        font-size: 1.8rem;
+        color: #00d2ff;
+        font-weight: bold;
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        z-index: 2;
+      }
+      .enter-btn {
+        background: transparent;
+        border: 2px solid #00d2ff;
+        color: #00d2ff;
+        padding: 10px 30px;
+        font-size: 1.5rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        font-family: 'Anantason Condensed', sans-serif;
+        letter-spacing: 1px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+      }
+      .enter-btn.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .enter-btn:hover {
+        background: #00d2ff;
+        color: #111827;
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+        transform: scale(1.05);
+      }
+
+      /* --- สไตล์ของการ์ดและส่วนอื่นๆ (Glassmorphism) --- */
       #custom-main .glass-card {
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(16px);
@@ -221,7 +408,7 @@
         <div class="col-lg-4 col-md-5 mb-4">
           <div class="card glass-card text-center p-3">
             <div class="card-body d-flex flex-column justify-content-center align-items-center">
-              <img src="img/suchat.png" alt="Profile Picture" class="profile-img rounded-circle mb-4">
+              <img src="img-suchat/suchat.png" alt="Profile Picture" class="profile-img rounded-circle mb-4">
               <h4 class="card-title fw-bold text-white mb-2">นายสุชัจจ์ รัตนวิเวธน์</h4>
               <p class="mb-1" style="color: #9ca3af;">รหัสนักศึกษา: 69319010024</p>
               <p class="mb-4 text-info">แผนก: เทคโนโลยีสารสนเทศ</p>
@@ -297,10 +484,105 @@
               <span class="badge skill-badge me-2 mb-2 px-4 py-2 fs-5 fw-normal" style="background-color: #f12929; color: black;">Database</span>
             </div>
           </div>
+        </div>
+      </div>
 
+      <hr>
+
+      <div class="row g-4">
+        <div class="col-12">
+          <div class="card glass-card overflow-hidden">
+            <div class="card-header glass-header fw-bold py-3 fs-5 text-center">
+              🍔 อาหารที่ชอบ (Favorite Foods)
+            </div>
+
+            <div class="card-body p-4">
+              <div class="row g-4">
+                <!-- ก๋วยเตี๋ยว -->
+                <div class="col-6 col-md-3">
+                  <div class="food-card">
+                    <img src="img-suchat/ก๋วยเตี๋ยว.jpg" class="food-img" alt="ก๋วยเตี๋ยว">
+                    <div class="food-info">
+                      <h6 class="card-header glass-header py-3 fs-5 text-center">🍜 ก๋วยเตี๋ยว</h6>
+                    </div>
+                  </div>
+                </div>
+                <!-- กะเพราหมูกรอบ -->
+                <div class="col-6 col-md-3">
+                  <div class="food-card">
+                    <img src="img-suchat/กะเพราหมูกรอบ.jpg" class="food-img" alt="กะเพราหมูกรอบ">
+                    <div class="food-info">
+                      <h6 class="card-header glass-header py-3 fs-5 text-center">กะเพราหมูกรอบ</h6>
+                    </div>
+                  </div>
+                </div>
+                <!-- ข้าวมันไก่ -->
+                <div class="col-6 col-md-3">
+                  <div class="food-card">
+                    <img src="img-suchat/ข้าวมันไก่.jpg" class="food-img" alt="ข้าวมันไก่">
+                    <div class="food-info">
+                      <h6 class="card-header glass-header py-3 fs-5 text-center">🍗 ข้าวมันไก่</h6>
+                    </div>
+                  </div>
+                </div>
+                <!-- ข้าวผัดทะเล -->
+                <div class="col-6 col-md-3">
+                  <div class="food-card">
+                    <img src="img-suchat/ข้าวผัดทะเล.jpg" class="food-img" alt="ข้าวผัดทะเล">
+                    <div class="food-info">
+                      <h6 class="card-header glass-header py-3 fs-5 text-center">🍤 ข้าวผัดทะเล</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- JavaScript สำหรับระบบเปอร์เซ็นต์โหลดและปุ่ม -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let progress = 0;
+        const progressText = document.getElementById("progressText");
+        const spinner = document.getElementById("spinner");
+        const enterBtn = document.getElementById("enterBtn");
+
+        const loadingInterval = setInterval(() => {
+          progress += Math.floor(Math.random() * 4) + 1; 
+          
+          if (progress >= 100) {
+            progress = 100;
+            progressText.innerText = "100%";
+            clearInterval(loadingInterval);
+            
+            spinner.classList.add("stop-spin");
+            
+            setTimeout(() => {
+              enterBtn.classList.add("show");
+            }, 300);
+          } else {
+            progressText.innerText = progress + "%";
+          }
+        }, 50); 
+      });
+
+      // ฟังก์ชันเมื่อกดปุ่มให้ซ่อนหน้าโหลดและปลดล็อกการเลื่อน
+      function hideIntro() {
+        const overlay = document.getElementById('intro-overlay');
+        const mainContent = document.getElementById('custom-main');
+        
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+          overlay.style.visibility = 'hidden';
+          overlay.style.display = 'none'; 
+          
+          // ลบคลาสที่บล็อกการเลื่อนออก เพื่อให้หน้าเว็บเลื่อนขึ้นลงได้ตามปกติ
+          mainContent.classList.remove('locked-main');
+        }, 600); 
+      }
+    </script>
   </main>
 
   <!-- JavaScript -->
