@@ -54,6 +54,9 @@
       padding: 20px;
       margin-top: 56px;
       transition: margin-left 0.3s ease;
+      position: relative;
+      isolation: isolate;
+      min-height: calc(100vh - 56px);
     }
 
     .content.expanded {
@@ -73,18 +76,70 @@
         margin-left: 0;
       }
     }
-    
+
+/* ===== พื้นหลังเคลื่อนไหว ===== */
+.content::before,
+.content::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .35;
+    pointer-events: none;
+    animation: blobMove 14s ease-in-out infinite alternate;
+}
+.content::before {
+    width: 380px; height: 380px;
+    background: #60a5fa;
+    top: 12%; right: 8%;
+}
+.content::after {
+    width: 320px; height: 320px;
+    background: #c084fc;
+    bottom: 5%; left: 30%;
+    animation-delay: -6s;
+}
+@keyframes blobMove {
+    to { transform: translate(-80px, 60px) scale(1.25); }
+}
+
+/* แถบความคืบหน้าการเลื่อนหน้า */
+.scroll-bar {
+    position: fixed;
+    top: 56px; left: 0;
+    height: 4px; width: 0;
+    background: linear-gradient(90deg, #2563eb, #a855f7, #ec4899);
+    z-index: 1060;
+}
+
 /* ===== Profile Card ===== */
 .profile-card {
     max-width: 900px;
     margin: 30px auto;
     padding: 30px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(8px);
     border: 1px solid #e5e7eb;
     border-radius: 16px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
     color: #1f2937;
     box-sizing: border-box;
+    position: relative;
+}
+/* ขอบไล่สีหมุนรอบการ์ด */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #2563eb, #a855f7, #ec4899, #f59e0b, #2563eb);
+    background-size: 300% 300%;
+    animation: borderFlow 6s linear infinite;
+}
+@keyframes borderFlow {
+    to { background-position: 300% 0; }
 }
 
 /* ===== Header ===== */
@@ -97,7 +152,15 @@
 .profile-header h1 {
     margin: 0 0 8px;
     font-size: 28px;
-    color: #2563eb;
+    background: linear-gradient(90deg, #2563eb, #a855f7, #ec4899, #2563eb);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 4s linear infinite;
+}
+@keyframes textShine {
+    to { background-position: 250% center; }
 }
 
 .profile-header p {
@@ -115,6 +178,11 @@
     background: #f8fafc;
     border-radius: 12px;
     margin-bottom: 30px;
+    transition: transform .3s, box-shadow .3s;
+}
+.profile-intro:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, .15);
 }
 
 .profile-image {
@@ -125,6 +193,18 @@
     border: 3px solid #ffffff;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
     flex-shrink: 0;
+    animation: floaty 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
+    transition: transform .4s;
+}
+.profile-image:hover {
+    transform: rotate(-3deg) scale(1.06);
+}
+@keyframes floaty {
+    50% { translate: 0 -8px; }
+}
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 3px 12px rgba(0,0,0,.12), 0 0 0 0 rgba(37,99,235,.45); }
+    50% { box-shadow: 0 3px 12px rgba(0,0,0,.12), 0 0 0 14px rgba(37,99,235,0); }
 }
 
 .profile-name h2 {
@@ -155,6 +235,11 @@
     border-left: 4px solid #2563eb;
     font-size: 20px;
     color: #1f2937;
+    transition: padding-left .3s, border-color .3s;
+}
+.profile-section:hover h3 {
+    padding-left: 20px;
+    border-color: #a855f7;
 }
 
 /* ===== Personal Information Grid ===== */
@@ -169,6 +254,13 @@
     background: #f8fafc;
     border: 1px solid #e5e7eb;
     border-radius: 10px;
+    transition: transform .25s, box-shadow .25s, border-color .25s, background .25s;
+}
+.profile-info-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, .15);
+    border-color: #93c5fd;
+    background: #eff6ff;
 }
 
 .profile-info-item span {
@@ -191,11 +283,19 @@
     background: #f8fafc;
     border-radius: 10px;
     border: 1px solid #e5e7eb;
+    transition: box-shadow .3s;
+}
+.profile-detail-box:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
 }
 
 .profile-detail-box p {
     margin: 8px 0;
     line-height: 1.7;
+    transition: transform .25s;
+}
+.profile-detail-box p:hover {
+    transform: translateX(8px);
 }
 
 /* ===== Skills ===== */
@@ -212,6 +312,17 @@
     border: 1px solid #dbeafe;
     border-radius: 20px;
     font-size: 14px;
+    cursor: default;
+    transition: transform .25s, background .25s, color .25s, box-shadow .25s;
+}
+.profile-skill-list span:empty {
+    display: none;
+}
+.profile-skill-list span:hover {
+    background: linear-gradient(135deg, #2563eb, #a855f7);
+    color: #fff;
+    transform: translateY(-4px) rotate(-2deg) scale(1.08);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, .3);
 }
 
 /* ===== Description ===== */
@@ -222,6 +333,118 @@
     border-radius: 10px;
     line-height: 1.8;
     overflow-wrap: anywhere;
+    transition: transform .3s, box-shadow .3s;
+}
+.profile-description:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+/* ===== รูปประกอบ: ทักษะ / งานอดิเรก / เป้าหมาย ===== */
+.skill-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+.skill-logo {
+    padding: 16px 8px 12px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    transition: transform .3s, box-shadow .3s, background .3s;
+}
+.skill-logo img {
+    width: 52px;
+    height: 52px;
+    display: block;
+    margin: 0 auto 8px;
+    transition: transform .5s;
+}
+.skill-logo:hover {
+    transform: translateY(-6px);
+    background: #eff6ff;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, .18);
+}
+.skill-logo:hover img { transform: rotateY(360deg) scale(1.15); }
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+}
+.photo-card {
+    position: relative;
+    height: 190px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2563eb, #a855f7);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+    transition: transform .35s, box-shadow .35s;
+}
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s;
+}
+.photo-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.7), transparent 60%);
+    pointer-events: none;
+}
+.photo-card figcaption {
+    position: absolute;
+    left: 14px; bottom: 12px;
+    z-index: 1;
+    color: #fff;
+    font-weight: 600;
+    transition: transform .3s;
+}
+.photo-card:hover {
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, .3);
+}
+.photo-card:hover img { transform: scale(1.15); }
+.photo-card:hover figcaption { transform: translateY(-4px); }
+.photo-card.img-fail img { display: none; }
+.photo-card.wide { height: 230px; margin-top: 16px; }
+
+/* ===== เอฟเฟกต์ปรากฏตอนเลื่อน ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.show {
+    opacity: 1;
+    transform: none;
+}
+
+/* ดอกไม้ไฟตอนคลิก */
+.spark {
+    position: fixed;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3000;
+    animation: sparkOut .7s ease-out forwards;
+}
+@keyframes sparkOut {
+    to { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
 }
 
 /* ===== Responsive Mobile ===== */
@@ -316,10 +539,12 @@
 
 <main class="content">
 
+    <div class="scroll-bar" id="scrollBar"></div>
+
     <section class="profile-card">
 
         <!-- ส่วนหัวประวัติ -->
-        <div class="profile-header">
+        <div>
             <h1>ประวัติส่วนตัว</h1>
             <p>ข้อมูลส่วนตัวและรายละเอียดแนะนำตัว</p>
         </div>
@@ -380,6 +605,17 @@
                 <span>HTML/CSS</span>
                 <span>JavaScript</span>
                 <span>Python</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span></span>
+            </div>
+            <div class="skill-logos">
+                <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" loading="lazy">HTML</div>
+                <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" loading="lazy">CSS</div>
+                <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy">JavaScript</div>
+                <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy">Python</div>
+                <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" loading="lazy">PHP</div>
+                <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" loading="lazy">MySQL</div>
             </div>
         </div>
 
@@ -387,8 +623,13 @@
         <div class="profile-section">
             <h3>งานอดิเรก</h3>
             <p class="profile-description">
-                เล่นเกม, ดูหนัง, ฟังเพลง
+                เล่นเกม(rov,roblox,), ดูหนัง-อนิเมะ, ฟังเพลง()
             </p>
+            <div class="photo-grid">
+                <figure class="photo-card"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=70" alt="เล่นเกม" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('img-fail')"><figcaption>เล่นเกม</figcaption></figure>
+                <figure class="photo-card"><img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=70" alt="ดูหนัง-อนิเมะ" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('img-fail')"><figcaption>ดูหนัง-อนิเมะ</figcaption></figure>
+                <figure class="photo-card"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=70" alt="ฟังเพลง" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('img-fail')"><figcaption>ฟังเพลง</figcaption></figure>
+            </div>
         </div>
 
         <!-- เป้าหมายในอนาคต -->
@@ -397,9 +638,53 @@
             <p class="profile-description">
                 ทำงานอะไรก็ได้ ที่เงินมั่นคงและมีความสุขกับงานที่ทำ และตำแหน่งมั่นคงในสายงานที่ทำ
             </p>
+                <figure class="photo-card wide"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=70" alt="มั่นคงและมีความสุขกับงานที่ทำ" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('img-fail')"><figcaption>มั่นคงและมีความสุขกับงานที่ทำ</figcaption></figure>
+
         </div>
 
     </section>
+
+    <script>
+    (function () {
+
+        // เลื่อนหน้า: แถบความคืบหน้า
+        window.addEventListener("scroll", function () {
+            var h = document.documentElement;
+            var p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+            document.getElementById("scrollBar").style.width = (p * 100) + "%";
+        });
+
+        // ปรากฏตอนเลื่อนมาถึง
+        var items = document.querySelectorAll(
+            ".profile-header, .profile-intro, .profile-section, .profile-info-item, .profile-skill-list span, .skill-logo, .photo-card");
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.12 });
+        items.forEach(function (el, i) {
+            el.classList.add("reveal");
+            el.style.transitionDelay = (i % 4) * 80 + "ms";
+            io.observe(el);
+        });
+
+        // ดอกไม้ไฟตอนคลิก
+        document.addEventListener("click", function (e) {
+            for (var i = 0; i < 8; i++) {
+                var s = document.createElement("i");
+                s.className = "spark";
+                var a = (Math.PI * 2 * i) / 8, d = 30 + Math.random() * 30;
+                s.style.left = e.clientX + "px";
+                s.style.top = e.clientY + "px";
+                s.style.background = "hsl(" + Math.random() * 360 + ",80%,60%)";
+                s.style.setProperty("--x", Math.cos(a) * d + "px");
+                s.style.setProperty("--y", Math.sin(a) * d + "px");
+                document.body.appendChild(s);
+                setTimeout(function (n) { n.remove(); }, 700, s);
+            }
+        });
+    })();
+    </script>
 
 </main>
 
