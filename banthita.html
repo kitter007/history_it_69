@@ -1,103 +1,1417 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>14 banthita | History of IT ปวส.1/1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+<title>DIA | Purple Galaxy Portfolio</title>
 
-  <style>
-    body {
-      overflow-x: hidden;
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* =========================================
+   01. GLOBAL SETTINGS
+========================================= */
+
+:root {
+    --purple: #a855f7;
+    --violet: #7c3aed;
+    --pink: #e879f9;
+    --cyan: #67e8f9;
+    --dark: #090018;
+    --glass: rgba(30, 12, 58, .78);
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Prompt', sans-serif;
+    color: #f5eaff;
+    background: #090018;
+}
+
+/* =========================================
+   02. GALAXY BACKGROUND
+========================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 15% 20%, #7c3aed55, transparent 35%),
+        radial-gradient(ellipse at 85% 30%, #c026d355, transparent 35%),
+        radial-gradient(ellipse at 50% 90%, #4c1d9555, transparent 40%),
+        linear-gradient(135deg, #090018, #16052d, #090018);
+}
+
+/* Nebula */
+
+.nebula {
+    position: fixed;
+    inset: -30%;
+    z-index: -4;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 30% 40%, #9333ea55, transparent 30%),
+        radial-gradient(ellipse at 70% 55%, #db277755, transparent 28%),
+        radial-gradient(ellipse at 50% 80%, #4f46e555, transparent 35%);
+
+    filter: blur(65px);
+    animation: nebulaMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaMove {
+    0% {
+        transform: translate(-5%, -3%) rotate(0deg) scale(1);
+    }
+    100% {
+        transform: translate(5%, 5%) rotate(15deg) scale(1.2);
+    }
+}
+
+.contact-note {
+    font-size: 12px;
+    margin-top: 15px;
+}
+/* =========================================
+   PURPLE NEON PHONE CONTACT
+========================================= */
+
+.contact-phone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    width: 100%;
+    padding: 18px 22px;
+    margin-top: 14px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        120deg,
+        rgba(76, 29, 149, .95),
+        rgba(126, 34, 206, .9),
+        rgba(49, 15, 85, .95)
+    );
+
+    border: 1px solid #d8b4fe;
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 12px #a855f777,
+        0 0 28px #9333ea55,
+        inset 0 0 20px #e9d5ff15;
+
+    transition: .35s ease;
+}
+
+/* แสงวิ่งบนกรอบ */
+
+.contact-phone::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff35,
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    animation: phoneShine 4s infinite;
+
+    pointer-events: none;
+}
+
+@keyframes phoneShine {
+    0% { left: -120%; }
+    50%, 100% { left: 150%; }
+}
+
+/* Hover */
+
+.contact-phone:hover {
+    transform: translateY(-5px);
+
+    border-color: #f0abfc;
+
+    box-shadow:
+        0 0 20px #c084fc,
+        0 0 45px #9333ea88,
+        inset 0 0 25px #ffffff15;
+}
+
+/* Phone icon */
+
+.phone-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 23px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #e879f9,
+        #9333ea,
+        #6d28d9
+    );
+
+    box-shadow:
+        0 0 15px #e879f9,
+        0 0 30px #9333ea88;
+
+    animation: phonePulse 2s infinite;
+}
+
+@keyframes phonePulse {
+    0%, 100% {
+        box-shadow: 0 0 12px #e879f9;
     }
 
-    .navbar {
-      z-index: 1050;
+    50% {
+        box-shadow:
+            0 0 25px #e879f9,
+            0 0 40px #9333ea;
     }
+}
+
+/* Phone information */
+
+.phone-info {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    min-width: 0;
+}
+
+.phone-label {
+    color: #e9d5ff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.phone-number {
+    color: #ffffff;
+
+    font-size: clamp(19px, 3vw, 26px);
+    font-weight: 800;
+
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    text-shadow:
+        0 0 8px #ffffff,
+        0 0 18px #e879f9;
+}
+
+.phone-number:hover {
+    color: #f5d0fe;
+}
+
+.phone-info small {
+    color: #e9d5ff;
+    font-size: 11px;
+}
+
+/* Lightning icon */
+
+.phone-glow {
+    position: relative;
+    z-index: 1;
+
+    margin-left: auto;
+
+    color: #f0abfc;
+    font-size: 25px;
+
+    filter: drop-shadow(0 0 10px #e879f9);
+
+    animation: lightningMove 1.5s infinite alternate;
+}
+
+@keyframes lightningMove {
+    from {
+        opacity: .5;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Mobile */
+
+@media(max-width: 576px) {
+
+    .contact-phone {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .phone-icon {
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+        font-size: 20px;
+    }
+
+    .phone-number {
+        font-size: 20px;
+    }
+
+    .phone-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .phone-glow {
+        font-size: 19px;
+    }
+}
+
+/* Star particles */
+
+.star {
+    position: fixed;
+    z-index: -2;
+    pointer-events: none;
+    color: white;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 12px #c084fc,
+        0 0 25px #9333ea;
+
+    animation: starBlink ease-in-out infinite;
+}
+
+@keyframes starBlink {
+    0%, 100% {
+        opacity: .15;
+        transform: scale(.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.6);
+    }
+}
+
+/* Shooting stars */
+
+.meteor {
+    position: fixed;
+    z-index: -1;
+    top: -150px;
+    width: 3px;
+    height: 160px;
+    pointer-events: none;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #e9d5ff,
+        #a855f7,
+        white
+    );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px #c084fc,
+        0 0 25px #9333ea,
+        0 0 45px #7c3aed;
+
+    transform: rotate(45deg);
+    animation: meteorFall linear forwards;
+}
+
+@keyframes meteorFall {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-850px, 1100px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   03. LIGHTNING EFFECTS
+========================================= */
+
+.lightning {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    color: #c084fc;
+    font-size: 120px;
+
+    filter:
+        drop-shadow(0 0 5px white)
+        drop-shadow(0 0 15px #c084fc)
+        drop-shadow(0 0 35px #9333ea);
+
+    opacity: 0;
+    animation: lightningFlash 6s infinite;
+}
+
+.lightning.left {
+    left: 2%;
+    top: 25%;
+}
+
+.lightning.right {
+    right: 2%;
+    top: 65%;
+    color: #e879f9;
+    animation-delay: 3s;
+}
+
+@keyframes lightningFlash {
+    0%, 85%, 100% {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    86%, 88%, 91% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    87%, 90% {
+        opacity: .15;
+    }
+}
+
+/* Energy rings */
+
+.energy-ring {
+    position: fixed;
+    z-index: -3;
+    width: 350px;
+    height: 350px;
+    border: 2px solid #c084fc33;
+    border-radius: 50%;
+    pointer-events: none;
+
+    box-shadow:
+        0 0 30px #a855f722,
+        inset 0 0 30px #9333ea22;
+
+    animation: ringRotate 25s linear infinite;
+}
+
+.energy-ring.one {
+    top: 15%;
+    right: -200px;
+}
+
+.energy-ring.two {
+    bottom: 5%;
+    left: -200px;
+    animation-direction: reverse;
+}
+
+@keyframes ringRotate {
+    to {
+        transform: rotate(360deg) scale(1.2);
+    }
+}
+
+/* Screen lightning */
+
+.flash-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: #c084fc;
+    opacity: 0;
+    animation: screenFlash 8s infinite;
+}
+
+@keyframes screenFlash {
+    0%, 90%, 100% { opacity: 0; }
+    91% { opacity: .10; }
+    92% { opacity: 0; }
+    93% { opacity: .05; }
+    94% { opacity: 0; }
+}
+
+/* =========================================
+   04. NAVBAR
+========================================= */
+
+.navbar {
+    min-height: 65px;
+    z-index: 1050;
+
+    background:
+        linear-gradient(100deg, #260b49, #6d28d9, #a21caf) !important;
+
+    background-size: 200% 200% !important;
+    animation: navFlow 8s ease infinite;
+
+    box-shadow:
+        0 5px 30px #9333ea55,
+        0 0 20px #c084fc22;
+    border-bottom: 1px solid #ffffff25;
+}
+
+@keyframes navFlow {
+    0%, 100% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-shadow: 0 0 15px #fff;
+}
+
+.menu-btn {
+    border: 1px solid #ffffff66;
+    color: white;
+    transition: .3s;
+}
+
+.menu-btn:hover {
+    background: #ffffff30;
+    color: white;
+    box-shadow: 0 0 15px white;
+}
+
+/* =========================================
+   05. SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+    z-index: 1040;
+    top: 65px;
+    left: 0;
+
+    width: 250px;
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+
+    padding: 15px 10px;
+
+    background: rgba(13, 4, 30, .96);
+    backdrop-filter: blur(20px);
+
+    border-right: 1px solid #a855f744;
+
+    box-shadow: 5px 0 30px #00000055;
+
+    transition: left .35s ease;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #a855f7;
+    border-radius: 10px;
+}
+
+.sidebar.collapsed {
+    left: -260px;
+}
+
+.sidebar-title {
+    padding: 15px 12px;
+    color: #d8b4fe;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.sidebar a {
+    display: block;
+    padding: 11px 14px;
+    margin: 4px 0;
+
+    color: #e9d5ff;
+    font-size: 13px;
+    text-decoration: none;
+
+    border-radius: 10px;
+    border: 1px solid transparent;
+
+    transition: .3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: white;
+    background: linear-gradient(90deg, #7c3aed99, #db277755);
+    border-color: #c084fc66;
+
+    box-shadow: 0 0 18px #9333ea55;
+
+    transform: translateX(5px);
+}
+
+/* =========================================
+   06. MAIN CONTENT
+========================================= */
+
+.content {
+    position: relative;
+    z-index: 3;
+
+    margin-left: 250px;
+    margin-top: 65px;
+    padding: 30px;
+
+    min-height: 100vh;
+
+    transition: margin-left .35s ease;
+}
+
+.content.expanded {
+    margin-left: 0;
+}
+
+.content-section {
+    margin-top: 55px;
+}
+
+/* =========================================
+   07. PROFILE HERO
+========================================= */
+
+.profile-header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    padding: 50px 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(135deg, #2b1055e8, #641c8ee8, #251044e8);
+
+    border: 1px solid #d8b4fe66;
+
+    box-shadow:
+        0 0 25px #9333ea44,
+        0 0 65px #7c3aed33,
+        inset 0 0 30px #c084fc18;
+}
+
+.profile-header::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 300px;
+    height: 300px;
+    right: -100px;
+    top: -130px;
+
+    background: #d946ef55;
+    border-radius: 50%;
+    filter: blur(50px);
+
+    animation: orbMove 7s infinite alternate;
+}
+
+.profile-header::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 250px;
+    height: 250px;
+    left: -80px;
+    bottom: -130px;
+
+    background: #8b5cf655;
+    border-radius: 50%;
+    filter: blur(45px);
+
+    animation: orbMove 8s infinite alternate-reverse;
+}
+
+@keyframes orbMove {
+    to {
+        transform: translate(50px, 30px) scale(1.3);
+    }
+}
+
+.profile-image {
+    width: 230px;
+    height: 280px;
+
+    object-fit: cover;
+
+    border: 5px solid white;
+    border-radius: 25px;
+
+    outline: 3px solid #c084fc;
+
+    box-shadow:
+        0 0 15px white,
+        0 0 35px #c084fc,
+        0 0 70px #9333ea;
+
+    animation: photoFloat 5s ease-in-out infinite;
+}
+
+@keyframes photoFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+}
+
+.profile-text {
+    flex: 1;
+    min-width: 230px;
+}
+
+.profile-tag {
+    display: inline-block;
+    padding: 9px 20px;
+    margin-bottom: 15px;
+
+    color: white;
+    background: #ffffff18;
+
+    border: 1px solid #ffffff55;
+    border-radius: 30px;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    box-shadow: 0 0 20px #c084fc66;
+    animation: tagGlow 2s infinite alternate;
+}
+
+@keyframes tagGlow {
+    to {
+        box-shadow: 0 0 30px #ec4899aa;
+    }
+}
+
+.profile-text h1 {
+    font-size: clamp(25px, 4vw, 40px);
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #e9d5ff,
+        #f0abfc,
+        #67e8f9
+    );
+
+    background-size: 250%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: textGradient 5s linear infinite;
+}
+
+@keyframes textGradient {
+    to { background-position: 250% center; }
+}
+
+.profile-text h3 {
+    color: #f0abfc;
+    font-size: 21px;
+}
+
+.profile-text p {
+    color: #e9d5ff;
+    line-height: 2;
+}
+
+/* =========================================
+   08. SECTION TITLES
+========================================= */
+
+.section-title {
+    color: #e9d5ff;
+    font-size: 24px;
+    font-weight: 700;
+
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #a855f755;
+
+    text-shadow: 0 0 15px #a855f7;
+}
+
+.section-title i {
+    color: #d8b4fe;
+    margin-right: 10px;
+
+    filter: drop-shadow(0 0 8px #a855f7);
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+
+    width: 90px;
+    height: 4px;
+
+    margin-top: 12px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #a855f7,
+        #ec4899,
+        #67e8f9
+    );
+
+    box-shadow: 0 0 15px #a855f7;
+}
+
+/* =========================================
+   09. INFO CARDS
+========================================= */
+
+.info-card {
+    position: relative;
+    overflow: hidden;
+
+    height: 100%;
+    padding: 27px;
+
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid #a855f744;
+    border-radius: 22px;
+
+    box-shadow: 0 10px 30px #00000033;
+
+    transition: .35s;
+}
+
+.info-card::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: -150%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff20,
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    transition: .8s;
+    pointer-events: none;
+}
+
+.info-card:hover::before {
+    left: 150%;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #d8b4fe;
+    box-shadow:
+        0 0 20px #9333ea55,
+        0 15px 40px #00000055;
+}
+
+.info-card h4 {
+    color: #e9d5ff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.info-card p,
+.info-card li {
+    color: #d8c7ed;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.info-card strong {
+    color: #f0abfc;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    color: white;
+    font-size: 22px;
+
+    border-radius: 15px;
+
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+
+    box-shadow: 0 0 20px #a855f777;
+}
+
+/* =========================================
+   10. EDUCATION
+========================================= */
+
+.edu-item {
+    padding: 8px 0 20px 22px;
+    margin-bottom: 18px;
+
+    border-left: 3px solid #a855f7;
+    position: relative;
+}
+
+.edu-item::before {
+    content: "";
+    position: absolute;
+
+    left: -8px;
+    top: 12px;
+
+    width: 13px;
+    height: 13px;
+
+    background: #d8b4fe;
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px #c084fc;
+}
+
+.edu-item h5 {
+    color: #e9d5ff;
+    font-weight: 700;
+}
+
+.edu-item span {
+    color: #e879f9;
+    font-size: 13px;
+}
+
+/* =========================================
+   11. SKILLS
+========================================= */
+
+.skill-item {
+    margin-bottom: 25px;
+}
+
+.skill-item p {
+    color: #f3e8ff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.skill-item i {
+    color: #d8b4fe;
+    margin-right: 7px;
+}
+
+.progress {
+    height: 12px;
+    overflow: hidden;
+
+    background: #ffffff17;
+    border-radius: 20px;
+}
+
+.progress-bar {
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #c026d3,
+        #ec4899
+    );
+
+    box-shadow: 0 0 15px #c084fc;
+    animation: progressGlow 2s infinite alternate;
+}
+
+@keyframes progressGlow {
+    to {
+        filter: brightness(1.5);
+    }
+}
+
+/* =========================================
+   12. HOBBIES
+========================================= */
+
+.hobby-card {
+    height: 100%;
+    padding: 28px 12px;
+
+    text-align: center;
+
+    background: var(--glass);
+    border: 1px solid #a855f744;
+    border-radius: 20px;
+
+    backdrop-filter: blur(12px);
+
+    transition: .35s;
+}
+
+.hobby-card:hover {
+    transform: translateY(-10px) scale(1.03);
+
+    box-shadow: 0 0 30px #9333ea77;
+    border-color: #e9d5ff;
+}
+
+.hobby-card i {
+    display: block;
+
+    color: #d8b4fe;
+    font-size: 38px;
+
+    margin-bottom: 15px;
+
+    filter: drop-shadow(0 0 12px #a855f7);
+}
+
+.hobby-card h5 {
+    color: #f0abfc;
+    font-size: 16px;
+}
+
+.hobby-card p {
+    color: #d8c7ed;
+}
+
+/* =========================================
+   13. CONTACT
+========================================= */
+
+.contact-panel {
+    position: relative;
+    overflow: hidden;
+
+    padding: 35px;
+
+    background: linear-gradient(
+        135deg,
+        #210b42,
+        #581c87,
+        #831b75
+    );
+
+    border: 1px solid #d8b4fe66;
+    border-radius: 25px;
+
+    box-shadow: 0 0 35px #9333ea44;
+}
+
+.contact-panel::after {
+    content: "✦  ✧  ✦";
+    position: absolute;
+
+    top: 15px;
+    right: 25px;
+
+    font-size: 30px;
+    color: #ffffff33;
+
+    animation: starBlink 3s infinite;
+}
+
+.contact-panel h3 {
+    color: white;
+}
+
+.contact-panel p {
+    color: #eadcff;
+    line-height: 1.9;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 15px;
+    margin-top: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    border: 1px solid #ffffff44;
+    border-radius: 15px;
+
+    background: #ffffff12;
+
+    transition: .3s;
+    overflow-wrap: anywhere;
+}
+
+.contact-link:hover {
+    color: white;
+    background: #ffffff25;
+    transform: translateX(6px);
+
+    box-shadow: 0 0 20px #c084fc55;
+}
+
+.contact-link > i:first-child {
+    color: #f0abfc;
+    font-size: 23px;
+    width: 30px;
+    text-align: center;
+}
+
+.contact-link small {
+    color: #e9d5ff;
+}
+
+.contact-note {
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* =========================================
+   14. FUTURE GOAL
+========================================= */
+
+.goal-box {
+    position: relative;
+    overflow: hidden;
+
+    padding: 38px;
+
+    background: linear-gradient(
+        120deg,
+        #4c1d95,
+        #7c3aed,
+        #a21caf,
+        #4c1d95
+    );
+
+    background-size: 300% 300%;
+
+    border: 1px solid #e9d5ff66;
+    border-radius: 25px;
+
+    box-shadow: 0 0 40px #9333ea44;
+
+    animation: goalGradient 10s ease infinite;
+}
+
+@keyframes goalGradient {
+    0%, 100% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.goal-box h3 {
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.goal-box p {
+    color: #f3e8ff;
+    line-height: 2;
+}
+
+/* =========================================
+   15. FOOTER
+========================================= */
+
+.footer {
+    margin-top: 50px;
+    padding: 30px 15px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        100deg,
+        #1a0731,
+        #4c1d95,
+        #701a75
+    );
+
+    border: 1px solid #c084fc55;
+    border-radius: 20px;
+
+    box-shadow: 0 0 25px #9333ea44;
+}
+
+.footer h5 {
+    color: #f5d0fe;
+    font-weight: 700;
+}
+
+.footer p {
+    margin: 6px;
+    color: #e9d5ff;
+    font-size: 13px;
+}
+
+.footer a {
+    color: white;
+}
+
+/* =========================================
+   16. SCROLL REVEAL
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   17. MOBILE
+========================================= */
+
+@media(max-width: 768px) {
 
     .sidebar {
-      width: 250px;
-      height: calc(100vh - 56px);
-      position: fixed;
-      top: 50px;
-      left: 0;
-      background: #343a40;
-      padding-top: 10px;
-      overflow-y: auto;
-      transition: left 0.3s ease;
-      z-index: 1040;
+        left: -260px;
     }
 
-    .sidebar a {
-      color: white;
-      display: block;
-      padding: 10px 15px;
-      text-decoration: none;
-      overflow-wrap: anywhere;
-    }
-
-    .sidebar a:hover,
-    .sidebar a.active {
-      background: #495057;
-    }
-
-    .sidebar.collapsed {
-      left: -250px;
+    .sidebar.active {
+        left: 0;
     }
 
     .content {
-      margin-left: 250px;
-      padding: 20px;
-      margin-top: 56px;
-      transition: margin-left 0.3s ease;
-    }
-
-    .content.expanded {
-      margin-left: 0;
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        left: -250px;
-      }
-
-      .sidebar.active {
-        left: 0;
-      }
-
-      .content {
         margin-left: 0;
-      }
+        padding: 16px;
     }
-  </style>
+
+    .profile-header {
+        padding: 30px 18px;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 190px;
+        height: 230px;
+    }
+
+    .profile-text h1 {
+        font-size: 25px;
+    }
+
+    .profile-text h3 {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .contact-panel {
+        padding: 22px;
+    }
+
+    .goal-box {
+        padding: 25px;
+    }
+
+    .navbar-brand {
+        font-size: 12px;
+    }
+
+    .lightning {
+        font-size: 50px;
+    }
+
+    .energy-ring {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* =========================================
+   18. ACCESSIBILITY
+========================================= */
+
+@media(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+</style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
-      <div class="d-flex align-items-center">
-        <button
-          type="button"
-          id="menuToggle"
-          class="btn btn-outline-light me-2"
-          onclick="toggleSidebar()"
-          aria-label="เปิดหรือปิดเมนู"
-          aria-controls="sidebar"
-          aria-expanded="true">
-          ☰
-        </button>
-        <span class="navbar-brand mb-0 h1">14 banthita | History of IT ปวส.1/1</span>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Sidebar -->
-  <div id="sidebar" class="sidebar">
+<!-- =====================================
+     COSMIC BACKGROUND ELEMENTS
+===================================== -->
+
+<div class="nebula"></div>
+
+<div class="energy-ring one"></div>
+<div class="energy-ring two"></div>
+
+<div class="lightning left">ϟ</div>
+<div class="lightning right">ϟ</div>
+
+<div class="flash-screen"></div>
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<nav class="navbar navbar-dark fixed-top">
+
+    <div class="container-fluid">
+
+        <div class="d-flex align-items-center">
+
+            <button
+                type="button"
+                id="menuToggle"
+                class="btn menu-btn me-3"
+                onclick="toggleSidebar()"
+                aria-label="เปิดหรือปิดเมนู"
+                aria-controls="sidebar"
+                aria-expanded="true">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <span class="navbar-brand mb-0">
+                <i class="fa-solid fa-bolt me-2"></i>
+                DIA | PURPLE GALAXY PORTFOLIO
+            </span>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- =====================================
+     SIDEBAR
+===================================== -->
+
+<div id="sidebar" class="sidebar">
+
+    <div class="sidebar-title">
+        <i class="fa-solid fa-users me-2"></i>
+        รายชื่อนักศึกษา IT ปวส.1/1
+    </div>
+
     <a href="kittipat.html">01 kittipat</a>
     <a href="kiattisak.html">02 kiattisak</a>
     <a href="khwan-khao.html">03 khwan khao</a>
@@ -111,7 +1425,13 @@
     <a href="nattanicha.html">11 nattanicha</a>
     <a href="thippapha.html">12 thippapha</a>
     <a href="thanaphat.html">13 thanaphat</a>
-    <a href="banthita.html">14 banthita</a>
+    <a href="banthita.html" class="active">14 banthita</a>
+
+    <a href="#contact">
+        <i class="fa-solid fa-address-book me-2"></i>
+        ช่องทางการติดต่อ
+    </a>
+
     <a href="panachai.html">15 panachai</a>
     <a href="parichaya.html">16 parichaya</a>
     <a href="premruethai.html">17 premruethai</a>
@@ -123,59 +1443,1077 @@
     <a href="suchat.html">23 suchat</a>
     <a href="suchada.html">24 suchada</a>
     <a href="suchanat.html">25 suchanat</a>
+
+</div>
+
+<!-- =====================================
+     MAIN CONTENT
+===================================== -->
+
+<main class="content">
+
+    <!-- HERO PROFILE -->
+
+    <section class="profile-header reveal">
+
+        <img
+            src="imgs/banthita.png"
+            alt="รูปโปรไฟล์บัณฑิตา"
+            class="profile-image">
+
+        <div class="profile-text">
+
+            <span class="profile-tag">
+                <i class="fa-solid fa-sparkles me-2"></i>
+                WELCOME TO MY UNIVERSE
+            </span>
+
+            <h1>นางสาวบัณฑิตา สาเมาะ</h1>
+
+            <h3>ชื่อเล่น : เดีย</h3>
+
+            <p>
+                นักศึกษาสาขาเทคโนโลยีสารสนเทศ
+                วิทยาลัยเทคนิคน่าน
+                ระดับประกาศนียบัตรวิชาชีพชั้นสูง
+                ชั้นปีที่ 1
+            </p>
+
+            <p>
+                <i class="fa-solid fa-graduation-cap"></i>
+                IT STUDENT | ปวส.1/1 | เลขที่ 015
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="content-section reveal" id="about">
+
+        <h3 class="section-title">
+            <i class="fa-solid fa-user-astronaut"></i>
+            ประวัติส่วนตัว
+        </h3>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+
+                    <h4>ข้อมูลทั่วไป</h4>
+
+                    <p><strong>ชื่อ-นามสกุล :</strong> นางสาวบัณฑิตา สาเมาะ</p>
+                    <p><strong>ชื่อเล่น :</strong> เดีย</p>
+                    <p><strong>รหัสนักเรียน :</strong> 69319010015</p>
+                    <p><strong>ระดับชั้น :</strong> ปวส.1/1</p>
+                    <p><strong>เลขที่ :</strong> 015</p>
+                    <p><strong>สาขาวิชา :</strong> เทคโนโลยีสารสนเทศ</p>
+                    <p><strong>สถานศึกษา :</strong> วิทยาลัยเทคนิคน่าน</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <h4>เกี่ยวกับฉัน</h4>
+
+                    <p>
+                        ฉันเป็นนักศึกษาที่มีความสนใจด้านคอมพิวเตอร์
+                        เทคโนโลยีสารสนเทศ และการออกแบบเว็บไซต์
+                        ชอบเรียนรู้สิ่งใหม่ ๆ และทดลองใช้เครื่องมือ
+                        เทคโนโลยีต่าง ๆ เพื่อนำมาประยุกต์ใช้ในการเรียน
+                        และสร้างสรรค์ผลงานของตนเอง
+                    </p>
+
+                    <p>
+                        ฉันให้ความสำคัญกับการพัฒนาความรู้
+                        และทักษะอยู่เสมอ เพราะเชื่อว่าการเรียนรู้
+                        และการลงมือปฏิบัติจริงจะช่วยให้สามารถ
+                        เติบโตและก้าวไปสู่เป้าหมายในอนาคตได้
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section class="content-section reveal">
+
+        <h3 class="section-title">
+            <i class="fa-solid fa-graduation-cap"></i>
+            ประวัติการศึกษา
+        </h3>
+
+        <div class="info-card">
+
+            <div class="edu-item">
+
+                <span>ระดับประถมศึกษา</span>
+
+                <h5>โรงเรียนซินจง</h5>
+
+                <p>ศึกษาและพัฒนาความรู้พื้นฐานในระดับประถมศึกษา</p>
+
+            </div>
+
+            <div class="edu-item">
+
+                <span>ระดับมัธยมศึกษาตอนต้น</span>
+
+                <h5>โรงเรียนน่านนคร</h5>
+
+                <p>เรียนรู้รายวิชาต่าง ๆ และพัฒนาทักษะการใช้ชีวิต</p>
+
+            </div>
+
+            <div class="edu-item">
+
+                <span>ระดับประกาศนียบัตรวิชาชีพ (ปวช.)</span>
+
+                <h5>วิทยาลัยเทคนิคน่าน</h5>
+
+                <p>เริ่มต้นศึกษาด้านวิชาชีพและพัฒนาทักษะทางเทคโนโลยี</p>
+
+            </div>
+
+            <div class="edu-item">
+
+                <span>ระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</span>
+
+                <h5>วิทยาลัยเทคนิคน่าน</h5>
+
+                <p>กำลังศึกษาอยู่ระดับ ปวส.1 สาขาเทคโนโลยีสารสนเทศ</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section class="content-section reveal">
+
+        <h3 class="section-title">
+            <i class="fa-solid fa-laptop-code"></i>
+            ทักษะและความสามารถ
+        </h3>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="skill-item">
+
+                        <p>
+                            <i class="fa-solid fa-file-word"></i>
+                            Microsoft Office
+                        </p>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:75%"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="skill-item">
+
+                        <p>
+                            <i class="fa-solid fa-palette"></i>
+                            Canva และกราฟิก
+                        </p>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:80%"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="skill-item">
+
+                        <p>
+                            <i class="fa-solid fa-code"></i>
+                            HTML และ CSS
+                        </p>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:65%"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="skill-item">
+
+                        <p>
+                            <i class="fa-solid fa-robot"></i>
+                            AI Tools
+                        </p>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:75%"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="skill-item">
+
+                        <p>
+                            <i class="fa-solid fa-video"></i>
+                            การตัดต่อวิดีโอ
+                        </p>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:60%"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="skill-item">
+
+                        <p>
+                            <i class="fa-solid fa-globe"></i>
+                            Internet & Digital Media
+                        </p>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:75%"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="text-center mt-3 small" style="color:#d8b4fe">
+           
+        </p>
+
+    </section>
+
+    <!-- HOBBIES -->
+
+    <section class="content-section reveal">
+
+        <h3 class="section-title">
+            <i class="fa-solid fa-star"></i>
+            งานอดิเรกและความสนใจ
+        </h3>
+
+        <div class="row g-3">
+
+            <div class="col-6 col-md-3">
+
+                <div class="hobby-card">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <h5>เล่นเกมมือถือ</h5>
+
+                    <p class="small">พักผ่อนและความบันเทิง</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <div class="hobby-card">
+
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+
+                    <h5>แบดมินตัน</h5>
+
+                    <p class="small">เล่นกีฬาและออกกำลังกาย</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <div class="hobby-card">
+
+                    <i class="fa-solid fa-film"></i>
+
+                    <h5>หนังแฟนตาซี</h5>
+
+                    <p class="small">ชมภาพยนตร์และความบันเทิง</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <div class="hobby-card">
+
+                    <i class="fa-solid fa-computer"></i>
+
+                    <h5>เทคโนโลยี</h5>
+
+                    <p class="small">เรียนรู้สิ่งใหม่ ๆ</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section class="content-section reveal" id="projects">
+
+        <h3 class="section-title">
+            <i class="fa-solid fa-folder-open"></i>
+            ผลงานและประสบการณ์
+        </h3>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                    <h4>การออกแบบเว็บไซต์</h4>
+
+                    <p>
+                        ฝึกสร้างและตกแต่งเว็บไซต์ด้วย HTML และ CSS
+                        เรียนรู้การจัดวางองค์ประกอบ การเลือกใช้สี
+                        และการออกแบบหน้าเว็บไซต์ให้เหมาะสมกับผู้ใช้งาน
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+
+                    <h4>โครงงานเทคโนโลยี</h4>
+
+                    <p>
+                        สนใจการสร้างสรรค์โครงงานด้วยเทคโนโลยี
+                        เช่น อุปกรณ์อัจฉริยะและการประยุกต์ใช้
+                        ไมโครคอนโทรลเลอร์ เพื่อแก้ไขปัญหา
+                        และเพิ่มความสะดวกในชีวิตประจำวัน
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+
+                    <h4>งานออกแบบกราฟิก</h4>
+
+                    <p>
+                        ฝึกสร้างสื่อประชาสัมพันธ์ อินโฟกราฟิก
+                        และงานนำเสนอด้วย Canva
+                        เพื่อพัฒนาความคิดสร้างสรรค์
+                        และทักษะการสื่อสารด้วยภาพ
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <h4>การใช้ AI Tools</h4>
+
+                    <p>
+                        เรียนรู้การนำเครื่องมือ AI มาช่วยในการค้นคว้า
+                        วางแผนการทำงาน และสร้างสรรค์ผลงาน
+                        ด้านเทคโนโลยีและสื่อดิจิทัล
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="content-section reveal" id="contact">
+
+        <h3 class="section-title">
+            <i class="fa-solid fa-address-book"></i>
+            ช่องทางการติดต่อ
+        </h3>
+
+        <div class="contact-panel">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-lg-5">
+
+                    <span class="badge rounded-pill text-bg-light mb-3 px-3 py-2"
+                          style="color:#6d28d9!important">
+
+                        <i class="fa-solid fa-circle-check me-1"></i>
+                        LET'S CONNECT
+
+                    </span>
+
+                    <h3 class="fw-bold">
+                        มาพูดคุยหรือร่วมสร้างสรรค์ผลงานกัน!
+                    </h3>
+
+                    <p class="mb-0">
+
+                        ยินดีติดต่อพูดคุยเกี่ยวกับการเรียนรู้
+                        เทคโนโลยี การออกแบบเว็บไซต์
+                        และผลงานสร้างสรรค์ด้านดิจิทัล
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-7">
+
+                    <a class="contact-link"
+                       href="mailto:banthitasamea1@gmail.com">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <span>
+                            <small class="d-block">EMAIL</small>
+                            <strong>banthitasamea1@gmail.com</strong>
+                        </span>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
+
+                    </a>
+
+                    <div class="contact-link">
+
+                        <i class="fa-solid fa-user-graduate"></i>
+
+                        <span>
+                            <small class="d-block">EDUCATION</small>
+                            <strong>IT Student | วิทยาลัยเทคนิคน่าน</strong>
+                        </span>
+
+                    </div>
+
+    <!-- PHONE CONTACT CARD -->
+
+<div class="contact-phone">
+
+    <div class="phone-icon">
+        <i class="fa-solid fa-phone-volume"></i>
+    </div>
+
+    <div class="phone-info">
+
+        <span class="phone-label">
+            CONTACT PHONE
+        </span>
+
+        <a href="tel:0649835073" class="phone-number">
+            064-983-5073
+        </a>
+
+        <small>
+            <i class="fa-solid fa-circle-check me-1"></i>
+            ติดต่อสอบถามเพิ่มเติม
+        </small>
+
+    </div>
+</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+   
+<section class="about-section" id="about">
+  <div class="about-container">
+
+    <!-- หัวข้อหลัก -->
+    <div class="section-heading">
+      <span class="section-tag">ABOUT ME</span>
+      <h2>เกี่ยวกับ<span>ฉัน</span></h2>
+      <div class="heading-line"></div>
+      <p>ตัวตน ความสามารถ และเป้าหมายในอนาคต</p>
+    </div>
+
+    <!-- แนะนำตัว -->
+    <div class="about-card">
+      <div class="card-icon">✦</div>
+      <h3>เป้าหมายและความมุ่งมั่น</h3>
+      <p>
+        ฉันมีความมุ่งมั่นที่จะพัฒนาความรู้และทักษะด้านเทคโนโลยีสารสนเทศ
+        โดยเฉพาะด้านการออกแบบและพัฒนาเว็บไซต์ เพื่อสร้างสรรค์ผลงาน
+        ที่มีความสวยงาม ทันสมัย ใช้งานง่าย และตอบสนองต่อความต้องการ
+        ของผู้ใช้งาน
+      </p>
+    </div>
+
+    <!-- ทักษะ -->
+    <div class="skills-area">
+      <div class="sub-heading">
+        <span>MY SKILLS</span>
+        <h3>ทักษะและความสามารถ</h3>
+        <p>ความรู้และเครื่องมือดิจิทัลที่สามารถนำมาประยุกต์ใช้ในการทำงาน</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-icon">🌐</div>
+          <h4>HTML & CSS</h4>
+          <p>พื้นฐานการสร้างและตกแต่งเว็บไซต์</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">🎨</div>
+          <h4>Canva Design</h4>
+          <p>ออกแบบกราฟิกและสื่อดิจิทัล</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">💻</div>
+          <h4>Microsoft Office</h4>
+          <p>ใช้งานโปรแกรมสำนักงาน</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">🎬</div>
+          <h4>Video Editing</h4>
+          <p>ตัดต่อวิดีโอเบื้องต้น</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">🤖</div>
+          <h4>AI Tools</h4>
+          <p>ประยุกต์ใช้ AI เพื่อสร้างสรรค์ผลงาน</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- เป้าหมาย -->
+    <div class="goal-card">
+      <div class="goal-icon">🚀</div>
+      <div class="goal-content">
+        <span>MY FUTURE GOALS</span>
+        <h3>เป้าหมายในอนาคต</h3>
+        <p>
+          ฉันมีเป้าหมายที่จะประกอบอาชีพอิสระ โดยนำความรู้และทักษะ
+          ที่ได้รับจากการศึกษามาต่อยอดเป็นงานรับออกแบบและพัฒนาเว็บไซต์
+          รวมถึงงานสร้างสรรค์ด้านดิจิทัล พร้อมเปิดรับการเรียนรู้เทคโนโลยีใหม่ ๆ
+          และพัฒนาศักยภาพของตนเองอย่างต่อเนื่อง เพื่อสร้างผลงานที่มีคุณภาพ
+          สร้างความน่าเชื่อถือ และเติบโตในสายอาชีพด้วยความสามารถของตนเอง
+        </p>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <!-- Content -->
-  <main class="content">
-    <h2>banthita</h2>
-    <p>รหัสนักเรียน: 69319010015</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-  </main>
+<style>
+.about-section {
+  padding: 85px 20px;
+  background: linear-gradient(135deg, #100c24, #1b1038, #100c24);
+  color: #fff;
+  font-family: 'Sarabun', sans-serif;
+}
 
-  <!-- JavaScript -->
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
+.about-container {
+  max-width: 1100px;
+  margin: auto;
+}
 
-      if (window.innerWidth <= 768) {
-        sidebar.classList.toggle("active");
-        button.setAttribute(
-          "aria-expanded",
-          sidebar.classList.contains("active")
-        );
-      } else {
-        sidebar.classList.toggle("collapsed");
-        content.classList.toggle("expanded");
-        button.setAttribute(
-          "aria-expanded",
-          !sidebar.classList.contains("collapsed")
-        );
-      }
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-tag,
+.sub-heading span,
+.goal-content span {
+  color: #c084fc;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.section-heading h2 {
+  font-size: 38px;
+  margin: 12px 0;
+}
+
+.section-heading h2 span {
+  color: #c084fc;
+  margin-left: 10px;
+}
+
+.heading-line {
+  width: 75px;
+  height: 4px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  margin: 15px auto;
+}
+
+.section-heading p,
+.sub-heading p {
+  color: #bdb2d4;
+}
+
+.about-card,
+.goal-card {
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(192,132,252,0.25);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 35px;
+  transition: 0.3s;
+}
+
+.about-card:hover,
+.goal-card:hover {
+  border-color: #c084fc;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(168,85,247,0.15);
+}
+
+.card-icon {
+  font-size: 30px;
+  color: #d8b4fe;
+}
+
+.about-card h3,
+.goal-card h3 {
+  font-size: 23px;
+  color: #e9d5ff;
+  margin: 12px 0;
+}
+
+.about-card p,
+.goal-card p {
+  color: #d2c9e0;
+  line-height: 2;
+  font-size: 16px;
+  margin: 0;
+}
+
+.sub-heading {
+  margin-bottom: 25px;
+}
+
+.sub-heading h3 {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.skill-item {
+  text-align: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(192,132,252,0.2);
+  border-radius: 18px;
+  padding: 25px 15px;
+  transition: 0.3s;
+}
+
+.skill-item:hover {
+  transform: translateY(-8px);
+  background: rgba(168,85,247,0.15);
+  border-color: #c084fc;
+  box-shadow: 0 8px 25px rgba(168,85,247,0.15);
+}
+
+.skill-icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.skill-item h4 {
+  color: #e9d5ff;
+  font-size: 17px;
+  margin: 8px 0;
+}
+
+.skill-item p {
+  color: #bdb2d4;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.goal-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  background: linear-gradient(
+    120deg,
+    rgba(126,34,206,0.2),
+    rgba(30,20,60,0.7)
+  );
+}
+
+.goal-icon {
+  font-size: 42px;
+}
+
+.goal-content {
+  flex: 1;
+}
+
+.goal-content h3 {
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 55px 15px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .about-card,
+  .goal-card {
+    padding: 22px;
+  }
+
+  .goal-card {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+</style>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer reveal">
+
+        <h5>
+            <i class="fa-solid fa-heart"></i>
+            นางสาวบัณฑิตา สาเมาะ (เดีย)
+        </h5>
+
+        <p>วิทยาลัยเทคนิคน่าน | สาขาเทคโนโลยีสารสนเทศ</p>
+
+        <p>ปวส.1/1 เลขที่ 015</p>
+
+        <p>
+            © 2026 DIA PURPLE GALAXY PORTFOLIO
+        </p>
+
+        <p>
+            <a href="mailto:banthitasamea1@gmail.com">
+                banthitasamea1@gmail.com
+            </a>
+        </p>
+
+    </footer>
+
+</main>
+
+<!-- =====================================
+     JAVASCRIPT EFFECT ENGINE
+===================================== -->
+
+<script>
+  
+
+// ========================================
+// 1. CREATE STARS
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!reduceMotion) {
+
+        // ดาวระยิบระยับ
+        for (let i = 0; i < 90; i++) {
+
+            const star = document.createElement("span");
+
+            star.className = "star";
+
+            star.textContent =
+                Math.random() > 0.5 ? "✦" : "·";
+
+            star.style.left =
+                Math.random() * 100 + "vw";
+
+            star.style.top =
+                Math.random() * 100 + "vh";
+
+            star.style.fontSize =
+                (4 + Math.random() * 12) + "px";
+
+            star.style.animationDuration =
+                (2 + Math.random() * 4) + "s";
+
+            star.style.animationDelay =
+                (-Math.random() * 5) + "s";
+
+            document.body.appendChild(star);
+
+        }
+
+        // ดาวตก
+        function createMeteor() {
+
+            const meteor = document.createElement("div");
+
+            meteor.className = "meteor";
+
+            meteor.style.left =
+                (30 + Math.random() * 100) + "vw";
+
+            meteor.style.animationDuration =
+                (2.5 + Math.random() * 3) + "s";
+
+            document.body.appendChild(meteor);
+
+            meteor.addEventListener("animationend", function() {
+                meteor.remove();
+            });
+
+        }
+
+        // สร้างดาวตกทุก 900 มิลลิวินาที
+        setInterval(createMeteor, 900);
+
+        // ดาวตกเริ่มต้น
+        for (let i = 0; i < 4; i++) {
+            setTimeout(createMeteor, i * 500);
+        }
+
     }
 
-    // ปรับสถานะเมนูเมื่อเปลี่ยนขนาดหน้าจอ
-    window.addEventListener("resize", function () {
-      const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
+    // ====================================
+    // 2. SCROLL REVEAL
+    // ====================================
 
-      if (window.innerWidth <= 768) {
+    const revealItems =
+        document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.08
+            }
+        );
+
+        revealItems.forEach(function(item) {
+            observer.observe(item);
+        });
+
+    } else {
+
+        revealItems.forEach(function(item) {
+            item.classList.add("show");
+        });
+
+    }
+
+});
+
+// ========================================
+// 3. SIDEBAR TOGGLE
+// ========================================
+
+function toggleSidebar() {
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    const content =
+        document.querySelector(".content");
+
+    const button =
+        document.getElementById("menuToggle");
+
+    if (window.innerWidth <= 768) {
+
+        sidebar.classList.toggle("active");
+
+        button.setAttribute(
+            "aria-expanded",
+            sidebar.classList.contains("active")
+        );
+
+    } else {
+
+        sidebar.classList.toggle("collapsed");
+
+        content.classList.toggle("expanded");
+
+        button.setAttribute(
+            "aria-expanded",
+            !sidebar.classList.contains("collapsed")
+        );
+
+    }
+
+}
+
+// ========================================
+// 4. RESPONSIVE SIDEBAR
+// ========================================
+
+window.addEventListener("resize", function() {
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    const content =
+        document.querySelector(".content");
+
+    const button =
+        document.getElementById("menuToggle");
+
+    if (window.innerWidth <= 768) {
+
         sidebar.classList.remove("collapsed");
-        content.classList.remove("expanded");
-        button.setAttribute("aria-expanded", sidebar.classList.contains("active"));
-      } else {
-        sidebar.classList.remove("active");
-        button.setAttribute("aria-expanded", !sidebar.classList.contains("collapsed"));
-      }
-    });
-  </script>
 
-  <!-- Bootstrap JavaScript -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+        content.classList.remove("expanded");
+
+        button.setAttribute(
+            "aria-expanded",
+            sidebar.classList.contains("active")
+        );
+        
+
+    } else {
+
+        sidebar.classList.remove("active");
+
+        button.setAttribute(
+            "aria-expanded",
+            !sidebar.classList.contains("collapsed")
+        );
+
+    }
+
+});
+
+// ========================================
+// 5. CLOSE MOBILE MENU AFTER CLICK
+// ========================================
+
+document.querySelectorAll(".sidebar a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        if (window.innerWidth <= 768) {
+
+            document
+                .getElementById("sidebar")
+                .classList.remove("active");
+
+            document
+                .getElementById("menuToggle")
+                .setAttribute("aria-expanded", "false");
+                
+
+        }
+        
+
+    });
+
+});
+
+</script>
+
+<!-- BOOTSTRAP JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
