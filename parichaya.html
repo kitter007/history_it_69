@@ -123,27 +123,34 @@
     <h2>parichaya</h2>
     <p>รหัสนักเรียน: 69319010017</p>
     <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
+
     <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
+
     <section class="profile-card">
 
-      <img src="parichaya/p.jpg" alt="รูปโปรไฟล์">
-
-      <h1>ประวัติส่วนตัว</h1>
-
-      <div class="info">
-        <strong>ชื่อ :</strong> นางสาวปริชญา เรืองตื้อ
+      <div class="profile-header">
+        <img src="parichaya/p.jpg" alt="รูปโปรไฟล์">
+        <h1>ประวัติส่วนตัว</h1>
+        <p class="subtitle">Welcome to my world ♡</p>
       </div>
 
       <div class="info">
-        <strong>วันเกิด :</strong> 9 ตุลาคม 2007
+        <strong>👤 ชื่อ :</strong>
+        นางสาวปริชญา เรืองตื้อ
       </div>
 
       <div class="info">
-        <strong>อายุ :</strong> 19 ปี
+        <strong>🎂 วันเกิด :</strong>
+        9 ตุลาคม 2007
+      </div>
+
+      <div class="info">
+        <strong>🌷 อายุ :</strong>
+        19 ปี
       </div>
 
       <div class="info interest">
-        <strong>ความสนใจ :</strong>
+        <strong>💜 ความสนใจ :</strong>
         <ul>
           <li>🎨 การวาดรูป</li>
           <li>🎬 การทำแอนิเมชัน</li>
@@ -158,64 +165,111 @@
       </p>
 
     </section>
-    <style>
-      main {
-        min-height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 30px;
-        background: linear-gradient(135deg, #eee5ff, #fce8f5);
-      }
+  </main>
 
+  <style>
+    main.content {
+      min-height: 80vh;
+      padding: 35px 20px;
+      background: linear-gradient(135deg, #eee5ff, #fce8f5);
+      text-align: center;
+    }
+
+    main.content>h2 {
+      color: #7952a5;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    main.content>p {
+      color: #79688b;
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.95);
+      width: 100%;
+      max-width: 600px;
+      margin: 35px auto;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(120, 80, 160, 0.18);
+      border: 2px solid #f1e5ff;
+    }
+
+    .profile-header img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #d9c2ff;
+      padding: 4px;
+      background: #fff0fa;
+      box-shadow: 0 5px 18px rgba(150, 100, 190, 0.2);
+    }
+
+    .profile-header h1 {
+      color: #7952a5;
+      margin: 20px 0 5px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: #b18bc9;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .info {
+      background: linear-gradient(120deg, #f8f3ff, #fff2f8);
+      padding: 16px 20px;
+      border-radius: 14px;
+      margin: 14px 0;
+      text-align: left;
+      color: #514263;
+      line-height: 1.8;
+      border-left: 5px solid #c9a7ed;
+      transition: 0.3s;
+    }
+
+    .info:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(150, 100, 190, 0.12);
+    }
+
+    .info strong {
+      color: #8b62bd;
+    }
+
+    .info ul {
+      padding-left: 25px;
+      margin-bottom: 5px;
+    }
+
+    .info li {
+      padding: 5px 0;
+      color: #695779;
+    }
+
+    .footer {
+      margin-top: 30px;
+      color: #a18ab8;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
       .profile-card {
-        background: white;
-        width: 100%;
-        max-width: 650px;
-        padding: 40px;
-        border-radius: 25px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(120, 80, 160, 0.15);
+        padding: 25px 18px;
       }
 
-      .profile-card img {
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 6px solid #d9c2ff;
-        margin-bottom: 20px;
+      .profile-header img {
+        width: 150px;
+        height: 150px;
       }
+    }
+  </style>
 
-      .profile-card h1 {
-        color: #7952a5;
-        margin-bottom: 25px;
-      }
-
-      .info {
-        background: #f8f3ff;
-        padding: 15px;
-        border-radius: 12px;
-        margin: 12px 0;
-        text-align: left;
-        color: #514263;
-        line-height: 1.8;
-      }
-
-      .info strong {
-        color: #8b62bd;
-      }
-
-      .info ul {
-        padding-left: 25px;
-      }
-
-      .footer {
-        margin-top: 25px;
-        color: #a18ab8;
-        font-size: 14px;
-      }
-    </style>
   </main>
 
   <!-- JavaScript -->
