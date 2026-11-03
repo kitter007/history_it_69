@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>08 chutikarn | History of IT ปวส.1/1</title>
+  <title>14 chutikan | History of IT ปวส.1/1</title>
 
   <!-- Bootstrap 5 -->
   <link
@@ -91,7 +91,7 @@
           aria-expanded="true">
           ☰
         </button>
-        <span class="navbar-brand mb-0 h1">08 chutikarn | History of IT ปวส.1/1</span>
+        <span class="navbar-brand mb-0 h1">08 chutikan | History of IT ปวส.1/1</span>
       </div>
     </div>
   </nav>
@@ -125,57 +125,309 @@
     <a href="suchanat.html">25 suchanat</a>
   </div>
 
-  <!-- Content -->
-  <main class="content">
-    <h2>chutikarn</h2>
-    <p>รหัสนักเรียน: 69319010008</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-  </main>
+  
+<!-- Content -->
+<main class="content">
 
-  <!-- JavaScript -->
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
-
-      if (window.innerWidth <= 768) {
-        sidebar.classList.toggle("active");
-        button.setAttribute(
-          "aria-expanded",
-          sidebar.classList.contains("active")
-        );
-      } else {
-        sidebar.classList.toggle("collapsed");
-        content.classList.toggle("expanded");
-        button.setAttribute(
-          "aria-expanded",
-          !sidebar.classList.contains("collapsed")
-        );
-      }
+  <style>
+    .profile-page {
+      color: #52748D;
     }
 
-    // ปรับสถานะเมนูเมื่อเปลี่ยนขนาดหน้าจอ
-    window.addEventListener("resize", function () {
-      const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
+    .welcome-box {
+      background: linear-gradient(135deg, #BDE3F8, #E5F5FF, #D6ECFF);
+      border-radius: 25px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 25px;
+      box-shadow: 0 5px 20px #D5EAF6;
+    }
+
+    .welcome-box h1 {
+      color: #4D85A9;
+      font-weight: 600;
+    }
+
+    .welcome-box h2 {
+      color: #659FC3;
+    }
+
+    .profile-picture {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 7px solid white;
+      box-shadow: 0 5px 15px #AFCFE3;
+    }
+
+    .section-heading {
+      color: #538BB3;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .profile-card {
+      background: white;
+      border: 1px solid #DCEFFA;
+      border-radius: 20px;
+      padding: 25px;
+      height: 100%;
+      box-shadow: 0 5px 15px #E1EFF8;
+      transition: 0.3s;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px #C9E5F5;
+    }
+
+    .profile-card h4 {
+      color: #619BC1;
+      margin-bottom: 15px;
+    }
+
+    .hobby-icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: #E1F2FC;
+      color: #5288AC;
+      padding: 9px 18px;
+      border-radius: 25px;
+      margin: 5px;
+    }
+
+    .contact-box {
+      background: #F0F9FF;
+      padding: 13px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .profile-footer {
+      background: linear-gradient(90deg, #BDE3F8, #DCEFFF);
+      color: #52748D;
+      text-align: center;
+      padding: 25px;
+      border-radius: 18px;
+      margin-top: 35px;
+    }
+
+    @media(max-width:768px) {
+      .welcome-box {
+        padding: 25px 15px;
+        text-align: center;
+      }
+
+      .profile-picture {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+
+  <div class="profile-page">
+
+    <!-- หน้าแรก -->
+    <section class="welcome-box" id="home">
+
+      <div>
+        <h1>ข้อมูลส่วนตัว </h1>
+
+        <h2>ชุติกาญจน์ กิตินันท์</h2>
+
+        <h4>Chutikarn Kittinan</h4>
+
+        <p>นักเรียนสาขาเทคโนโลยีสารสนเทศ</p>
+
+        <p>ยินดีต้อนรับเข้าสู่เว็บไซต์แนะนำตัวเอง</p>
+
+        <a href="#about" class="btn btn-info text-white rounded-pill px-4">
+          รู้จักฉันเพิ่มเติม ♡
+        </a>
+      </div>
+
+      <img src="profile.jpg"
+           class="profile-picture"
+           alt="รูปโปรไฟล์">
+
+    </section>
+
+    <!-- ประวัติส่วนตัว -->
+    <section class="mt-5" id="about">
+
+      <h3 class="section-heading">🌷 ประวัติส่วนตัว</h3>
+
+      <div class="row g-4">
+
+        <div class="col-md-6">
+          <div class="profile-card">
+
+            <h4>ข้อมูลส่วนตัว</h4>
+
+            <p>ชื่อ-นามสกุล : ชุติกาญจน์ กิตินันท์</p>
+            <p>ชื่อเล่น : นา</p>
+            <p>รหัสนักเรียน : 69319010008</p>
+            <p>ระดับชั้น : ปวส.1/1</p>
+            <p>สาขาวิชา : เทคโนโลยีสารสนเทศ</p>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="profile-card">
+
+            <h4>🌸 เกี่ยวกับฉัน</h4>
+
+            <p>
+              เป็นคนเป็นมิตร มีความรับผิดชอบ
+              ชอบเรียนรู้สิ่งใหม่ ๆ สนใจด้านเทคโนโลยี
+              คอมพิวเตอร์ และการพัฒนาเว็บไซต์
+              พร้อมพัฒนาตนเองอยู่เสมอ
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ประวัติการศึกษา -->
+    <section class="mt-5" id="education">
+
+      <h3 class="section-heading">🎓 ประวัติการศึกษา</h3>
+
+      <div class="profile-card">
+
+        <div class="hobby-icon">🏫</div>
+
+        <h4>วิทยาลัยเทคนิคน่าน</h4>
+
+        <p>แผนกวิชาเทคโนโลยีสารสนเทศ</p>
+
+        <p>ระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</p>
+
+        <p>กำลังศึกษาอยู่ระดับชั้น ปวส.1/1</p>
+
+      </div>
+
+    </section>
+
+    <!-- งานอดิเรก -->
+    <section class="mt-5" id="hobby">
+
+      <h3 class="section-heading">🎨 งานอดิเรก</h3>
+
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="profile-card text-center">
+
+            <div class="hobby-icon">🎵</div>
+
+            <h4>ฟังเพลง</h4>
+
+            <p>ฟังเพลงในเวลาว่าง</p>
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="profile-card text-center">
+
+            <div class="hobby-icon">📱</div>
+
+            <h4>เล่นโซเชียล</h4>
+
+            <p>ติดตามข่าวสาร</p>
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="profile-card text-center">
+
+            <div class="hobby-icon">🎬</div>
+
+            <h4>ดูหนัง</h4>
+
+            <p>ชอบดูเวลาว่าง</p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ติดต่อ -->
+    <section class="mt-5" id="contact">
+
+      <h3 class="section-heading">📞 ช่องทางการติดต่อ</h3>
+
+      <div class="profile-card">
+
+        <div class="contact-box">
+          📧 Email : chutikarnkitinan07@gmail.com
+        </div>
+
+        <div class="contact-box">
+          📱 Facebook : Chutikan Kitinun
+        </div>
+
+        <div class="contact-box">
+          📷 Instagram : chutikan____
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="profile-footer">
+
+      <h5>THANK YOU FOR VISITING </h5>
+
+      <p>ขอบคุณที่เข้ามาเยี่ยมชมเว็บไซต์ของฉัน</p>
+
+      <p>© 2026 Chutikarn Kittinan</p>
+
+    </footer>
+
+  </div>
+
+</main>
+
+<!-- JavaScript -->
+<script>
+  // คลิกเมนูแล้วเลื่อนไปยังหัวข้อ
+  document.querySelectorAll(".sidebar a").forEach(link => {
+
+    link.addEventListener("click", function() {
+
+      document.querySelectorAll(".sidebar a")
+        .forEach(a => a.classList.remove("active"));
+
+      this.classList.add("active");
 
       if (window.innerWidth <= 768) {
-        sidebar.classList.remove("collapsed");
-        content.classList.remove("expanded");
-        button.setAttribute("aria-expanded", sidebar.classList.contains("active"));
-      } else {
-        sidebar.classList.remove("active");
-        button.setAttribute("aria-expanded", !sidebar.classList.contains("collapsed"));
+        document.getElementById("sidebar")
+          .classList.remove("active");
       }
-    });
-  </script>
 
-  <!-- Bootstrap JavaScript -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+    });
+
+  });
+</script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
 </body>
 </html>
