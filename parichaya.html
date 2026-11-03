@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="th">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>16 parichaya | History of IT ปวส.1/1</title>
 
   <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     body {
@@ -81,14 +80,8 @@
   <nav class="navbar navbar-dark bg-primary fixed-top">
     <div class="container-fluid">
       <div class="d-flex align-items-center">
-        <button
-          type="button"
-          id="menuToggle"
-          class="btn btn-outline-light me-2"
-          onclick="toggleSidebar()"
-          aria-label="เปิดหรือปิดเมนู"
-          aria-controls="sidebar"
-          aria-expanded="true">
+        <button type="button" id="menuToggle" class="btn btn-outline-light me-2" onclick="toggleSidebar()"
+          aria-label="เปิดหรือปิดเมนู" aria-controls="sidebar" aria-expanded="true">
           ☰
         </button>
         <span class="navbar-brand mb-0 h1">16 parichaya | History of IT ปวส.1/1</span>
@@ -127,20 +120,102 @@
 
   <!-- Content -->
   <main class="content">
-    <center>
-      <h2>parichaya</h2>
+    <h2>parichaya</h2>
     <p>รหัสนักเรียน: 69319010017</p>
     <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
     <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-     <img src="parichaya/p.jpg">
-     <h1>ประวัติส่วนตัว</h1>
-     <h2>ชื่อ : นางสาวปริชญา เรืองตื้อ</h2>
-     <h2>วัน-เดือน-ปี : 9-10-2007</h2>
-     <h2>อายุ : 19 ปี</h2>
-     <h2>ความสนใจ : การวาดรูป การทำอนิเมชั่น และสนใจศาสตร์เกี่ยวกับสิ่งเหนือธรรมชาติ อนิเมะ ประวัติศาสตร์</h2>
-     <h2></h2>
-    </center>
-    
+    <section class="profile-card">
+
+      <img src="parichaya/p.jpg" alt="รูปโปรไฟล์">
+
+      <h1>ประวัติส่วนตัว</h1>
+
+      <div class="info">
+        <strong>ชื่อ :</strong> นางสาวปริชญา เรืองตื้อ
+      </div>
+
+      <div class="info">
+        <strong>วันเกิด :</strong> 9 ตุลาคม 2007
+      </div>
+
+      <div class="info">
+        <strong>อายุ :</strong> 19 ปี
+      </div>
+
+      <div class="info interest">
+        <strong>ความสนใจ :</strong>
+        <ul>
+          <li>🎨 การวาดรูป</li>
+          <li>🎬 การทำแอนิเมชัน</li>
+          <li>🔮 ศาสตร์เกี่ยวกับสิ่งเหนือธรรมชาติ</li>
+          <li>🌸 อนิเมะ</li>
+          <li>📚 ประวัติศาสตร์</li>
+        </ul>
+      </div>
+
+      <p class="footer">
+        ✦ Welcome to my personal profile ✦
+      </p>
+
+    </section>
+    <style>
+      main {
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        background: linear-gradient(135deg, #eee5ff, #fce8f5);
+      }
+
+      .profile-card {
+        background: white;
+        width: 100%;
+        max-width: 650px;
+        padding: 40px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(120, 80, 160, 0.15);
+      }
+
+      .profile-card img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid #d9c2ff;
+        margin-bottom: 20px;
+      }
+
+      .profile-card h1 {
+        color: #7952a5;
+        margin-bottom: 25px;
+      }
+
+      .info {
+        background: #f8f3ff;
+        padding: 15px;
+        border-radius: 12px;
+        margin: 12px 0;
+        text-align: left;
+        color: #514263;
+        line-height: 1.8;
+      }
+
+      .info strong {
+        color: #8b62bd;
+      }
+
+      .info ul {
+        padding-left: 25px;
+      }
+
+      .footer {
+        margin-top: 25px;
+        color: #a18ab8;
+        font-size: 14px;
+      }
+    </style>
   </main>
 
   <!-- JavaScript -->
@@ -184,8 +259,8 @@
   </script>
 
   <!-- Bootstrap JavaScript -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
   </script>
 </body>
+
 </html>
