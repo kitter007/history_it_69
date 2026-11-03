@@ -1,17 +1,16 @@
+
 <!doctype html>
 <html lang="th">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>01 kittipat | History of IT ปวส.1/1</title>
+  <title>01 kittipat | History of IT</title>
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     body {
+      background-color: #f5f5f5;
       overflow-x: hidden;
     }
 
@@ -28,7 +27,7 @@
       background: #343a40;
       padding-top: 10px;
       overflow-y: auto;
-      transition: left 0.3s ease;
+      transition: left 0.3s;
       z-index: 1040;
     }
 
@@ -37,7 +36,6 @@
       display: block;
       padding: 10px 15px;
       text-decoration: none;
-      overflow-wrap: anywhere;
     }
 
     .sidebar a:hover,
@@ -51,13 +49,40 @@
 
     .content {
       margin-left: 250px;
-      padding: 20px;
+      padding: 25px;
       margin-top: 56px;
-      transition: margin-left 0.3s ease;
+      transition: margin-left 0.3s;
     }
 
     .content.expanded {
       margin-left: 0;
+    }
+
+    .profile {
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 180px;
+      height: 200px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+    }
+
+    .info {
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .info h4 {
+      border-bottom: 2px solid #0d6efd;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
     }
 
     @media (max-width: 768px) {
@@ -77,28 +102,22 @@
 </head>
 
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-dark bg-primary fixed-top">
     <div class="container-fluid">
-      <div class="d-flex align-items-center">
-        <button
-          type="button"
-          id="menuToggle"
-          class="btn btn-outline-light me-2"
-          onclick="toggleSidebar()"
-          aria-label="เปิดหรือปิดเมนู"
-          aria-controls="sidebar"
-          aria-expanded="true">
-          ☰
-        </button>
-        <span class="navbar-brand mb-0 h1">01 kittipat | History of IT ปวส.1/1</span>
-      </div>
+      <button class="btn btn-outline-light me-2"
+        onclick="toggleSidebar()">☰</button>
+
+      <span class="navbar-brand mb-0">
+        01 kittipat | History of IT ปวส.1/1
+      </span>
     </div>
   </nav>
 
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
-    <a href="kittipat.html">01 kittipat</a>
+    <a href="kittipat.html" class="active">01 kittipat</a>
     <a href="kiattisak.html">02 kiattisak</a>
     <a href="khwan-khao.html">03 khwan khao</a>
     <a href="kanison.html">04 kanison</a>
@@ -127,63 +146,100 @@
 
   <!-- Content -->
   <main class="content">
-    <h2>kittipat</h2>
-    <p>รหัสนักเรียน: 69319010001</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <h1>ประวัติส่วนตัว</h1>
-    <h3>กิตติพัฒน์ อรรถสุภาพงศ์ ชื่อฟลุ๊ค อายุ19 เกิด26/10/2550 </h3>
-    <br>
-    <h3>งานอดิเรก นอน เล่นเกม กินข้าว อาบนํ้า</h3>
-    <br>
-    <h3></h3>
-    <img src="KNA/kk1.jpg">
 
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
+    <div class="profile">
+      <div class="row align-items-center">
+        <div class="col-md-3 mb-3">
+          <img src="KNA/kk1.jpg" alt="รูปกิตติพัฒน์">
+        </div>
+
+        <div class="col-md-9">
+          <h2>กิตติพัฒน์ อรรถสุภาพงศ์</h2>
+          <h5 class="text-primary">ชื่อเล่น ฟลุ๊ค</h5>
+          <p>นักศึกษาสาขาเทคโนโลยีสารสนเทศ ปวส.1/1</p>
+          <p>รหัสนักเรียน 69319010001</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info">
+      <h4>ประวัติส่วนตัว</h4>
+      <p>ชื่อ : กิตติพัฒน์ อรรถสุภาพงศ์</p>
+      <p>ชื่อเล่น : ฟลุ๊ค</p>
+      <p>วันเกิด : 26 ตุลาคม 2550</p>
+      <p>อายุ : 19 ปี (ตรวจสอบกับวันเกิดก่อนนำไปส่ง)</p>
+      <p>ระดับการศึกษา : ประกาศนียบัตรวิชาชีพชั้นสูง</p>
+      <p>สาขาวิชา : เทคโนโลยีสารสนเทศ</p>
+    </div>
+
+    <div class="info">
+      <h4>เกี่ยวกับฉัน</h4>
+      <p>
+        สวัสดีครับ ผมชื่อกิตติพัฒน์ อรรถสุภาพงศ์
+        ชื่อเล่นฟลุ๊ค ปัจจุบันกำลังศึกษาอยู่ในสาขาเทคโนโลยีสารสนเทศ
+        เป็นคนที่สนใจเกี่ยวกับคอมพิวเตอร์และเทคโนโลยี
+        ชอบเรียนรู้สิ่งใหม่ ๆ และใช้เวลาว่างทำกิจกรรมที่ตัวเองชอบ
+      </p>
+    </div>
+
+    <div class="info">
+      <h4>งานอดิเรก</h4>
+      <ul>
+        <li>นอนพักผ่อน</li>
+        <li>เล่นเกม</li>
+        <li>รับประทานอาหาร</li>
+        <li>ดูวิดีโอและความบันเทิง</li>
+      </ul>
+    </div>
+
+    <div class="info">
+      <h4>ความสนใจ</h4>
+      <ul>
+        <li>คอมพิวเตอร์และอุปกรณ์ไอที</li>
+        <li>การสร้างและออกแบบเว็บไซต์</li>
+        <li>เทคโนโลยีใหม่ ๆ</li>
+      </ul>
+    </div>
+
+    <div class="info">
+      <h4>เป้าหมายในอนาคต</h4>
+      <p>
+        ต้องการพัฒนาความรู้และทักษะด้านเทคโนโลยีสารสนเทศ
+        เพื่อให้สามารถนำไปใช้ในการทำงานและประกอบอาชีพในอนาคต
+      </p>
+    </div>
+
+    <footer class="text-center text-secondary mt-4">
+      <p>เว็บไซต์ประวัติส่วนตัว | 01 Kittipat</p>
+    </footer>
+
   </main>
 
-  <!-- JavaScript -->
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
       const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
 
       if (window.innerWidth <= 768) {
         sidebar.classList.toggle("active");
-        button.setAttribute(
-          "aria-expanded",
-          sidebar.classList.contains("active")
-        );
       } else {
         sidebar.classList.toggle("collapsed");
         content.classList.toggle("expanded");
-        button.setAttribute(
-          "aria-expanded",
-          !sidebar.classList.contains("collapsed")
-        );
       }
     }
 
-    // ปรับสถานะเมนูเมื่อเปลี่ยนขนาดหน้าจอ
     window.addEventListener("resize", function () {
       const sidebar = document.getElementById("sidebar");
       const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
 
       if (window.innerWidth <= 768) {
         sidebar.classList.remove("collapsed");
         content.classList.remove("expanded");
-        button.setAttribute("aria-expanded", sidebar.classList.contains("active"));
       } else {
         sidebar.classList.remove("active");
-        button.setAttribute("aria-expanded", !sidebar.classList.contains("collapsed"));
       }
     });
   </script>
 
-  <!-- Bootstrap JavaScript -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
 </body>
 </html>
