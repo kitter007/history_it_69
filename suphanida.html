@@ -127,14 +127,513 @@
 
   <!-- Content -->
   <main class="content">
-    <h2>suphanida</h2>
-    <p>รหัสนักเรียน: 69319010022</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
+ 
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile - Pure</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main: #e94e91;
+    --light: #ffe0ed;
+    --soft: #fff0f6;
+    --dark: #a83c70;
+    --shadow: #f3a4c6;
+}
+
+body[data-theme="red"] {
+    --main: #e53935;
+    --light: #ffcdd2;
+    --soft: #ffebee;
+    --dark: #a51e24;
+    --shadow: #ef9a9a;
+}
+
+body[data-theme="green"] {
+    --main: #269b65;
+    --light: #c8e6c9;
+    --soft: #e8f5e9;
+    --dark: #17643f;
+    --shadow: #81c784;
+}
+
+body[data-theme="yellow"] {
+    --main: #d69b00;
+    --light: #ffecb3;
+    --soft: #fff8e1;
+    --dark: #916400;
+    --shadow: #ffd54f;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Tahoma, sans-serif;
+    background: linear-gradient(
+        -45deg,
+        var(--light),
+        #ffffff,
+        var(--soft),
+        var(--shadow)
+    );
+    background-size: 400% 400%;
+    animation: backgroundMove 10s infinite;
+    padding: 35px 15px;
+    overflow-x: hidden;
+    transition: background .5s;
+}
+
+@keyframes backgroundMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ดาวระยิบระยับ */
+.sparkle {
+    position: fixed;
+    color: white;
+    font-size: 25px;
+    pointer-events: none;
+    animation: sparkle 3s infinite;
+    z-index: 0;
+}
+
+.s1 {top: 10%; left: 10%;}
+.s2 {top: 20%; right: 12%; animation-delay: 1s;}
+.s3 {bottom: 15%; left: 15%; animation-delay: 2s;}
+.s4 {bottom: 20%; right: 10%; animation-delay: .5s;}
+
+@keyframes sparkle {
+    0%,100% {opacity: .2; transform: scale(.6) rotate(0deg);}
+    50% {opacity: 1; transform: scale(1.5) rotate(180deg);}
+}
+
+/* หัวใจลอย */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: var(--main);
+    animation: floatUp 9s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.h1 {left: 15%;}
+.h2 {left: 35%; animation-delay: 3s;}
+.h3 {left: 70%; animation-delay: 1s;}
+.h4 {left: 90%; animation-delay: 5s;}
+
+@keyframes floatUp {
+    0% {transform: translateY(0); opacity: 0;}
+    20% {opacity: .8;}
+    100% {transform: translateY(-110vh) rotate(360deg); opacity: 0;}
+}
+
+/* กล่องหลัก */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: auto;
+    padding: 35px 30px;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(15px);
+    border: 2px solid white;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px var(--shadow);
+    text-align: center;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+    color: var(--main);
+    font-size: 34px;
+    text-shadow: 0 0 12px var(--shadow);
+}
+
+h2, h3 {
+    color: var(--dark);
+}
+
+.subtitle {
+    color: var(--main);
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+/* รูปโปรไฟล์ */
+.photo-frame {
+    width: 190px;
+    height: 190px;
+    padding: 7px;
+    margin: 25px auto;
+    border-radius: 50%;
+    background: linear-gradient(45deg,var(--main),white,var(--shadow));
+    box-shadow: 0 0 25px var(--shadow);
+    transition: .4s;
+}
+
+.photo-frame:hover {
+    transform: rotate(5deg) scale(1.08);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.name {
+    color: var(--dark);
+    font-size: 25px;
+}
+
+.nickname {
+    color: var(--main);
+    font-size: 18px;
+}
+
+.line {
+    height: 3px;
+    width: 70%;
+    margin: 25px auto;
+    background: linear-gradient(to right,transparent,var(--main),transparent);
+}
+
+/* กล่องข้อมูล */
+.section {
+    background: var(--soft);
+    border: 1px solid var(--light);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 22px 0;
+    transition: .3s;
+}
+
+.section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 7px 20px var(--shadow);
+}
+
+.info {
+    color: var(--dark);
+    font-size: 17px;
+    line-height: 2;
+}
+
+/* ปุ่มเปลี่ยนสี */
+.theme-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.theme-btn {
+    border: 2px solid white;
+    padding: 12px 23px;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 4px 12px #ccc;
+}
+
+.theme-btn:hover {
+    transform: scale(1.12);
+}
+
+.red {background: #e53935;}
+.green {background: #269b65;}
+.yellow {background: #d69b00;}
+
+/* รูปภาพเพิ่มเติม */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    background: white;
+    padding: 8px;
+    border-radius: 16px;
+    border: 2px solid var(--light);
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: .3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) rotate(2deg);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallery-item p {
+    color: var(--dark);
+    font-size: 13px;
+    margin: 8px 0 3px;
+}
+
+/* ปุ่มลิงก์ */
+.link-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border-radius: 30px;
+    color: white;
+    background: var(--main);
+    text-decoration: none;
+    transition: .3s;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.link-btn:hover {
+    transform: scale(1.07);
+    background: var(--dark);
+}
+
+/* YouTube */
+.youtube-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.youtube-card img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--light);
+}
+
+/* Footer */
+.footer {
+    color: var(--main);
+    margin-top: 30px;
+    line-height: 2;
+}
+
+@media(max-width:500px) {
+    .container {padding: 25px 15px;}
+    h1 {font-size: 27px;}
+    .name {font-size: 21px;}
+    .gallery {gap: 7px;}
+    .gallery-item img {height: 100px;}
+}
+</style>
+</head>
+
+<body data-theme="pink">
+
+<div class="sparkle s1">✦</div>
+<div class="sparkle s2">✧</div>
+<div class="sparkle s3">✦</div>
+<div class="sparkle s4">✧</div>
+
+<div class="heart h1">♡</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♥</div>
+
+<div class="container">
+
+    <h1>✧ MY PROFILE ✧</h1>
+
+    <div class="subtitle">
+        WELCOME TO MY WORLD
+    </div>
+
+    <!-- รูปโปรไฟล์หลัก -->
+    <div class="photo-frame">
+        <img src="pure/img.png" alt="รูปโปรไฟล์">
+    </div>
+
+    <div class="name">
+        นางสาวศุภนิดา สารถ้อย
+    </div>
+
+    <div class="nickname">
+        ♡ ชื่อเล่น : เพียว ♡
+    </div>
+
+    <div class="line"></div>
+
+    <!-- วันเกิด -->
+    <div class="section">
+        <h2>🎂 วันเกิดของฉัน</h2>
+        <div class="info">
+            18 พฤษภาคม 2551
+        </div>
+    </div>
+
+    <!-- ข้อมูลติดต่อ -->
+    <div class="section">
+        <h2>♡ CONTACT ME ♡</h2>
+
+        <div class="info">
+            📞 095-656-4268
+            <br>
+            📧 suphanida.santhoi@gmail.com
+        </div>
+
+        <a class="link-btn" href="tel:0956564268">
+            ☎️ โทรหาฉัน
+        </a>
+
+        <a class="link-btn"
+           href="mailto:suphanida.santhoi@gmail.com">
+            💌 ส่งอีเมล
+        </a>
+    </div>
+
     
-     <center>
-      <P><h2><gard>ประวัติส่วนตัว</gard></h2></P>
-     <p><img src="pure/img.png" alt="รูป" width="20%" height="20%"></p>
-    </center>
+    </div>
+
+ <center>   
+<!-- MY GALLERY -->
+<div class="section">
+    <div class="section-heading">
+        <h2>📸 MY GALLERY</h2>
+        <p>รูปภาพความทรงจำของฉัน ♡</p>
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="pure/img2.jpg" alt="อยุธยา">
+            <p>♡ อยุธยา</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="pure/IMG_3483.JPG" alt="เกาะเสม็ด">
+            <p>♡ เกาะเสม็ด</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="pure/img3.jpg" alt="เชียงใหม่">
+            <p>♡ เชียงใหม่</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- สิ่งที่ชอบดู -->
+<div class="section favorite-section">
+    <div class="section-heading">
+        <h2>🏰 สิ่งที่ชอบดู</h2>
+        <p>ภาพยนตร์แอนิเมชันที่ฉันชื่นชอบ ♡</p>
+    </div>
+
+    <div class="favorite-card">
+        <h3>ปราสาทเวทมนตร์ของฮาว</h3>
+        <p>Howl's Moving Castle</p>
+        <p>ภาพยนตร์แอนิเมชันสุดมหัศจรรย์ ♡</p>
+
+        <a class="link-btn"
+           href="https://www.ghibli.jp/works/howl/"
+           target="_blank" rel="noopener">
+            🏰 กดเข้าชมภาพยนตร์
+        </a>
+    </div>
+</div>
+
+<!-- YouTube -->
+<div class="section">
+    <div class="section-heading">
+        <h2>▶️ MY YOUTUBE</h2>
+        <p>ศิลปินและช่องที่ฉันชื่นชอบ ♡</p>
+    </div>
+
+    <div class="youtube-card">
+        <img
+            src="https://yt3.googleusercontent.com/Gec48a9vHRblzg6uzo1-IndXpMyPPq-m52QF31su0qQ-lV5S4fJVKNa6W93jlFMqF_R8mgM19A=s160-c-k-c0x00ffffff-no-rj"
+            alt="YouTube Channel">
+
+        <div class="youtube-info">
+            <h3>ช่องศิลปินที่ชอบ</h3>
+            <p>ติดตามผลงานเพลงที่ชื่นชอบได้ที่นี่ ♡</p>
+
+            <a class="link-btn"
+               href="https://www.youtube.com/results?search_query=ภูมินทร์"
+               target="_blank" rel="noopener">
+                ▶️ เข้าชม YouTube
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- เปลี่ยนสีเว็บไซต์ -->
+<div class="section">
+    <div class="section-heading">
+        <h2>🎨 เลือกสีเว็บไซต์ที่ชอบ</h2>
+        <p>กดปุ่มเพื่อเปลี่ยนธีมสีได้เลย!</p>
+    </div>
+
+    <div class="theme-buttons">
+        <button class="theme-btn red"
+            onclick="changeTheme('red')">
+            ❤️ สีแดง
+        </button>
+
+        <button class="theme-btn green"
+            onclick="changeTheme('green')">
+            💚 สีเขียว
+        </button>
+
+        <button class="theme-btn yellow"
+            onclick="changeTheme('yellow')">
+            💛 สีเหลือง
+        </button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    ✧ ♡ THANK YOU FOR VISITING ♡ ✧
+    <br>
+    Made with love by Pure 🎀
+</div>
+</center>
+
+
+<script>
+function changeTheme(color) {
+    document.body.setAttribute("data-theme", color);
+
+    // เปลี่ยนสีอย่างนุ่มนวล
+    document.body.style.transition = "background 0.5s";
+}
+</script>
+
+</body>
+</html>
+
 
   </main>
 
