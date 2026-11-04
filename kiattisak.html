@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>02 kiattisak | History of IT ปวส.1/1</title>
 
-  <!-- Google Fonts: Sarabun (ฟอนต์ภาษาไทยทางการ) -->
+  <!-- Google Fonts: Sarabun -->
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5 -->
@@ -17,8 +17,8 @@
     body {
       overflow-x: hidden;
       font-family: 'Sarabun', sans-serif;
-      background-color: #f1f3f5;
-      color: #212529;
+      background-color: #121212;
+      color: #ffffff;
     }
 
     .navbar {
@@ -66,23 +66,23 @@
       margin-left: 0;
     }
 
-    /* ตกแต่งกล่องเนื้อหาหลักให้เป็นสี่เหลี่ยมมุมโค้ง ธีมเทา-ดำ */
+    /* ตกแต่งกล่องเนื้อหาหลักให้เป็นสี่เหลี่ยมมุมโค้ง ธีมเทาเข้ม-ดำ มีระดับ */
     .content-card {
-      background: #ffffff;
-      border-radius: 16px; /* มุมโค้ง */
+      background: #1e1e1e;
+      border-radius: 16px;
       padding: 35px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      border: 1px solid #dee2e6;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      border: 1px solid #2c2c2c;
     }
 
-    /* ตกแต่งกรอบรูปภาพให้เป็นสี่เหลี่ยมมุมโค้ง */
+    /* กรอบรูปโปรไฟล์มุมโค้ง */
     .profile-img-box {
       width: 180px;
       height: 180px;
-      border-radius: 16px; /* มุมโค้งของรูป */
+      border-radius: 16px;
       overflow: hidden;
-      border: 3px solid #343a40; /* กรอบสีเทาเข้ม/ดำ */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      border: 3px solid #495057;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       object-fit: cover;
     }
 
@@ -92,15 +92,46 @@
       object-fit: cover;
     }
 
+    /* ตกแต่งรูปภาพกิจกรรมและเกมในเนื้อหา */
+    .content-img {
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 1px solid #333;
+      transition: transform 0.3s ease;
+    }
+
+    .content-img:hover {
+      transform: scale(1.02);
+    }
+
     /* หัวข้อธีมเทา-ดำ */
     .custom-heading {
-      color: #343a40;
+      color: #ffffff;
       font-weight: 700;
-      border-bottom: 2px solid #6c757d;
+      border-bottom: 2px solid #495057;
       padding-bottom: 8px;
       margin-top: 30px;
       margin-bottom: 20px;
       font-size: 1.25rem;
+    }
+
+    /* ปรับแต่งปุ่มกดสไตล์โมเดิร์น (ตัวหนังสือสีขาวชัดเจน) */
+    .btn-section-toggle {
+      background-color: #2b3035;
+      color: #ffffff !important;
+      border: 1px solid #495057;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn-section-toggle:hover, 
+    .btn-section-toggle.active {
+      background-color: #0d6efd;
+      color: #ffffff !important;
+      border-color: #0d6efd;
+      box-shadow: 0 0 10px rgba(13, 110, 253, 0.4);
     }
 
     @media (max-width: 768px) {
@@ -172,55 +203,115 @@
   <!-- Content -->
   <main class="content">
     <div class="content-card">
-      <h2 class="mb-4 text-dark fw-bold">ประวัติส่วนตัว (Resume / Profile)</h2>
+      <h2 class="mb-4 text-white fw-bold">ประวัติส่วนตัว (Resume / Profile)</h2>
 
-      <div class="row align-items-center mb-4">
-        <div class="col-md-3 text-center mb-3 mb-md-0 d-flex justify-content-center">
-          <!-- กรอบรูปทรงสี่เหลี่ยมมุมโค้ง -->
-          <div class="profile-img-box">
-            <img src="img/PQL.png" alt="รูปโปรไฟล์ เกียรติศักดิ์">
+      <!-- ปุ่มกดเลือกหมวดหมู่เนื้อหา -->
+      <div class="d-flex flex-wrap gap-2 mb-4 pb-3 border-bottom border-secondary">
+        <button type="button" class="btn btn-section-toggle active px-3 py-2" onclick="showSection('profile', this)">👤 ข้อมูลส่วนตัว</button>
+        <button type="button" class="btn btn-section-toggle px-3 py-2" onclick="showSection('skills', this)">💻 ทักษะและความสามารถ</button>
+        <button type="button" class="btn btn-section-toggle px-3 py-2" onclick="showSection('hobbies', this)">🎮 งานอดิเรก & เกม</button>
+      </div>
+
+      <!-- ส่วนที่ 1: ข้อมูลส่วนตัว & การศึกษา -->
+      <div class="section-content" data-section="profile">
+        <div class="row align-items-center mb-4">
+          <div class="col-md-3 text-center mb-3 mb-md-0 d-flex justify-content-center">
+            <!-- กรอบรูปทรงสี่เหลี่ยมมุมโค้ง -->
+            <div class="profile-img-box">
+              <img src="img/PQL.png" alt="รูปโปรไฟล์ เกียรติศักดิ์">
+            </div>
+          </div>
+          <div class="col-md-9">
+            <p class="fs-5 mb-2 text-white"><strong>ชื่อ-นามสกุล:</strong> เกียรติศักดิ์ บุญมา</p>
+            <p class="mb-2 text-white"><strong>ประวัติทางกายภาพ:</strong> น้ำหนักตัว 110 กิโลกรัม / ความสูง 183 ซม / อายุ 19 ปี / เพศ (ชาย)</p>
+            <p class="mb-2 text-white"><strong>รหัสนักศึกษา:</strong> 69319010002</p>
+            <p class="mb-2 text-white"><strong>ระดับการศึกษา:</strong> ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส. 1) สาขาวิชาเทคโนโลยีสารสนเทศ 1/1</p>
+            <p class="mb-0 text-white"><strong>สถานศึกษา:</strong> วิทยาลัยเทคนิคน่าน</p>
           </div>
         </div>
-        <div class="col-md-9">
-          <p class="fs-5 mb-2 text-dark"><strong>ชื่อ-นามสกุล:</strong> เกียรติศักดิ์ บุญมา</p>
-          <p class="mb-2 text-secondary"><strong>รหัสนักศึกษา:</strong> 69319010002</p>
-          <p class="mb-2 text-secondary"><strong>ระดับการศึกษา:</strong> ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส. 1) สาขาวิชาเทคโนโลยีสารสนเทศ 1/1</p>
-          <p class="mb-0 text-secondary"><strong>สถานศึกษา:</strong> วิทยาลัยเทคนิคน่าน</p>
+
+        <hr class="my-4 text-secondary">
+
+        <h3 class="custom-heading">ที่อยู่ & และช่องทางติดต่อ</h3>
+        <ul class="list-unstyled ps-2 text-white">
+          <li class="mb-2">📌 บ้านเลขที่ 1 หมู่ 4 บ้านป่าอ้อย ต.ป่าแลวหลวง อ.สันติสุข จ.น่าน </li>
+          <li class="mb-2">📌 เบอร์โทรศัพท์ / 091-030-3083 หรือ @email / keirytisak55210@gmail.com</li>
+        </ul>
+
+        <h3 class="custom-heading">ประวัติการศึกษา & ฝึกงาน</h3>
+        <ul class="list-unstyled ps-2 text-white">
+          <li class="mb-2">📌 จบการศึกษาระดับ ปวช. สาขาวิชาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคน่าน</li>
+          <li class="mb-2">📌 ผ่านการฝึกงานช่างเทคนิคซ่อมบำรุง ต้อนรับลูกค้า คลังสินค้า และจัดส่ง ที่ร้านคลิกไอที น่าน</li>
+        </ul>
+      </div>
+
+      <!-- ส่วนที่ 2: ทักษะและความสามารถ -->
+      <div class="section-content mt-4" data-section="skills" style="display: none;">
+        <h3 class="custom-heading">ทักษะและความสามารถ (Technical & Mechanical Skills)</h3>
+        <ul class="list-unstyled ps-2 text-white">
+          <li class="mb-3">💻 <strong>Web Development:</strong> <span class="text-white">HTML5, CSS3, JavaScript, TypeScript, Vue 3, Nuxt 3, Bootstrap 5, Vuetify, PHP, MySQL</span></li>
+          <li class="mb-3">🗄️ <strong>Database & Administration:</strong> <span class="text-white">Relational Database Design, SQL Queries, phpMyAdmin, DBeaver</span></li>
+          <li class="mb-3">⚡ <strong>Hardware & IoT:</strong> <span class="text-white">Microcontrollers (ESP32 DevKit V1, NodeMCU ESP8266), Arduino IDE, Blynk IoT Platform, Sensors & Actuators</span></li>
+          <li class="mb-3">🛠️ <strong>Tools & Workflows:</strong> <span class="text-white">Git, GitHub, VS Code Terminal</span></li>
+          <li class="mb-3">🔧 <strong>Mechanical & Motorcycle Maintenance:</strong> <span class="text-white">การซ่อมบำรุงรักษารถจักรยานยนต์ ตรวจเช็กเครื่องยนต์ เปลี่ยนถ่ายอะไหล่ ถอดประกอบ และการตกแต่งดัดแปลงรถจักรยานยนต์</span></li>
+        </ul>
+      </div>
+
+      <!-- ส่วนที่ 3: งานอดิเรก & เกม -->
+      <div class="section-content mt-4" data-section="hobbies" style="display: none;">
+        <h3 class="custom-heading">ความสนใจส่วนตัว & เกม (Hobbies & Gaming)</h3>
+        <ul class="list-unstyled ps-2">
+          <li class="mb-3 text-white">🎮 <strong>Gaming:</strong> <span class="text-white">Counter-Strike 2 (CS:GO / CS2), Call of Duty, Minecraft (Java Edition), ROV, Ride 5</span></li>
+        </ul>
+        
+        <!-- ส่วนแสดงรูปภาพเกม -->
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <img src="img/ka2.jpg" class="img-fluid content-img w-100" style="height: 180px;" alt="Game 1">
+          </div>
+          <div class="col-md-4">
+            <img src="img/ka3.jpg" class="img-fluid content-img w-100" style="height: 180px;" alt="Game 2">
+          </div>
+          <div class="col-md-4">
+            <img src="img/ka4.jpg" class="img-fluid content-img w-95" style="height: 180px;" alt="Game 3">
+          </div>
+        </div>
+
+        <ul class="list-unstyled ps-2">
+          <li class="mb-3 text-white">🏍️ <strong>Motorcycle:</strong> <span class="text-white">สนใจรถจักรยานยนต์และระบบวิศวกรรม</span></li>
+        </ul>
+
+        <!-- ส่วนแสดงรูปภาพมอเตอร์ไซค์ -->
+        <div class="row g-3">
+          <div class="col-md-5">
+            <img src="img/ka5.jpg" class="img-fluid content-img w-90" style="height: 220px;" alt="Motorcycle 1">
+          </div>
+          
         </div>
       </div>
 
-      <hr class="my-4 text-muted">
-
-      <h3 class="custom-heading">ประวัติการศึกษา & ฝึกงาน</h3>
-      <ul class="list-unstyled ps-2">
-        <li class="mb-2">📌 จบการศึกษาระดับ ปวช. สาขาวิชาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคน่าน</li>
-        <li class="mb-2">📌 ผ่านการฝึกงานช่างเทคนิคซ่อมบำรุง ต้อนรับลูกค้า คลังสินค้า และจัดส่ง ที่ร้านคลิกไอที น่าน</li>
-      </ul>
-
-      <h3 class="custom-heading">ทักษะและความสามารถ (Technical Skills)</h3>
-      <ul class="list-unstyled ps-2">
-        <li class="mb-2">💻 <strong>Web Development:</strong> HTML5, CSS3, JavaScript, TypeScript, Vue 3, Nuxt 3, Bootstrap 5, Vuetify, PHP, MySQL</li>
-        <li class="mb-2">🗄️ <strong>Database & Administration:</strong> Relational Database Design, SQL Queries, phpMyAdmin, DBeaver</li>
-        <li class="mb-2">⚡ <strong>Hardware & IoT:</strong> Microcontrollers (ESP32 DevKit V1, NodeMCU ESP8266), Arduino IDE, Blynk IoT Platform, Sensors & Actuators</li>
-        <li class="mb-2">🛠️ <strong>Tools & Workflows:</strong> Git, GitHub, VS Code Terminal</li>
-      </ul>
-
-      <h3 class="custom-heading">ความสนใจส่วนตัว & เกม (Hobbies & Gaming)</h3>
-      <ul class="list-unstyled ps-2">
-        <li class="mb-2">🎮 <strong>Gaming:</strong> Counter-Strike 2 (CS:GO / CS2), Call of Duty, Minecraft (Java Edition), ROV, Ride 5</li>
-        <img src="img/ka2.jpg" height="190" width="370">
-        <img src="img/ka3.jpg" height="190" width="370"> 
-        <img src="img/ka4.jpg" height="190" width="370"> 
-        <p><li class="mb-2">🏍️ <strong>Motorcycle</strong> สนใจรถจักรยานยนต์ </li>
-        <img src="img/ka5.jpg" height="240" width="370">
-        <img src="img/ka7.jpg" height="240" width="470"> 
-        
-        </ul>
     </div>
   </main>
 
-  <!-- JavaScript -->
+  <!-- JavaScript สำหรับระบบปุ่มกดแยกแสดงเนื้อหา -->
   <script>
+    function showSection(target, btnElement) {
+      // จัดการปุ่ม Active
+      const buttons = document.querySelectorAll('.btn-section-toggle');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      // จัดการการแสดงผลเนื้อหาให้ตรงกับปุ่มที่กด
+      const sections = document.querySelectorAll('.section-content');
+      sections.forEach(sec => {
+        if (sec.getAttribute('data-section') === target) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
       const content = document.querySelector(".content");

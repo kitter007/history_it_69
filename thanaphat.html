@@ -125,13 +125,1356 @@
     <a href="suchanat.html">25 suchanat</a>
   </div>
 
-  <!-- Content -->
-  <main class="content">
-    <h2>thanaphat</h2>
-    <p>รหัสนักเรียน: 69319010014</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-  </main>
+  
+
+
+<main class="content">
+<div id="stamp-portfolio">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Kanit:wght@300;400;500;600;700;800&display=swap');
+
+#stamp-portfolio {
+  --neon:#a855f7;
+  --cyan:#22d3ee;
+  --pink:#fb2c9b;
+  --green:#00ffa3;
+  --bg:#050510;
+  position:relative;
+  width:100vw;
+  max-width:none;
+  min-height:100vh;
+  margin:0;
+  left:50%;
+  transform:translateX(-50%);
+  color:#fff;
+  font-family:'Kanit',sans-serif;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 15% 15%,#7c3aed30,transparent 35%),
+    radial-gradient(ellipse at 85% 35%,#0891b230,transparent 35%),
+    radial-gradient(ellipse at 50% 90%,#db277720,transparent 35%),
+    #050510;
+  border-radius:0;
+  box-shadow:none;
+}
+
+#stamp-portfolio * {box-sizing:border-box;}
+#stamp-portfolio a {text-decoration:none;color:inherit;}
+#stamp-portfolio button {font-family:inherit;}
+
+#stamp-portfolio .cyber-bg {
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 15% 15%,#7c3aed30,transparent 35%),
+    radial-gradient(ellipse at 85% 35%,#0891b230,transparent 35%),
+    radial-gradient(ellipse at 50% 90%,#db277720,transparent 35%),
+    #050510;
+}
+
+#stamp-portfolio .grid-bg {
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  opacity:.18;
+  pointer-events:none;
+  background-image:
+    linear-gradient(#8b5cf6 1px,transparent 1px),
+    linear-gradient(90deg,#8b5cf6 1px,transparent 1px);
+  background-size:45px 45px;
+  animation:gridMove 25s linear infinite;
+}
+
+@keyframes gridMove {
+  to {background-position:0 180px;}
+}
+
+#stamp-portfolio .star-field {
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(2px 2px at 100px 80px,#22d3ee,transparent),
+    radial-gradient(1px 1px at 180px 160px,#fff,transparent);
+  background-size:220px 220px;
+  animation:starDrift 35s linear infinite;
+}
+
+@keyframes starDrift {
+  to {background-position:0 -440px;}
+}
+
+#stamp-portfolio #particles {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+}
+
+#stamp-portfolio .scanline {
+  position:absolute;
+  inset:0;
+  z-index:50;
+  pointer-events:none;
+  opacity:.09;
+  background:repeating-linear-gradient(
+    to bottom,transparent 0px,transparent 3px,#fff 4px
+  );
+}
+
+#stamp-portfolio .mouse-light {
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle,#8b5cf630,transparent 70%);
+  transform:translate(-50%,-50%);
+  z-index:1;
+}
+
+#stamp-portfolio .hero {
+  position:relative;
+  z-index:2;
+  padding:80px 7%;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+  border-bottom:1px solid #a855f755;
+}
+
+#stamp-portfolio .hero::before {
+  content:"";
+  position:absolute;
+  width:450px;
+  height:450px;
+  right:-100px;
+  top:-180px;
+  border-radius:50%;
+  border:1px solid #a855f750;
+  box-shadow:0 0 60px #a855f725,inset 0 0 50px #a855f720;
+  animation:orbit 20s linear infinite;
+}
+
+#stamp-portfolio .hero::after {
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  right:-20px;
+  top:-100px;
+  border:1px dashed #22d3ee70;
+  border-radius:50%;
+  animation:orbit 12s linear infinite reverse;
+}
+
+#stamp-portfolio .hero-content {
+  position:relative;
+  z-index:2;
+  width:100%;
+}
+
+#stamp-portfolio .hero-content::before {
+  content:"";
+  position:absolute;
+  top:-35px;
+  left:0;
+  width:100%;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--pink),transparent);
+  box-shadow:0 0 20px var(--cyan);
+  animation:laserSweep 4s ease-in-out infinite;
+}
+
+@keyframes laserSweep {
+  0%,100% {opacity:.2;transform:scaleX(.3);}
+  50% {opacity:1;transform:scaleX(1);}
+}
+
+#stamp-portfolio .system-label {
+  font-family:Orbitron,sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--cyan);
+  text-shadow:0 0 15px var(--cyan);
+  animation:flicker 4s infinite;
+}
+
+@keyframes flicker {
+  0%,95%,100% {opacity:1;}
+  96% {opacity:.3;}
+  98% {opacity:.7;}
+}
+
+#stamp-portfolio .glitch {
+  position:relative;
+  font-family:Orbitron,sans-serif;
+  font-weight:900;
+  text-transform:uppercase;
+  color:#fff;
+  text-shadow:0 0 10px var(--neon),0 0 35px var(--neon);
+  animation:glow 3s infinite alternate;
+  letter-spacing:4px;
+}
+
+#stamp-portfolio .gradient-text {
+  background:linear-gradient(90deg,var(--cyan),#fff,var(--pink),var(--neon));
+  background-size:300%;
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradient 5s linear infinite;
+}
+
+@keyframes gradient {
+  to {background-position:300% center;}
+}
+
+@keyframes glow {
+  from {filter:drop-shadow(0 0 5px var(--neon));}
+  to {filter:drop-shadow(0 0 25px var(--cyan));}
+}
+
+#stamp-portfolio .profile-layout {
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:55px;
+  align-items:center;
+  margin-top:45px;
+}
+
+#stamp-portfolio .avatar-area {
+  position:relative;
+  width:270px;
+  height:270px;
+  margin:auto;
+  filter:drop-shadow(0 0 25px var(--neon));
+}
+
+#stamp-portfolio .avatar-ring {
+  position:absolute;
+  inset:0;
+  padding:7px;
+  border-radius:50%;
+  background:conic-gradient(
+    var(--cyan),transparent,var(--pink),var(--neon),transparent,var(--cyan)
+  );
+  animation:orbit 5s linear infinite,energyPulse 3s infinite alternate;
+  box-shadow:0 0 25px var(--neon),0 0 65px #8b5cf650;
+}
+
+#stamp-portfolio .avatar-inner {
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  padding:5px;
+  background:#09091a;
+}
+
+#stamp-portfolio .avatar-inner img {
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #fff3;
+  transition:.5s;
+}
+
+#stamp-portfolio .avatar-area:hover img {
+  transform:scale(1.08);
+}
+
+#stamp-portfolio .avatar-orbit {
+  position:absolute;
+  inset:-30px;
+  border:2px dashed var(--cyan);
+  border-radius:50%;
+  animation:orbit 15s linear infinite reverse;
+  box-shadow:0 0 20px var(--cyan);
+}
+
+#stamp-portfolio .avatar-dot {
+  position:absolute;
+  top:25px;
+  right:5px;
+  width:17px;
+  height:17px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 15px var(--green);
+}
+
+@keyframes orbit {to {transform:rotate(360deg);}}
+@keyframes energyPulse {
+  from {filter:brightness(.8);}
+  to {filter:brightness(1.5);}
+}
+
+#stamp-portfolio .status {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--green);
+  font-size:12px;
+  border:1px solid #00ffa355;
+  border-radius:30px;
+  padding:7px 13px;
+  background:#00ffa310;
+}
+
+#stamp-portfolio .status::before {
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 10px var(--green);
+  animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  50% {opacity:.3;transform:scale(.7);}
+}
+
+#stamp-portfolio .info-panel {
+  padding:22px;
+  margin-top:20px;
+  background:#ffffff08;
+  border:1px solid #ffffff20;
+  border-left:3px solid var(--neon);
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  line-height:2.2;
+}
+
+#stamp-portfolio .cyber-btn {
+  display:inline-block;
+  padding:12px 20px;
+  margin:7px 5px 0 0;
+  color:white;
+  border:1px solid var(--neon);
+  border-radius:7px;
+  background:linear-gradient(100deg,#7c3aed55,#0891b255);
+  box-shadow:0 0 12px #8b5cf640;
+  cursor:pointer;
+  transition:.3s;
+  font-size:14px;
+}
+
+#stamp-portfolio .cyber-btn:hover {
+  transform:translateY(-5px) scale(1.04);
+  background:var(--neon);
+  box-shadow:0 0 25px var(--neon);
+}
+
+#stamp-portfolio .section {
+  position:relative;
+  z-index:2;
+  margin:45px auto;
+  width:min(94%,1600px);
+  padding:clamp(25px,4vw,65px);
+  border:1px solid #ffffff17;
+  border-radius:18px;
+  background:linear-gradient(135deg,#101025dd,#11112ddd);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 35px #0005;
+  overflow:hidden;
+  transition:.4s;
+  transform-style:preserve-3d;
+}
+
+#stamp-portfolio .section::before {
+  content:"";
+  position:absolute;
+  left:-100%;
+  top:0;
+  width:100%;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--pink),transparent);
+  transition:1s;
+}
+
+#stamp-portfolio .section:hover::before {left:100%;}
+
+#stamp-portfolio .section:hover {
+  border-color:var(--cyan);
+  box-shadow:0 0 35px #22d3ee20,0 0 70px #8b5cf615;
+}
+
+#stamp-portfolio .section-title {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  color:white;
+  font-size:clamp(20px,3vw,30px);
+  margin:0 0 30px;
+  text-shadow:0 0 15px var(--neon);
+}
+
+#stamp-portfolio .section-icon {
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  border:1px solid var(--neon);
+  border-radius:12px;
+  color:var(--cyan);
+  background:#8b5cf620;
+  box-shadow:0 0 20px #8b5cf640;
+  font-size:24px;
+}
+
+#stamp-portfolio .cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
+  gap:20px;
+}
+
+#stamp-portfolio .card {
+  position:relative;
+  min-height:180px;
+  padding:25px;
+  border:1px solid #ffffff1c;
+  border-radius:15px;
+  background:linear-gradient(145deg,#ffffff10,#ffffff03);
+  overflow:hidden;
+  transition:.35s;
+  transform-style:preserve-3d;
+  backdrop-filter:blur(15px);
+  box-shadow:inset 0 0 25px #ffffff05,0 10px 35px #0008;
+}
+
+#stamp-portfolio .card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(135deg,var(--cyan),transparent,var(--pink),var(--neon));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:.65;
+}
+
+#stamp-portfolio .card::after {
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  right:-65px;
+  bottom:-65px;
+  border-radius:50%;
+  background:var(--neon);
+  filter:blur(50px);
+  opacity:.2;
+}
+
+#stamp-portfolio .card:hover {
+  border-color:var(--cyan);
+  box-shadow:0 0 25px #22d3ee55,0 0 55px #8b5cf650;
+}
+
+#stamp-portfolio .card-icon {
+  font-size:32px;
+  margin-bottom:12px;
+  filter:drop-shadow(0 0 8px var(--cyan));
+}
+
+#stamp-portfolio .muted {
+  color:#b5bad0;
+  line-height:1.9;
+}
+
+#stamp-portfolio .timeline {
+  position:relative;
+  margin-left:12px;
+  padding-left:35px;
+  border-left:2px solid var(--neon);
+}
+
+#stamp-portfolio .timeline-item {
+  position:relative;
+  margin-bottom:25px;
+  padding:23px;
+  border:1px solid #a855f750;
+  border-radius:15px;
+  background:linear-gradient(100deg,#7c3aed20,#0a0a19);
+  transition:.35s;
+}
+
+#stamp-portfolio .timeline-item::before {
+  content:"";
+  position:absolute;
+  width:17px;
+  height:17px;
+  top:27px;
+  left:-45px;
+  border-radius:50%;
+  background:var(--cyan);
+  border:4px solid #17122c;
+  box-shadow:0 0 15px var(--cyan);
+  animation:energyPulse 1.5s infinite alternate;
+}
+
+#stamp-portfolio .timeline-item:hover {
+  transform:translateX(9px);
+  border-color:var(--cyan);
+  box-shadow:0 0 25px #22d3ee25;
+}
+
+#stamp-portfolio .year {
+  display:inline-block;
+  padding:5px 14px;
+  border:1px solid var(--cyan);
+  border-radius:30px;
+  color:var(--cyan);
+  font-size:12px;
+  margin-bottom:10px;
+  box-shadow:0 0 12px #22d3ee25;
+}
+
+#stamp-portfolio .tag {
+  display:inline-block;
+  margin:4px;
+  padding:7px 13px;
+  border:1px solid var(--neon);
+  border-radius:30px;
+  background:#8b5cf620;
+  color:#e9d5ff;
+  font-size:12px;
+  transition:.3s;
+}
+
+#stamp-portfolio .tag:hover {
+  background:var(--neon);
+  box-shadow:0 0 20px var(--neon);
+  transform:scale(1.1);
+}
+
+#stamp-portfolio .skill-row {margin:22px 0;}
+
+#stamp-portfolio .skill-label {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+#stamp-portfolio .skill-track {
+  height:16px;
+  border-radius:30px;
+  overflow:hidden;
+  background:#ffffff0d;
+  border:1px solid #ffffff15;
+  box-shadow:inset 0 0 10px #000;
+}
+
+#stamp-portfolio .skill-fill {
+  position:relative;
+  height:100%;
+  width:0;
+  border-radius:30px;
+  background:linear-gradient(90deg,var(--neon),var(--cyan),var(--pink));
+  box-shadow:0 0 15px var(--cyan);
+  transition:width 1.8s cubic-bezier(.2,.8,.2,1);
+  overflow:hidden;
+}
+
+#stamp-portfolio .skill-fill::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,#ffffffa0,transparent);
+  animation:skillLaser 2s linear infinite;
+}
+
+@keyframes skillLaser {
+  from {transform:translateX(-100%);}
+  to {transform:translateX(100%);}
+}
+
+#stamp-portfolio .reveal {
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+#stamp-portfolio .reveal.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+#stamp-portfolio .theme-list {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+#stamp-portfolio .theme-dot {
+  width:35px;
+  height:35px;
+  border:2px solid white;
+  border-radius:50%;
+  cursor:pointer;
+  transition:.3s;
+}
+
+#stamp-portfolio .theme-dot:hover {
+  transform:scale(1.25);
+  box-shadow:0 0 20px currentColor;
+}
+
+#stamp-portfolio .footer {
+  position:relative;
+  z-index:2;
+  padding:50px 15px;
+  text-align:center;
+  border-top:1px solid #a855f744;
+  color:#c4b5fd;
+}
+
+#stamp-portfolio #backTop {
+  position:fixed;
+  z-index:1100;
+  bottom:25px;
+  right:25px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid var(--neon);
+  background:#17102c;
+  color:white;
+  font-size:23px;
+  box-shadow:0 0 20px var(--neon);
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+
+#stamp-portfolio #backTop.show {
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* CUSTOM CURSOR */
+#stamp-portfolio .ultra-cursor,
+#stamp-portfolio .ultra-cursor-ring {
+  position:fixed;
+  border-radius:50%;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:9999;
+}
+
+#stamp-portfolio .ultra-cursor {
+  width:17px;
+  height:17px;
+  border:2px solid var(--cyan);
+  box-shadow:0 0 15px var(--cyan);
+}
+
+#stamp-portfolio .ultra-cursor-ring {
+  width:42px;
+  height:42px;
+  border:1px solid var(--pink);
+  box-shadow:0 0 15px #fb2c9b66;
+}
+
+/* HUD */
+#stamp-portfolio .ultra-hud {
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:100;
+  padding:10px 15px;
+  background:#050510d9;
+  border:1px solid var(--cyan);
+  border-radius:8px;
+  color:var(--cyan);
+  font:10px Orbitron,sans-serif;
+  letter-spacing:2px;
+  box-shadow:0 0 15px #22d3ee40;
+  backdrop-filter:blur(10px);
+}
+
+/* BOOT SCREEN */
+#stamp-portfolio .boot-screen {
+  position:fixed;
+  inset:0;
+  z-index:999999;
+  display:grid;
+  place-items:center;
+  background:#03030b;
+  color:var(--cyan);
+  font-family:Orbitron,sans-serif;
+  transition:opacity .8s,visibility .8s;
+}
+
+#stamp-portfolio .boot-screen.done {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+#stamp-portfolio .boot-content {
+  width:min(85%,450px);
+  text-align:center;
+}
+
+#stamp-portfolio .boot-title {
+  font-size:clamp(24px,6vw,40px);
+  font-weight:900;
+  text-shadow:0 0 20px var(--cyan);
+  margin-bottom:20px;
+}
+
+#stamp-portfolio .boot-track {
+  height:8px;
+  background:#ffffff15;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:20px;
+}
+
+#stamp-portfolio .boot-fill {
+  width:0;
+  height:100%;
+  background:linear-gradient(90deg,var(--neon),var(--cyan),var(--pink));
+  box-shadow:0 0 20px var(--cyan);
+  transition:width .1s linear;
+}
+
+#stamp-portfolio .boot-percent {
+  margin-top:12px;
+  font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:700px) {
+  #stamp-portfolio .hero {
+    min-height:auto;
+    padding:65px 20px;
+  }
+
+  #stamp-portfolio .profile-layout {
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  #stamp-portfolio .avatar-area {
+    width:210px;
+    height:210px;
+  }
+
+  #stamp-portfolio .section {
+    width:94%;
+    margin:22px auto;
+    padding:22px 16px;
+  }
+
+  #stamp-portfolio .ultra-cursor,
+  #stamp-portfolio .ultra-cursor-ring {
+    display:none;
+  }
+
+  #stamp-portfolio .ultra-hud {
+    font-size:8px;
+    left:8px;
+    bottom:8px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  #stamp-portfolio *,
+  #stamp-portfolio *::before,
+  #stamp-portfolio *::after {
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
+<!-- BACKGROUND -->
+<div class="cyber-bg"></div>
+<div class="grid-bg"></div>
+<div class="star-field"></div>
+<div class="scanline"></div>
+<canvas id="particles"></canvas>
+<div class="mouse-light" id="cursorLight"></div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+
+  <div style="text-align:center">
+    <div class="system-label">SYSTEM ONLINE // PORTFOLIO 2026</div>
+
+    <h1 class="glitch gradient-text"
+        style="font-size:clamp(30px,6vw,65px);margin:18px 0">
+      THANAPHAT
+    </h1>
+
+    <div style="color:var(--cyan);letter-spacing:5px;font-family:Orbitron;font-size:12px">
+      DIGITAL IDENTITY
+    </div>
+
+    <p class="muted">WELCOME TO MY CYBER WORLD</p>
+  </div>
+
+  <div class="profile-layout">
+    <div style="text-align:center">
+      <div class="avatar-area">
+        <div class="avatar-orbit"></div>
+        <div class="avatar-ring">
+          <div class="avatar-inner">
+            <img src="xxx/123.jpg" alt="Thanaphat Profile">
+          </div>
+        </div>
+        <div class="avatar-dot"></div>
+      </div>
+
+      <div style="margin-top:28px">
+        <span class="status">AVAILABLE TO LEARN</span>
+      </div>
+
+      <div style="margin-top:13px">
+        <span class="tag">IT STUDENT</span>
+        <span class="tag">LEVEL 01</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="system-label">HELLO PLAYER_001</div>
+
+      <h2 class="gradient-text" style="font-size:clamp(25px,4vw,38px)">
+        THANAPHAT PHONGSIRI
+      </h2>
+
+      <h3 style="color:#ddd6fe;font-weight:400">
+        ธนภัทร์ พงศ์ศิริ | แสตมป์
+      </h3>
+
+      <p class="muted">
+        นักศึกษาแผนกเทคโนโลยีสารสนเทศ
+        ผู้หลงใหลในโลกของเทคโนโลยี คอมพิวเตอร์
+        และการสร้างสรรค์สิ่งใหม่ ๆ
+      </p>
+
+      <div class="info-panel">
+        <div>🪪 <b>รหัสนักเรียน:</b> 69319010014</div>
+        <div>💻 <b>แผนก:</b> เทคโนโลยีสารสนเทศ</div>
+        <div>🎓 <b>ระดับ:</b> ปวส. 1/1</div>
+        <div>🏫 <b>สถานศึกษา:</b> วิทยาลัยเทคนิคน่าน</div>
+      </div>
+
+      <a class="cyber-btn" href="#education">🎓 EDUCATION</a>
+      <a class="cyber-btn" href="#skills">⚡ MY SKILLS</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PERSONAL -->
+<section class="section reveal">
+<h2 class="section-title">
+  <span class="section-icon">👤</span> PLAYER INFORMATION
+</h2>
+
+<div class="cards">
+  <div class="card">
+    <div class="card-icon">🌟</div>
+    <h3>ชื่อเล่น</h3>
+    <p class="muted">แสตมป์</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🎂</div>
+    <h3>วันเกิด</h3>
+    <p class="muted">5 กุมภาพันธ์ 2551</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">📍</div>
+    <h3>ที่อยู่</h3>
+    <p class="muted">ประเทศอังกฤษ</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">📧</div>
+    <h3>อีเมล</h3>
+    <p class="muted">yuttaphong2587@gmail.com</p>
+  </div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section reveal" id="education">
+<h2 class="section-title">
+  <span class="section-icon">🎓</span> EDUCATION TIMELINE
+</h2>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <span class="year">STAGE 01</span>
+    <h3>🏫 มัธยมศึกษาตอนต้น</h3>
+    <p class="muted">
+      <b>สถานศึกษา:</b> โรงเรียนท่าวังผาพิทยาคม<br>
+      <b>ปีการศึกษา:</b> 2563–2565<br>
+      เรียนรู้พื้นฐานทางวิชาการและพัฒนาทักษะการเรียนรู้
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <span class="year">STAGE 02</span>
+    <h3>💻 ประกาศนียบัตรวิชาชีพ (ปวช.)</h3>
+    <p class="muted">
+      <b>สถานศึกษา:</b> วิทยาลัยเทคนิคน่าน<br>
+      <b>สาขา:</b> เทคโนโลยีสารสนเทศ<br>
+      <b>ปีการศึกษา:</b> 2566–2568<br>
+      ศึกษาความรู้ด้านคอมพิวเตอร์และเทคโนโลยีสารสนเทศ
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <span class="year">STAGE 03 // CURRENT</span>
+    <h3>🚀 ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</h3>
+    <p class="muted">
+      <b>สถานศึกษา:</b> วิทยาลัยเทคนิคน่าน<br>
+      <b>สาขา:</b> เทคโนโลยีสารสนเทศ<br>
+      <b>ชั้นเรียน:</b> ปวส. 1/1<br>
+      <b>ปีการศึกษา:</b> 2569–2570 (ตรวจสอบกับหลักสูตร)<br>
+      พัฒนาความรู้ด้านการเขียนโปรแกรม การออกแบบเว็บไซต์
+      และการสร้างระบบเทคโนโลยี
+    </p>
+    <span class="tag">HTML</span>
+    <span class="tag">CSS</span>
+    <span class="tag">PROGRAMMING</span>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section class="section reveal" id="skills">
+<h2 class="section-title">
+  <span class="section-icon">⚡</span> PLAYER SKILL TREE
+</h2>
+
+<p class="muted">MY CURRENT ABILITIES // กำลังพัฒนาความสามารถ</p>
+
+<div class="skill-row">
+  <div class="skill-label"><b>💻 COMPUTER SKILL</b><span>80%</span></div>
+  <div class="skill-track"><div class="skill-fill" data-width="80%"></div></div>
+</div>
+
+<div class="skill-row">
+  <div class="skill-label"><b>🌐 HTML / CSS</b><span>75%</span></div>
+  <div class="skill-track"><div class="skill-fill" data-width="75%"></div></div>
+</div>
+
+<div class="skill-row">
+  <div class="skill-label"><b>🛠️ IT SUPPORT</b><span>65%</span></div>
+  <div class="skill-track"><div class="skill-fill" data-width="65%"></div></div>
+</div>
+
+<div class="skill-row">
+  <div class="skill-label"><b>🎨 WEB DESIGN</b><span>70%</span></div>
+  <div class="skill-track"><div class="skill-fill" data-width="70%"></div></div>
+</div>
+
+<div style="margin-top:25px">
+  <span class="tag">HTML</span>
+  <span class="tag">CSS</span>
+  <span class="tag">COMPUTER</span>
+  <span class="tag">WEB DESIGN</span>
+  <span class="tag">IT SUPPORT</span>
+</div>
+
+<p style="font-size:12px;color:#94a3b8">
+  * ค่าทักษะเป็นตัวอย่าง สามารถปรับให้ตรงกับความสามารถจริงได้
+</p>
+</section>
+
+<!-- HOBBY -->
+<section class="section reveal">
+<h2 class="section-title">
+  <span class="section-icon">🎮</span> MY WORLD
+</h2>
+
+<div class="cards">
+  <div class="card">
+    <div class="card-icon">🎮</div>
+    <h3>HOBBY</h3>
+    <p class="muted">เล่นเกม ฟังเพลง ดูหนัง และออกกำลังกาย</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">💡</div>
+    <h3>INTEREST</h3>
+    <p class="muted">เทคโนโลยี คอมพิวเตอร์ และการพัฒนาเว็บไซต์</p>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🏆</div>
+    <h3>MY GOAL</h3>
+    <p class="muted">พัฒนาทักษะด้าน IT และสร้างผลงานที่ใช้งานได้จริง</p>
+  </div>
+</div>
+</section>
+
+<!-- QUOTE -->
+<section class="section reveal" style="text-align:center">
+  <div class="system-label">MISSION // FUTURE SUCCESS</div>
+
+  <h2 class="glitch gradient-text" style="font-size:clamp(22px,4vw,36px);margin:20px 0">
+    NEVER STOP DEVELOPING
+  </h2>
+
+  <p class="muted">
+    "อย่าหยุดพัฒนาตัวเอง เพราะขีดจำกัดมีไว้ให้ก้าวข้าม"
+  </p>
+
+  <h3 style="margin-top:30px">SELECT YOUR NEON COLOR</h3>
+
+  <div class="theme-list">
+    <button class="theme-dot" data-theme="purple" style="background:#a855f7" aria-label="ม่วง"></button>
+    <button class="theme-dot" data-theme="blue" style="background:#22d3ee" aria-label="ฟ้า"></button>
+    <button class="theme-dot" data-theme="pink" style="background:#fb2c9b" aria-label="ชมพู"></button>
+    <button class="theme-dot" data-theme="green" style="background:#00ffa3" aria-label="เขียว"></button>
+    <button class="theme-dot" data-theme="orange" style="background:#fb923c" aria-label="ส้ม"></button>
+  </div>
+
+  <p class="muted" style="font-size:12px;margin-top:15px">
+    CLICK COLOR TO CHANGE YOUR WORLD
+  </p>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="system-label">SYSTEM STATUS: ONLINE</div>
+  <h2 class="gradient-text" style="font-family:Orbitron;margin:15px 0">
+    THANK YOU FOR VISITING
+  </h2>
+  <p>© 2026 THANAPHAT PHONGSIRI</p>
+  <p style="font-size:11px;color:#777">
+    INFORMATION TECHNOLOGY // NAN TECHNICAL COLLEGE
+  </p>
+</div>
+
+<button id="backTop" aria-label="กลับขึ้นด้านบน">↑</button>
+
+<script>
+(function(){
+  const root = document.getElementById("stamp-portfolio");
+  if(!root || root.dataset.initialized === "yes") return;
+  root.dataset.initialized = "yes";
+
+  // PARTICLE SYSTEM
+  const canvas = root.querySelector("#particles");
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+  let width = 0;
+  let height = 0;
+  let animationId;
+
+  function resize(){
+    const rect = root.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1,2);
+
+    width = rect.width;
+    height = root.scrollHeight;
+
+    canvas.width = width*dpr;
+    canvas.height = height*dpr;
+    canvas.style.height = height+"px";
+
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    particles = Array.from({
+      length:Math.min(130,Math.floor(width/7))
+    },()=>({
+      x:Math.random()*width,
+      y:Math.random()*height,
+      r:Math.random()*2+0.4,
+      v:Math.random()*.5+.15,
+      a:Math.random()*.7+.2
+    }));
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,width,height);
+
+    particles.forEach(p=>{
+      p.y -= p.v;
+
+      if(p.y < 0){
+        p.y = height;
+        p.x = Math.random()*width;
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = "rgba(160,140,255,"+p.a+")";
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = "#a855f7";
+      ctx.fill();
+    });
+
+    ctx.shadowBlur = 0;
+    animationId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+
+  window.addEventListener("resize",resize);
+
+  // REVEAL ANIMATION
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+
+        entry.target.querySelectorAll(".skill-fill").forEach(bar=>{
+          bar.style.width = bar.dataset.width;
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12});
+
+  root.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+  // MOUSE LIGHT
+  const light = root.querySelector("#cursorLight");
+
+  root.addEventListener("mousemove",e=>{
+    const rect = root.getBoundingClientRect();
+    light.style.left = (e.clientX-rect.left)+"px";
+    light.style.top = (e.clientY-rect.top)+"px";
+  });
+
+  // 3D CARD TILT
+  const isMobile = window.matchMedia("(max-width:700px)").matches;
+
+  if(!isMobile){
+    root.querySelectorAll(".card").forEach(card=>{
+      card.addEventListener("mousemove",e=>{
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX-rect.left)/rect.width;
+        const y = (e.clientY-rect.top)/rect.height;
+
+        card.style.transform =
+          `perspective(900px) rotateX(${(.5-y)*12}deg) rotateY(${(x-.5)*12}deg) translateY(-5px)`;
+      });
+
+      card.addEventListener("mouseleave",()=>{
+        card.style.transform = "";
+      });
+    });
+  }
+
+  // CUSTOM CURSOR
+  const cursor = document.createElement("div");
+  const ring = document.createElement("div");
+
+  cursor.className = "ultra-cursor";
+  ring.className = "ultra-cursor-ring";
+
+  root.append(cursor,ring);
+
+  let mx = -100;
+  let my = -100;
+  let rx = -100;
+  let ry = -100;
+
+  root.addEventListener("mousemove",e=>{
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.left = mx+"px";
+    cursor.style.top = my+"px";
+  });
+
+  function cursorAnimation(){
+    rx += (mx-rx)*.15;
+    ry += (my-ry)*.15;
+    ring.style.left = rx+"px";
+    ring.style.top = ry+"px";
+    requestAnimationFrame(cursorAnimation);
+  }
+
+  cursorAnimation();
+
+  // HUD CLOCK
+  const hud = document.createElement("div");
+  hud.className = "ultra-hud";
+  root.appendChild(hud);
+
+  function updateClock(){
+    const now = new Date();
+    const time = now.toLocaleTimeString("th-TH",{
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit"
+    });
+    hud.textContent = "SYSTEM ONLINE // "+time;
+  }
+
+  updateClock();
+  const clockTimer = setInterval(updateClock,1000);
+
+  // BOOT SCREEN
+  const boot = document.createElement("div");
+  boot.className = "boot-screen";
+
+  boot.innerHTML = `
+    <div class="boot-content">
+      <div class="boot-title">STAMP SYSTEM</div>
+      <div>INITIALIZING CYBER WORLD...</div>
+      <div class="boot-track">
+        <div class="boot-fill"></div>
+      </div>
+      <div class="boot-percent">0%</div>
+    </div>
+  `;
+
+  root.appendChild(boot);
+
+  const fill = boot.querySelector(".boot-fill");
+  const percent = boot.querySelector(".boot-percent");
+  let progress = 0;
+
+  const loading = setInterval(()=>{
+    progress += Math.floor(Math.random()*9)+3;
+    progress = Math.min(progress,100);
+
+    fill.style.width = progress+"%";
+    percent.textContent = progress+"%";
+
+    if(progress >= 100){
+      clearInterval(loading);
+      setTimeout(()=>boot.classList.add("done"),500);
+    }
+  },100);
+
+  // THEME SELECTOR
+  const themes = {
+    purple:["#a855f7","#22d3ee","#fb2c9b"],
+    blue:["#2563eb","#22d3ee","#818cf8"],
+    pink:["#ec4899","#f9a8d4","#8b5cf6"],
+    green:["#10b981","#00ffa3","#a3e635"],
+    orange:["#f97316","#fb923c","#facc15"]
+  };
+
+  root.querySelectorAll(".theme-dot").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const colors = themes[button.dataset.theme];
+      if(!colors) return;
+
+      root.style.setProperty("--neon",colors[0]);
+      root.style.setProperty("--cyan",colors[1]);
+      root.style.setProperty("--pink",colors[2]);
+    });
+  });
+
+  // BUTTON MAGNETIC EFFECT
+  root.querySelectorAll(".cyber-btn").forEach(button=>{
+    button.addEventListener("mousemove",e=>{
+      if(isMobile) return;
+
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX-rect.left-rect.width/2;
+      const y = e.clientY-rect.top-rect.height/2;
+
+      button.style.transform =
+        `translate(${x*.12}px,${y*.12}px)`;
+    });
+
+    button.addEventListener("mouseleave",()=>{
+      button.style.transform = "";
+    });
+  });
+
+  // CLICK ENERGY BURST
+  root.addEventListener("click",e=>{
+    const burst = document.createElement("span");
+
+    burst.style.cssText = `
+      position:fixed;
+      left:${e.clientX}px;
+      top:${e.clientY}px;
+      width:8px;
+      height:8px;
+      border:2px solid var(--cyan);
+      border-radius:50%;
+      pointer-events:none;
+      z-index:99997;
+      transform:translate(-50%,-50%);
+      animation:stampBurst .65s ease-out forwards;
+    `;
+
+    document.body.appendChild(burst);
+    setTimeout(()=>burst.remove(),700);
+  });
+
+  if(!document.getElementById("stamp-burst-style")){
+    const style = document.createElement("style");
+    style.id = "stamp-burst-style";
+    style.textContent = `
+      @keyframes stampBurst {
+        to {
+          width:65px;
+          height:65px;
+          opacity:0;
+          border-width:1px;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // BACK TO TOP
+  const backTop = root.querySelector("#backTop");
+
+  window.addEventListener("scroll",()=>{
+    backTop.classList.toggle("show",window.scrollY>400);
+  });
+
+  backTop.addEventListener("click",()=>{
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+
+  // CLEANUP
+  window.addEventListener("pagehide",()=>{
+    cancelAnimationFrame(animationId);
+    clearInterval(clockTimer);
+    clearInterval(loading);
+    observer.disconnect();
+  },{once:true});
+
+})();
+</script>
+
+</div>
+</main>
+
+
+
+
 
   <!-- JavaScript -->
   <script>
