@@ -1,183 +1,863 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>06 jetsadakon | History of IT ปวส.1/1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 jetsadakon | History of IT</title>
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    body {
-      overflow-x: hidden;
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --main: #8b5cf6;
+    --second: #00d4ff;
+    --pink: #ec4899;
+    --bg: #050817;
+    --panel: rgba(12, 20, 48, .82);
+    --text: #ffffff;
+    --glow: 0 0 20px var(--main);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background .5s, color .5s;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(139,92,246,.22), transparent 35%),
+    radial-gradient(circle at 80% 60%, rgba(0,212,255,.15), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(236,72,153,.12), transparent 40%);
+    animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+}
+
+/* PARTICLES */
+
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--second);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--second);
+    pointer-events: none;
+    z-index: -1;
+    animation: float 8s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
     }
-
-    .navbar {
-      z-index: 1050;
+    30% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
     }
+}
 
+/* NAVBAR */
+
+.navbar {
+    background: rgba(5,8,23,.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--main);
+    box-shadow: 0 0 20px rgba(139,92,246,.4);
+    z-index: 1050;
+    min-height: 65px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg,var(--second),var(--main),var(--pink));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent !important;
+}
+
+.menu-btn {
+    border: 1px solid var(--main);
+    color: white;
+    background: rgba(139,92,246,.2);
+    box-shadow: var(--glow);
+    font-size: 22px;
+    transition: .3s;
+}
+
+.menu-btn:hover {
+    background: var(--main);
+    transform: scale(1.08);
+}
+
+/* THEME BUTTONS */
+
+.theme-list {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.theme-btn {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.4);
+    box-shadow: 0 0 15px white;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    height: calc(100vh - 65px);
+    position: fixed;
+    top: 65px;
+    left: 0;
+    background: rgba(8,12,35,.94);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--main);
+    box-shadow: 5px 0 25px rgba(139,92,246,.2);
+    overflow-y: auto;
+    padding: 15px 10px;
+    transition: .4s;
+    z-index: 1040;
+}
+
+.sidebar.collapsed {
+    left: -260px;
+}
+
+.sidebar h5 {
+    padding: 12px;
+    color: var(--second);
+    text-shadow: 0 0 10px var(--second);
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 12px;
+    margin: 4px 0;
+    color: #dbeafe;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: .3s;
+    border: 1px solid transparent;
+}
+
+.sidebar a:hover {
+    background: rgba(139,92,246,.2);
+    border-color: var(--main);
+    box-shadow: 0 0 15px var(--main);
+    transform: translateX(6px);
+    color: white;
+}
+
+.sidebar a.active {
+    background: linear-gradient(90deg,var(--main),transparent);
+    border: 1px solid var(--main);
+    box-shadow: 0 0 15px var(--main);
+    color: white;
+}
+
+/* MAIN CONTENT */
+
+.content {
+    margin-left: 250px;
+    padding: 35px;
+    margin-top: 65px;
+    transition: .4s;
+}
+
+.content.expanded {
+    margin-left: 0;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 430px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    padding: 55px 40px;
+    background:
+    linear-gradient(120deg,rgba(5,8,23,.95),rgba(40,20,90,.65)),
+    radial-gradient(circle at 80% 30%,var(--main),transparent 50%);
+    border: 1px solid var(--main);
+    box-shadow: 0 0 35px rgba(139,92,246,.3);
+    display: flex;
+    align-items: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 2px solid var(--second);
+    border-radius: 50%;
+    right: -80px;
+    top: 30px;
+    box-shadow: 0 0 30px var(--second);
+    animation: rotate 12s linear infinite;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 2px solid var(--pink);
+    border-radius: 50%;
+    right: -30px;
+    top: 80px;
+    box-shadow: 0 0 25px var(--pink);
+    animation: rotate 8s linear infinite reverse;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small {
+    color: var(--second);
+    letter-spacing: 4px;
+    font-size: 14px;
+}
+
+.hero h1 {
+    font-size: clamp(45px,7vw,85px);
+    font-weight: 800;
+    background: linear-gradient(90deg,var(--second),var(--main),var(--pink));
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient 4s infinite alternate;
+    filter: drop-shadow(0 0 15px var(--main));
+}
+
+@keyframes gradient {
+    to { background-position: 100%; }
+}
+
+.hero p {
+    font-size: 17px;
+    color: #dbeafe;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 9px 20px;
+    border: 1px solid var(--second);
+    border-radius: 30px;
+    color: var(--second);
+    box-shadow: 0 0 15px rgba(0,212,255,.3);
+}
+
+/* PROFILE CARD */
+
+.profile-section {
+    margin-top: 35px;
+    padding: 30px;
+    background: var(--panel);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--main);
+    border-radius: 25px;
+    box-shadow: 0 0 25px rgba(139,92,246,.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-section::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--main);
+    filter: blur(130px);
+    right: 0;
+    top: 0;
+    opacity: .35;
+}
+
+.section-title {
+    color: var(--second);
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px var(--second);
+}
+
+.profile-name {
+    font-size: clamp(25px,4vw,42px);
+    font-weight: 700;
+    background: linear-gradient(90deg,var(--main),var(--second));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* INFO BOX */
+
+.info-box {
+    height: 100%;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.15);
+    transition: .4s;
+}
+
+.info-box:hover {
+    transform: translateY(-8px);
+    border-color: var(--second);
+    box-shadow: 0 0 25px rgba(0,212,255,.2);
+}
+
+.info-box h5 {
+    color: var(--second);
+    margin-bottom: 20px;
+}
+
+.info-box p {
+    color: #e2e8f0;
+    margin-bottom: 12px;
+}
+
+.icon {
+    color: var(--main);
+    margin-right: 8px;
+}
+
+/* QUOTE */
+
+.quote {
+    border-left: 4px solid var(--pink);
+    padding: 20px;
+    background: rgba(236,72,153,.07);
+    border-radius: 10px;
+    font-size: 19px;
+    color: white;
+}
+
+/* BUTTON */
+
+.glow-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(90deg,var(--main),var(--pink));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 0 20px var(--main);
+    transition: .3s;
+}
+
+.glow-btn:hover {
+    color: white;
+    transform: scale(1.08);
+    box-shadow: 0 0 35px var(--pink);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 35px 10px;
+    margin-top: 30px;
+    border-top: 1px solid var(--main);
+    color: #94a3b8;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .8s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TOP BUTTON */
+
+.top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--main);
+    border: 1px solid white;
+    color: white;
+    font-size: 22px;
+    box-shadow: 0 0 20px var(--main);
+    cursor: pointer;
+    z-index: 1000;
+    transition: .3s;
+}
+
+.top-btn:hover {
+    transform: translateY(-7px);
+}
+
+/* LIGHT MODE */
+
+body.light {
+    --bg: #eef2ff;
+    --panel: rgba(255,255,255,.85);
+    --text: #172033;
+}
+
+body.light .navbar {
+    background: rgba(255,255,255,.9);
+}
+
+body.light .sidebar {
+    background: rgba(235,239,255,.96);
+}
+
+body.light .sidebar a {
+    color: #26314a;
+}
+
+body.light .profile-section {
+    color: #172033;
+}
+
+body.light .info-box {
+    background: rgba(255,255,255,.7);
+}
+
+body.light .info-box p,
+body.light .quote {
+    color: #26314a;
+}
+
+/* MOBILE */
+
+@media(max-width:768px) {
     .sidebar {
-      width: 250px;
-      height: calc(100vh - 56px);
-      position: fixed;
-      top: 50px;
-      left: 0;
-      background: #343a40;
-      padding-top: 10px;
-      overflow-y: auto;
-      transition: left 0.3s ease;
-      z-index: 1040;
+        left: -260px;
     }
 
-    .sidebar a {
-      color: white;
-      display: block;
-      padding: 10px 15px;
-      text-decoration: none;
-      overflow-wrap: anywhere;
-    }
-
-    .sidebar a:hover,
-    .sidebar a.active {
-      background: #495057;
-    }
-
-    .sidebar.collapsed {
-      left: -250px;
+    .sidebar.active {
+        left: 0;
     }
 
     .content {
-      margin-left: 250px;
-      padding: 20px;
-      margin-top: 56px;
-      transition: margin-left 0.3s ease;
-    }
-
-    .content.expanded {
-      margin-left: 0;
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        left: -250px;
-      }
-
-      .sidebar.active {
-        left: 0;
-      }
-
-      .content {
         margin-left: 0;
-      }
+        padding: 15px;
     }
-  </style>
+
+    .hero {
+        padding: 35px 20px;
+        min-height: 350px;
+    }
+
+    .hero::before {
+        right: -180px;
+    }
+
+    .hero::after {
+        right: -130px;
+    }
+
+    .theme-list {
+        gap: 6px;
+    }
+
+    .theme-btn {
+        width: 15px;
+        height: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 13px;
+    }
+
+    .profile-section {
+        padding: 20px;
+    }
+}
+</style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
-      <div class="d-flex align-items-center">
-        <button
-          type="button"
-          id="menuToggle"
-          class="btn btn-outline-light me-2"
-          onclick="toggleSidebar()"
-          aria-label="เปิดหรือปิดเมนู"
-          aria-controls="sidebar"
-          aria-expanded="true">
-          ☰
-        </button>
-        <span class="navbar-brand mb-0 h1">06 jetsadakon | History of IT ปวส.1/1</span>
-      </div>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark fixed-top">
+<div class="container-fluid">
+
+    <div class="d-flex align-items-center gap-2">
+        <button class="btn menu-btn" onclick="toggleSidebar()">☰</button>
+        <span class="navbar-brand mb-0">
+            06 JETSADAKON | HISTORY OF IT
+        </span>
     </div>
-  </nav>
 
-  <!-- Sidebar -->
-  <div id="sidebar" class="sidebar">
-    <a href="kittipat.html">01 kittipat</a>
-    <a href="kiattisak.html">02 kiattisak</a>
-    <a href="khwan-khao.html">03 khwan khao</a>
-    <a href="kanison.html">04 kanison</a>
-    <a href="chakkraphong.html">05 chakkraphong</a>
-    <a href="jetsadakon.html">06 jetsadakon</a>
-    <a href="chanakan.html">07 chanakan</a>
-    <a href="chutikarn.html">08 chutikarn</a>
-    <a href="naphat.html">09 naphat</a>
-    <a href="nattakorn.html">10 nattakorn</a>
-    <a href="nattanicha.html">11 nattanicha</a>
-    <a href="thippapha.html">12 thippapha</a>
-    <a href="thanaphat.html">13 thanaphat</a>
-    <a href="banthita.html">14 banthita</a>
-    <a href="panachai.html">15 panachai</a>
-    <a href="parichaya.html">16 parichaya</a>
-    <a href="premruethai.html">17 premruethai</a>
-    <a href="ploylada.html">18 ploylada</a>
-    <a href="ratchaphruek.html">19 ratchaphruek</a>
-    <a href="wannadanai.html">20 wannadanai</a>
-    <a href="suphanida.html">21 suphanida</a>
-    <a href="supakkakon.html">22 supakkakon</a>
-    <a href="suchat.html">23 suchat</a>
-    <a href="suchada.html">24 suchada</a>
-    <a href="suchanat.html">25 suchanat</a>
-  </div>
+    <div class="d-flex align-items-center gap-3">
 
-  <!-- Content -->
-  <main class="content">
-    <h2>jetsadakon</h2>
-    <p>รหัสนักเรียน: 69319010006</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
-     <h1>ประวัติส่วนตัวของ</h1>
-     <h2>นายเจษฎากรณ์ อายุยืน</h2>
-  </main>
+        <button class="btn btn-dark rounded-circle" onclick="toggleLight()">
+            🌙
+        </button>
 
-  <!-- JavaScript -->
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
+        <div class="theme-list">
+            <div class="theme-btn" style="background:#8b5cf6"
+            onclick="changeTheme('#8b5cf6','#00d4ff','#ec4899')"></div>
 
-      if (window.innerWidth <= 768) {
+            <div class="theme-btn" style="background:#2563eb"
+            onclick="changeTheme('#2563eb','#00e5ff','#818cf8')"></div>
+
+            <div class="theme-btn" style="background:#ec4899"
+            onclick="changeTheme('#ec4899','#fb7185','#a855f7')"></div>
+
+            <div class="theme-btn" style="background:#06b6d4"
+            onclick="changeTheme('#06b6d4','#22d3ee','#3b82f6')"></div>
+
+            <div class="theme-btn" style="background:#f59e0b"
+            onclick="changeTheme('#f59e0b','#facc15','#f97316')"></div>
+
+            <div class="theme-btn" style="background:#22c55e"
+            onclick="changeTheme('#22c55e','#86efac','#14b8a6')"></div>
+        </div>
+
+    </div>
+</div>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+<h5>🎓 รายชื่อสมาชิก</h5>
+
+<a href="kittipat.html">01　kittipat</a>
+<a href="kiattisak.html">02　kiattisak</a>
+<a href="khwan-khao.html">03　khwan khao</a>
+<a href="kanison.html">04　kanison</a>
+<a href="chakkraphong.html">05　chakkraphong</a>
+<a href="jetsadakon.html" class="active">06　jetsadakon ★</a>
+<a href="chanakan.html">07　chanakan</a>
+<a href="chutikarn.html">08　chutikarn</a>
+<a href="naphat.html">09　naphat</a>
+<a href="nattakorn.html">10　nattakorn</a>
+<a href="nattanicha.html">11　nattanicha</a>
+<a href="thippapha.html">12　thippapha</a>
+<a href="thanaphat.html">13　thanaphat</a>
+<a href="banthita.html">14　banthita</a>
+<a href="panachai.html">15　panachai</a>
+<a href="parichaya.html">16　parichaya</a>
+<a href="premruethai.html">17　premruethai</a>
+<a href="ploylada.html">18　ploylada</a>
+<a href="ratchaphruek.html">19　ratchaphruek</a>
+<a href="wannadanai.html">20　wannadanai</a>
+<a href="suphanida.html">21　suphanida</a>
+<a href="supakkakon.html">22　supakkakon</a>
+<a href="suchat.html">23　suchat</a>
+<a href="suchada.html">24　suchada</a>
+<a href="suchanat.html">25　suchanat</a>
+
+</div>
+
+<!-- CONTENT -->
+<main class="content" id="content">
+
+<!-- HERO -->
+<section class="hero reveal">
+
+    <div class="hero-content">
+
+        <span class="hero-small">WELCOME TO MY DIGITAL WORLD</span>
+
+        <h1>JETSADAKON</h1>
+
+        <p class="mt-3">
+            Student of Information Technology
+        </p>
+
+        <div class="hero-badge mt-3">
+            ⚡ ปวส.1/1 | INFORMATION TECHNOLOGY
+        </div>
+
+        <div class="mt-4">
+            <a href="#profile" class="glow-btn">
+                ✦ EXPLORE MY PROFILE
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROFILE -->
+<section class="profile-section reveal" id="profile">
+
+    <div class="text-center mb-4">
+
+        <h5 class="section-title">
+            ✦ PERSONAL PROFILE ✦
+        </h5>
+
+        <h2 class="profile-name">
+            นายเจษฎากรณ์ อายุยืน
+        </h2>
+
+        <p class="text-secondary">
+            เว็บไซต์แนะนำประวัติส่วนตัว
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- PERSONAL INFO -->
+        <div class="col-lg-4">
+
+            <div class="info-box">
+
+                <h5>👤 ข้อมูลส่วนตัว</h5>
+
+                <p><span class="icon">✦</span>
+                ชื่อ-สกุล : นายเจษฎากรณ์ อายุยืน</p>
+
+                <p><span class="icon">✦</span>
+                รหัสนักเรียน : 69319010006</p>
+
+                <p><span class="icon">✦</span>
+                ระดับชั้น : ปวส.1/1</p>
+
+                <p><span class="icon">✦</span>
+                แผนก : เทคโนโลยีสารสนเทศ</p>
+
+            </div>
+
+        </div>
+
+        <!-- QUOTE -->
+        <div class="col-lg-4">
+
+            <div class="info-box">
+
+                <h5>💬 MY MOTTO</h5>
+
+                <div class="quote">
+                    "ก้าวเล็ก ๆ ในวันนี้
+                    อาจพาเราไปสู่ความสำเร็จ
+                    ในวันข้างหน้า"
+                </div>
+
+                <p class="mt-4 text-center">
+                    ✨ DREAM BIG, CODE BETTER ✨
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- INTEREST -->
+        <div class="col-lg-4">
+
+            <div class="info-box">
+
+                <h5>💜 ความสนใจ</h5>
+
+                <p>☑ เทคโนโลยีและการเขียนโปรแกรม</p>
+
+                <p>☑ คอมพิวเตอร์และไอที</p>
+
+                <p>☑ การพัฒนาเว็บไซต์</p>
+
+                <p>☑ เทคโนโลยีใหม่ ๆ</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILL -->
+<section class="profile-section reveal">
+
+    <h4 class="section-title">⚡ MY IT WORLD</h4>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <div style="font-size:45px">💻</div>
+                <h5>Web Development</h5>
+                <p>HTML / CSS / JavaScript</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <div style="font-size:45px">⚙️</div>
+                <h5>Programming</h5>
+                <p>Logic & Problem Solving</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <div style="font-size:45px">🚀</div>
+                <h5>Technology</h5>
+                <p>Learning New Technology</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h5 style="color:var(--second)">
+        ✦ JETSADAKON ✦
+    </h5>
+
+    <p>History of IT | Information Technology</p>
+
+    <small>© 2026 Personal Website. All Rights Reserved.</small>
+</footer>
+
+</main>
+
+<!-- BACK TO TOP -->
+<button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+</button>
+
+<script>
+
+// SIDEBAR
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
+
+    if(window.innerWidth <= 768) {
         sidebar.classList.toggle("active");
-        button.setAttribute(
-          "aria-expanded",
-          sidebar.classList.contains("active")
-        );
-      } else {
+    } else {
         sidebar.classList.toggle("collapsed");
         content.classList.toggle("expanded");
-        button.setAttribute(
-          "aria-expanded",
-          !sidebar.classList.contains("collapsed")
-        );
-      }
     }
 
-    // ปรับสถานะเมนูเมื่อเปลี่ยนขนาดหน้าจอ
-    window.addEventListener("resize", function () {
-      const sidebar = document.getElementById("sidebar");
-      const content = document.querySelector(".content");
-      const button = document.getElementById("menuToggle");
+}
 
-      if (window.innerWidth <= 768) {
-        sidebar.classList.remove("collapsed");
-        content.classList.remove("expanded");
-        button.setAttribute("aria-expanded", sidebar.classList.contains("active"));
-      } else {
-        sidebar.classList.remove("active");
-        button.setAttribute("aria-expanded", !sidebar.classList.contains("collapsed"));
-      }
+// THEME COLOR
+function changeTheme(main,second,pink) {
+
+    document.documentElement.style.setProperty('--main',main);
+    document.documentElement.style.setProperty('--second',second);
+    document.documentElement.style.setProperty('--pink',pink);
+
+}
+
+// LIGHT MODE
+function toggleLight() {
+
+    document.body.classList.toggle("light");
+
+}
+
+// PARTICLES
+const particleArea = document.getElementById("particles");
+
+for(let i=0;i<45;i++) {
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left = Math.random()*100+"%";
+    particle.style.animationDelay = Math.random()*8+"s";
+    particle.style.animationDuration = (5+Math.random()*8)+"s";
+
+    particleArea.appendChild(particle);
+
+}
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
     });
-  </script>
 
-  <!-- Bootstrap JavaScript -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+},{threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
+});
+
+// CLOSE SIDEBAR ON MOBILE
+document.querySelectorAll(".sidebar a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        if(window.innerWidth<=768) {
+            document.getElementById("sidebar").classList.remove("active");
+        }
+
+    });
+
+});
+
+</script>
+
 </body>
 </html>
