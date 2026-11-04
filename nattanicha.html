@@ -125,12 +125,562 @@
     <a href="suchanat.html">25 suchanat</a>
   </div>
 
-  <!-- Content -->
+
   <main class="content">
-    <h2>nattanicha</h2>
-    <p>รหัสนักเรียน: 69319010011</p>
-    <p>เว็บไซต์แผนกเทคโนโลยีสารสนเทศ 2/1</p>
-    <!-- เพิ่มเนื้อหาของแต่ละหน้าได้ตรงนี้ -->
+    
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio | Nattanicha</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    color: #594b68;
+    line-height: 1.8;
+    padding: 35px 15px;
+    background: linear-gradient(-45deg,
+        #fce4ec, #e8ddff, #dceeff, #fff0f6);
+    background-size: 400% 400%;
+    animation: backgroundMove 12s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(85px);
+    opacity: 0.55;
+    z-index: -1;
+    pointer-events: none;
+    animation: floating 8s ease-in-out infinite alternate;
+}
+
+.glow.one {
+    background: #f7a9d4;
+    top: 5%;
+    left: -120px;
+}
+
+.glow.two {
+    background: #b8a5ff;
+    right: -120px;
+    top: 40%;
+    animation-delay: 2s;
+}
+
+.glow.three {
+    background: #9bd9ff;
+    bottom: -100px;
+    left: 30%;
+    animation-delay: 3s;
+}
+
+@keyframes floating {
+    from { transform: translateY(0) scale(1); }
+    to { transform: translateY(-65px) scale(1.2); }
+}
+
+/* กล่องหลัก */
+.portfolio {
+    max-width: 1050px;
+    width: 100%;
+    margin: auto;
+    background: rgba(255,255,255,0.95);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 15px 55px rgba(111,80,140,0.18);
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* เมนู */
+nav {
+    padding: 18px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: white;
+}
+
+nav h2 {
+    color: #b77bbd;
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+nav .menu {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #89749f;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #df82b8;
+}
+
+/* ส่วนแนะนำตัว */
+.hero {
+    min-height: 430px;
+    padding: 55px 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    background: linear-gradient(125deg,
+        #efb9d5, #cdbcf7, #b9dff8);
+    background-size: 200% 200%;
+    animation: backgroundMove 9s ease infinite;
+}
+
+.profile-img {
+    width: 210px;
+    height: 250px;
+    padding: 6px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,
+        white, #e8c2ff, #ffc7df);
+    box-shadow: 0 10px 35px rgba(112,76,145,0.25);
+    transition: 0.5s;
+}
+
+.profile-img:hover {
+    transform: translateY(-10px) rotate(2deg);
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.hero-text {
+    max-width: 510px;
+    color: white;
+}
+
+.hero-text .welcome {
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.hero-text h1 {
+    font-size: 43px;
+    letter-spacing: 3px;
+    text-shadow: 0 3px 12px rgba(100,70,120,0.15);
+}
+
+.hero-text h2 {
+    font-size: 23px;
+    margin: 5px 0 15px;
+}
+
+.hero-text p {
+    font-size: 15px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 7px 22px;
+    background: rgba(255,255,255,0.85);
+    color: #9872bd;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+/* ส่วนเนื้อหา */
+.section {
+    padding: 48px 50px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-title h2 {
+    font-size: 25px;
+    color: #b77bbd;
+    letter-spacing: 2px;
+}
+
+.section-title p {
+    font-size: 13px;
+    color: #ae9bbd;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    background: linear-gradient(90deg,#f3a9ce,#b9a4eb);
+    margin: 12px auto 0;
+    border-radius: 10px;
+}
+
+/* กล่องข้อมูล */
+.content-card {
+    max-width: 850px;
+    margin: auto;
+    padding: 28px 32px;
+    border-radius: 20px;
+    background: #fff9fc;
+    border: 1px solid #f3dceb;
+    box-shadow: 0 7px 22px rgba(180,130,190,0.08);
+    transition: 0.4s;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(180,130,190,0.17);
+}
+
+.content-card p {
+    margin-bottom: 9px;
+}
+
+.content-card strong {
+    color: #b47bb5;
+}
+
+/* ประวัติการศึกษา */
+.education {
+    background: #faf6ff;
+}
+
+.edu-card {
+    background: white;
+    padding: 18px 22px;
+    margin-bottom: 15px;
+    border-radius: 16px;
+    border-left: 5px solid #c9a9ed;
+    box-shadow: 0 4px 15px rgba(150,120,180,0.07);
+    transition: 0.4s;
+}
+
+.edu-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(150,120,180,0.15);
+}
+
+.edu-card h3 {
+    color: #9872bd;
+    font-size: 16px;
+}
+
+.edu-card p {
+    font-size: 14px;
+}
+
+/* เป้าหมายในชีวิต */
+.goal {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+    text-align: center;
+    border-radius: 22px;
+    background: linear-gradient(120deg,
+        #f8d8e9, #e5d8ff, #d9edff);
+    box-shadow: 0 8px 25px rgba(160,120,190,0.12);
+    transition: 0.4s;
+}
+
+.goal:hover {
+    transform: scale(1.015);
+}
+
+.goal h2 {
+    color: #9872bd;
+    margin-bottom: 12px;
+}
+
+
+footer {
+    padding: 23px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 2px;
+    background: linear-gradient(120deg,#e6a9cd,#a997df);
+}
+
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media(max-width:700px) {
+    body {
+        padding: 12px;
+    }
+
+    .portfolio {
+        border-radius: 20px;
+    }
+
+    nav {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav .menu {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text h2 {
+        font-size: 20px;
+    }
+
+    .section {
+        padding: 38px 20px;
+    }
+
+    .content-card {
+        padding: 22px;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+<div class="glow three"></div>
+
+<div class="portfolio">
+
+<nav>
+    <h2>MY PORTFOLIO</h2>
+    <div class="menu">
+        <a href="#about">เกี่ยวกับฉัน</a>
+        <a href="#personal">ประวัติส่วนตัว</a>
+        <a href="#hobby">งานอดิเรก</a>
+        <a href="#education">การศึกษา</a>
+        <a href="#goal">เป้าหมาย</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="profile-img">
+        <img src="img/ep1.jpg" alt="รูปโปรไฟล์">
+    </div>
+
+    <div class="hero-text">
+        <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+        <h1>NATTANICHA</h1>
+        <h2>นางสาวณัฐณิชา สุทธการ</h2>
+        <p>
+            สวัสดีค่ะ ยินดีต้อนรับเข้าสู่เว็บไซต์แนะนำตัวของดิฉัน
+            เว็บไซต์นี้จัดทำขึ้นเพื่อนำเสนอประวัติส่วนตัว
+            ประวัติการศึกษา ความสนใจ และเป้าหมายในชีวิต
+        </p>
+        <div class="tag">INFORMATION TECHNOLOGY</div>
+    </div>
+</header>
+
+<section class="section reveal" id="about">
+    <div class="section-title">
+        <h2>ABOUT ME</h2>
+        <p>เกี่ยวกับฉัน</p>
+    </div>
+
+    <div class="content-card">
+        <p>
+            ดิฉันเป็นนักศึกษาสาขาวิชาเทคโนโลยีสารสนเทศ
+            เป็นคนใจเย็น มีความรับผิดชอบ และตั้งใจเรียนรู้สิ่งใหม่ ๆ
+            อยู่เสมอ มีความสนใจเกี่ยวกับเทคโนโลยีและการใช้คอมพิวเตอร์
+            พร้อมพัฒนาตนเองเพื่อให้มีความรู้และความสามารถมากยิ่งขึ้น
+        </p>
+    </div>
+</section>
+
+<section class="section reveal" id="personal">
+    <div class="section-title">
+        <h2>PERSONAL INFORMATION</h2>
+        <p>ประวัติส่วนตัว</p>
+    </div>
+
+    <div class="content-card">
+        <p><strong>ชื่อ-นามสกุล:</strong> นางสาวณัฐณิชา สุทธการ</p>
+        <p><strong>รหัสนักศึกษา:</strong> 69319010011</p>
+        <p><strong>ระดับชั้น:</strong> ปวส. 1/1</p>
+        <p><strong>สาขาวิชา:</strong> เทคโนโลยีสารสนเทศ</p>
+    </div>
+</section>
+
+<section class="section reveal" id="hobby">
+    <div class="section-title">
+        <h2>MY HOBBY</h2>
+        <p>งานอดิเรก</p>
+    </div>
+
+    <div class="content-card">
+        <p>
+            ในเวลาว่าง ดิฉันชอบดูซีรีส์ภาษาจีน
+            เพื่อความเพลิดเพลินและฝึกทักษะการฟังภาษาอังกฤษ
+            รวมถึงใช้เวลาว่างทำกิจกรรมที่ตนเองสนใจ
+        </p>
+    </div>
+</section>
+
+<section class="section reveal">
+    <div class="section-title">
+        <h2>GENERAL INFORMATION</h2>
+        <p>ข้อมูลทั่วไป</p>
+    </div>
+
+    <div class="content-card">
+        <p><strong>บุคลิกภาพ:</strong> ใจเย็น มีความรับผิดชอบ และตั้งใจทำงาน</p>
+        <p><strong>ความสามารถพิเศษ:</strong> ด้านกีฬา</p>
+        <p><strong>ความสนใจ:</strong> เทคโนโลยี คอมพิวเตอร์ และการออกแบบเว็บไซต์</p>
+    </div>
+</section>
+
+<section class="section education reveal" id="education">
+    <div class="section-title">
+        <h2>EDUCATION</h2>
+        <p>ประวัติการศึกษา</p>
+    </div>
+
+    <div class="content-card">
+        <div class="edu-card">
+            <h3>ระดับประถมศึกษา</h3>
+            <p>โรงเรียนชุมชนบ้านเฟือยลุง</p>
+        </div>
+
+        <div class="edu-card">
+            <h3>ระดับมัธยมศึกษา</h3>
+            <p>โรงเรียนทุ่งช้าง</p>
+        </div>
+
+        <div class="edu-card">
+            <h3>ระดับประกาศนียบัตรวิชาชีพ (ปวช.)</h3>
+            <p>วิทยาลัยเทคนิคปัว</p>
+        </div>
+
+        <div class="edu-card">
+            <h3>ระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</h3>
+            <p>กำลังศึกษาอยู่ที่วิทยาลัยเทคนิคน่าน</p>
+            <p>สาขาวิชาเทคโนโลยีสารสนเทศ ชั้น ปวส. 1/1</p>
+        </div>
+    </div>
+</section>
+
+<section class="section reveal" id="goal">
+    <div class="section-title">
+        <h2>MY LIFE GOAL</h2>
+        <p>เป้าหมายในชีวิต</p>
+    </div>
+
+    <div class="goal">
+        <h2>เป้าหมายในชีวิตของฉัน</h2>
+        <p>
+            ดิฉันมีเป้าหมายที่จะสำเร็จการศึกษาและพัฒนาความรู้
+            ความสามารถด้านเทคโนโลยีสารสนเทศให้ดียิ่งขึ้น
+            เพื่อนำความรู้ไปประกอบอาชีพที่มั่นคง
+            สามารถดูแลตนเองและครอบครัวได้ในอนาคต
+        </p>
+    </div>
+</section>
+
+<footer>
+    INFORMATION TECHNOLOGY | MY PORTFOLIO 2026
+</footer>
+
+</div>
+
+<script>
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+revealElements.forEach(element => {
+    observer.observe(element);
+});
+</script>
+
+</body>
+</html>
+
   </main>
 
   <!-- JavaScript -->
